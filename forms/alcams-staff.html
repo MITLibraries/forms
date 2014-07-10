@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Setting Up Access to Barton's Your Account Using Touchstone Collaboration Accounts: MIT Libraries Staff</title>
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript">
+  <!--
+  $(document).ready(function() {
+    // GA enhancements
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+  -->
+  </script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+  <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+<body>
+
+<div id="container">
+  <img src="../img/stafflogo-green-717.png" width="717" height="49" alt="header image">
+  <!-- page text -->
+<h1>Setting Up Access to Barton's Your Account Using Touchstone Collaboration Accounts</h1>
+    <p><strong>This form is intended for staff use only</strong>. </p>
+<p>It will send the patron an email with instructions and links for setting up access to Your Account. </p>
+       <ul>
+        <li>Use <strong>only for patrons who are not eligible for Kerberos (aka Athena) accounts</strong> - generally people who need to be manually registered: P-card, BLC, spouse/partners, etc.</li>
+        <li>Your IP address  must be set up to work with the Aleph client for this form to work. </li>
+        <li>If you need help or experience problems, email <a href="mailto:fix-lib@mit.edu">fix-lib@mit.edu</a>.</li>
+  </ul>
+    
+<form name="shib" action="http://library.mit.edu/cgi-bin/alcams1.cgi">
+                	<p><label for="id"><strong>Enter the patron's Aleph ID:</strong>
+                	  <input type="text" id="id" name="id" /></label>
+       	              <input type="submit" value="Send "/></p>
+  </form>    
+ 
+
+</div> <!-- /end container -->
+</body>
+</html>

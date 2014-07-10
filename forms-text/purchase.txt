@@ -1,0 +1,68 @@
+----PLEASE DO NOT REPLY TO THIS MESSAGE - THANKS!--
+
+
+
+Your request has been sent to MIT Libraries. 
+
+This mail confirms your request. Thank you!
+
+---------------------------------------------------
+
+
+
+PERSONAL INFO
+
+
+
+email: [>email<]
+
+Name: [>firstname<] [>lastname<]   
+
+address: [>address<]      phone: [>phone<]
+
+department: [>department<]
+
+status: [>status<]
+
+
+
+CITATION
+
+
+
+author: [>author<]
+
+title: [>title<]
+
+electronic: [>electronic<]
+
+url: [>url<]
+
+report#: [>report<]
+
+publisher: [>publisher<]
+
+place: [>place<]
+
+edition: [>edition<]
+
+date: [>date<]
+
+isbn/issn: [>isbn<]
+
+price: [>price<]
+
+
+
+other-info: 
+
+[>otherinfo<]
+
+
+
+notify: [>notify<]
+
+
+
+
+

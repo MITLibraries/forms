@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Thanks: DSpace@MIT Help: MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+     cookie_functions.setDocumentValues("libForma", ",", "=");
+   }
+   var strPath = $(location).attr('pathname');
+   $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+ });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+<style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+}
+div#container {
+  width: 490px;
+}
+</style>
+</head>
+
+<body>
+  <div id="container">
+
+  <p>Thank you for your question.</p>
+
+  <p>Email is checked regularly Monday-Friday, except Institute holidays. Your question will be answered as soon as possible.</p>
+
+  <p>You will receive confirmation by email.<br>
+
+    (If you don't receive confirmation, it's possible that your question didn't go
+
+    through. In that case, please fill out the form again, or <a href="http://libraries.mit.edu/about/contact.html">contact us</a>.)
+
+  </p>
+
+  <p><a href="dspace-help.html">Ask another question.</a> </p>
+
+</div>
+
+</body>
+</html>

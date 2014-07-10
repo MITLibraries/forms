@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>DSpace Help: DSpace: MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+     cookie_functions.setDocumentValues("libForma", ",", "=");
+   }
+   var strPath = $(location).attr('pathname');
+   $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+ });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+<style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+}
+div#container {
+  width: 490px;
+}
+div#container fieldset {
+margin: 10px 2px;
+padding: 5px;
+}
+</style>
+</head>
+
+<body>
+  <div id="container">
+
+  <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+  <form id="askdspace" name="askdspace" action="scripts/php/mail.php" method="post">
+    <input type="hidden" name="copy" value="true">
+    <fieldset name="topic">
+      <legend>Please choose the help topic that most closely relates to your question: <abbr class="required" title="required">*</abbr></legend>
+      <label for="helpTopic"><input type="radio" value="dspace-help@mit.edu" name="recipient" id="helpTopic"> Finding or downloading something in MIT's DSpace@MIT</label><br>
+      <label for="bugsTopic"><input type="radio" value="dspace-help@mit.edu" name="recipient" id="bugsTopic"> Reporting a bug or system problem in MIT's DSpace@MIT</label><br>
+      <label for="infoTopic"><input type="radio" value="dspace-help@mit.edu" name="recipient" id="infoTopic"> Contributing documents or establishing a DSpace@MIT Community</label><br>
+      <label for="otherTopic"><input type="radio" value="dspace-help@mit.edu" name="recipient" id="otherTopic"> Other</label>
+      <input type="hidden" value="-Please select a help topic to describe your question." name="r_recipient">
+    </fieldset>
+
+    <fieldset name="question">
+      <legend>What is your question?</legend>
+      <p>
+        <label for="subject">Subject line of the email this form will send <abbr class="required" title="required">*</abbr></label><br>
+        <input name="subject" type="text" id="subject" value="" size="40">
+        <input type="hidden" value="-Please provide a subject for your question." name="r_subject">
+      </p>
+      <p>
+        <label for="question">Describe your question in as much detail as possible. <abbr class="required" title="required">*</abbr></label><br>
+        <textarea name="question" cols="40" rows="5" id="question"></textarea>
+        <input type="hidden" value="-Please submit a question." name="r_question">
+      </p>
+    </fieldset>
+
+    <fieldset name="personal">
+      <legend>Personal information</legend>
+      <p>
+        <label for="firstname">Your first name</label><br>
+        <input name="firstname" type="text" id="firstname" size="40">
+      </p>
+      <p>
+        <label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
+        <input name="lastname" type="text" id="lastname" size="40">
+        <input type="hidden" value="-Please enter your last name." name="r_lastname">
+      </p>
+      <p>
+        <label for="email">Your email address <abbr class="required" title="required">*</abbr></label><br>
+        <input name="email" type="text" id="email" size="40">
+        <input type="hidden" value="-Please enter a valid email address." name="e_email">
+      </p>
+      <p>
+        <label for="phone">Your phone number</label><br>
+        <input name="phone" type="text" id="phone" value="" size="40">
+      </p>
+      <fieldset name="MIT">
+        <legend>Are you from MIT?</legend>
+        <p>If <strong>yes</strong>, please indicate:</p>
+        <p>
+          <label for="status">Status:</label>
+          (<em>choose status</em>)<br>
+          <select name="status" id="status"  >
+            <option value="">Please indicate your status</option>
+            <option value="UG">MIT Undergrad Student</option>
+            <option value="GRAD">MIT Grad Student</option>
+            <option value="FAC">MIT Faculty</option>
+            <option value="RS">MIT Research Staff</option>
+            <option value="STAFF">MIT Staff</option>
+            <option value="VS">MIT Visitor</option>
+          </select>
+        </p>
+        <p>
+          <label for="department">Department:<br>
+          </label>
+          <select name="department"  id ="department">
+            <option value="" selected>- choose department -</option>
+            <!--#include virtual="../forms-text/departments.txt" -->
+          </select>
+        </p>
+        <p>
+          <label for="lab">Lab or Center name:</label><br>
+          <input name="lab" id="lab" type="text" value="" size="35">
+        </p>
+        <p>
+          <label for="other">If <strong>no</strong>, please tell us your institution, organization or company:</label><br>
+          <input name="other" type="text" id="other" value="" size="35">
+        </p>
+      </fieldset>
+      <p> 
+        <input type="hidden" name="client-browser" size="60" value="<!--#echo var="HTTP_USER_AGENT"-->" readonly >
+        <input type="hidden" name="client-ip" value="<!--#echo var="REMOTE_ADDR"-->" readonly >
+      </p>
+    </fieldset>
+    <p id="submit">
+      <input type="submit" value="Send">
+    </p>
+  </form>
+
+</div>
+
+</body>
+</html>

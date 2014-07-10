@@ -1,0 +1,37 @@
+name: [>lastname<], [>firstname<]
+
+
+
+dept: [>department<]
+
+
+
+status: [>mitstatus<]
+
+
+
+email: [>email<]
+
+
+
+phone: [>phone<]
+
+
+
+
+
+Standard number: [>number<]
+
+
+
+
+
+Standard title: [>title<]
+
+
+
+Issuing organization: [>organization<]
+
+
+
+Notes: [>notes<]

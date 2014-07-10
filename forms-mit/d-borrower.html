@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<HEAD>
+  <TITLE>Designated Borrower: MIT Libraries</TITLE>
+  <meta name="robots" content="noindex,nofollow">
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+  <script language="JavaScript" type="text/javascript">
+  <!--
+
+/** Add any load time jquery actions here */
+$(document).ready(function() {
+
+  // load affiliation content on change
+  $('p#explain-shell').html("");
+  $('select#affiliation').change(function() {
+    var aboutYou = $('select#affiliation option:selected').val();
+    switch (aboutYou) {
+      case 'faculty':
+      $('p#explain-shell').html("");
+      break;
+      default:
+      $('p#explain-shell').load('/forms-mit/d-borrower-ajax-explain.html');
+      break;
+    }
+  });
+  $('p#did-shell').html("");
+  $('select#daffiliation').change(function() {
+    var aboutDesignee = $('select#daffiliation option:selected').val();
+    switch (aboutDesignee) {
+      case 'non-mit':
+      $('p#did-shell').html("");
+      break;
+      default:
+      $('p#did-shell').load('/forms-mit/d-borrower-ajax-did.html');
+      break;
+    }
+  });
+
+  eppn = document.getElementById('eppn').value;
+  loginFunctions.doAuthenticate(eppn);
+  var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
+  document.getElementById('eppn').value = "";
+
+  var strPath = $(location).attr('pathname');
+  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+
+});
+
+window.onbeforeunload = function() {
+  var affiliationYou = document.forms['dborrower'].elements['affiliation']
+  for(x=0;x<affiliationYou.length;x++){
+    document.forms['dborrower'].elements['affiliation'][x].selected = false;
+  }
+  var affiliationDesignee = document.forms['dborrower'].elements['daffiliation']
+  for(x=0;x<affiliationDesignee.length;x++){
+    document.forms['dborrower'].elements['daffiliation'][x].selected = false;
+  }
+}
+//-->
+</script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</HEAD>
+<BODY>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <div class="breadcrumb">
+      <span class="semantic">You are located in:</span>
+      <ul>
+        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+        <li><a href="/help"><span class="semantic">in subsection </span>Help</a></li>
+        <li><span class="semantic">on page </span>Designated Borrower Form</li>
+      </ul>
+    </div>
+    <h1>Designated Borrower Form</h1>
+    <h2>Application for Adding, Renewing, or Cancelling Added Borrower Privileges </h2>
+    <ul>
+      <li>If you are a <strong>faculty member</strong> you may designate another person to check out books on your behalf.</li>
+      <li><strong>Other MIT community members</strong> may request a designated borrower under special circumstances; for example: if an injury prevents you from coming to the library.</li>
+    </ul>
+    <p class="box">If you submit this form to allow someone  else to borrow on your behalf, you are responsible for all materials borrowed  by that person on your behalf, in accordance with the library policies  explained in the MIT Libraries <a href="../circ">Circulation FAQ</a>.</p>
+    <form action="scripts/php/mail.php" method="post" name="dborrower" id="dborrower">
+      <input type="hidden" name="subject" value="Designated Borrower Form">
+      <input type="hidden" name="recipient" value="circulation@mit.edu">
+      <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+      <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+      <fieldset>
+        <legend>What action is needed? <abbr class="required" title="required">*</abbr></legend>
+          <label for="newNew"><input name="new" type="radio" value="new" id="newNew"> This is a new application.</label><br>
+          <label for="reNew"><input name="new" type="radio" value="renewal" id="reNew" > This is a renewal for a current designated borrower.</label><br>
+          <label for="cancelNew"><input name="new" type="radio" value="cancellation" id="cancelNew"> This is a cancellation of a current designated borrower's privileges.</label>
+          <input type="hidden" name="r_new" value="-Please indicate what action is needed.">
+      </fieldset>
+      <fieldset>
+        <legend>Who is requesting this service?</legend>
+        <p>
+          <label for="fullname">Your name <abbr class="required" title="required">*</abbr></label><br>
+          <input name="fullname" type="text"  id="fullname" value="" size="35" onChange="saveValue(this)" aria-required="true">
+          <input type="hidden" name="r_fullname" value="-Please enter your full name.">
+        </p>
+        <p>
+          <label for="id">Your MIT ID# <abbr class="required" title="required">*</abbr></label><br>
+          <input name="id" type="text" id="id" value="" size="35" onChange="saveValue(this)" aria-required="true">
+          <input type="hidden" name="r_id" value="-Please enter your MIT ID#.">
+        </p>
+        <p>
+          <label for="phone">Your phone number <abbr class="required" title="required">*</abbr></label><br>
+          <input name="phone" type="text"  id="phone" value="" size="35" onChange="saveValue(this)" aria-required="true">
+          <input type="hidden" name="r_phone" value="-Please enter your phone number.">
+        </p>
+        <p>
+          <label for="email">Your email address <abbr class="required" title="required">*</abbr></label><br>
+          <input name="email" type="text" id="email" value="" size="35" onChange="saveValue(this)" aria-required="true">
+          <input type="hidden" name="e_email" value="-Please enter a valid email address.">
+        </p>
+        <p>
+          <label for="affiliation">Your MIT affiliation <abbr class="required" title="required">*</abbr></label><br>
+          <select name="affiliation" id="affiliation"  onChange="saveValue(this)" aria-required="true">
+            <option value="">Please indicate your affiliation</option>
+            <option value="faculty">MIT Faculty</option>
+            <option value="staff">MIT Staff</option>
+            <option value="student">MIT Student</option>
+          </select>
+          <input type="hidden" name="r_affiliation" value="-Please enter your affiliation.">
+        </p>
+        <p id="explain-shell">
+          <label for="explain">Please describe your need for a designated borrower <abbr class="required" title="required">*</abbr><br>
+            <em>(Faculty, please mark this "Not applicable")</em></label><br>
+            <textarea name="explain" cols="50" rows="3" id="explain" onChange="saveValue(this)" aria-required="true"></textarea>
+            <input type="hidden" name="r_explain" value="-Please describe your need for a designated borrower.">
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Who is your designated borrower?</legend>
+          <p>
+            <label for="dname">Your designee's name <abbr class="required" title="required">*</abbr></label><br>
+            <input name="dname" type="text"  id="dname" value="" size="35" onChange="saveValue(this)" aria-required="true">
+            <input type="hidden" name="r_dname" value="-Please enter your designee's name.">
+          </p>
+          <p>
+            <label for="daffiliation">Your designee's MIT affiliation <abbr class="required" title="required">*</abbr></label><br>
+            <select name="daffiliation" id="daffiliation"  onChange="saveValue(this)" aria-required="true">
+              <option value="">Please indicate your designee's affiliation</option>
+              <option value="staff">MIT Staff</option>
+              <option value="mit-student">MIT Student</option>
+              <option value="non-mit">Non-MIT</option>
+            </select>
+            <input type="hidden" name="r_daffiliation" value="-Please enter your designee's MIT affiliation.">
+          </p>
+          <p id="did-shell">
+            <label for="did">Your designee's MIT ID# <abbr class="required" title="required">*</abbr><br>
+              <em>(enter "not applicable" if no affiliation)</em><br>
+            </label>
+            <input name="did" type="text"  id="did" value="" size="35" onChange="saveValue(this)" aria-required="true">
+            <input type="hidden" name="r_did" value="-Please enter your designee's MIT ID#.">
+          </p>
+          <p>
+            <label for="dphone">Your designee's phone number</label><br>
+            <input name="dphone" type="text"  id="dphone" value="" size="35" onChange="saveValue(this)">
+          </p>
+          <p>
+            <label for="demail">Your designee's email address <abbr class="required" title="required">*</abbr></label><br>
+            <input name="demail" type="text"  id="demail" value="" size="35" onChange="saveValue(this)" aria-required="true">
+            <input type="hidden" name="e_demail" value="-Please enter your designee's email address.">
+          </p>    
+        </fieldset>
+        <fieldset>
+          <legend>Other information:</legend>
+
+          <h2>Expiration date is June 30th of the current academic year.</h2>
+          <p>
+            <label for="newdate">If you would prefer an earlier expiration date, enter that date here:</label><br>
+            <input name="newdate" type="text" id="newdate" value="" onChange="saveValue(this)" size="35">
+          </p>
+          <p>
+            <label for="comments">Additional comments or questions?:</label><br>
+            <textarea name="comments" 
+            cols="50" 
+            rows="3" 
+            id="comments" 
+            onChange="saveValue(this)"></textarea>
+          </p>
+          <div class="box">
+            <p>I would like to designate the person listed
+             above as my designated borrower, enabling
+             them to charge materials from the MIT Libraries for
+             my use [<em>or, as noted above, to cancel this person's
+             designated-borrower privileges</em>]. I accept full responsibility
+             for all materials borrowed by my designated borrower
+             on my behalf, until the expiration date listed above.
+           </p>
+           <p><strong>I have read the statement above and agree to it.</strong></p>
+           <p id="submit">
+            <input type="submit" value="Send">
+          </p>
+        </div>
+      </fieldset>
+    </form>
+    <!--#include virtual="/includes/footer-semantic.html" -->
+  </div>
+</body>
+</html>

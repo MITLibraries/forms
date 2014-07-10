@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Research Consultation Appointment: MIT Libraries</title>
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript">
+  <!--
+  $(document).ready(function() {
+    eppn = document.getElementById('eppn').value;
+    loginFunctions.doAuthenticate(eppn);
+    var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
+    document.getElementById('eppn').value = "";
+
+    // GA enhancements
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+  -->
+  </script>
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+  <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+<body>
+  <a class="semantic" href="#content">Skip to main content</a>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <div id="sidebar" role="navigation">
+      <!-- Left Sidebar contents -->
+      <h2>Research help</h2>
+      <p><a href="/experts">Subject Experts</a> or <a href="/ask">Ask Us!</a> (MIT only) - <em>for quick help with your research</em></p>
+      <p><a href="/suggest-purchase">Suggested Purchase form</a> (MIT only) - <em>to suggest a book or other item for our collection</em></p>
+    </div>
+    <div id="content" role="main">
+      <!-- breadcrumb - TODO: make this semantic -->
+      <div class="breadcrumb">
+        <span class="semantic">You are located in:</span>
+        <ul>
+          <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+          <li><a href="/research-support"><span class="semantic">in subsection </span>Research Support</a></li>
+          <li><span class="semantic">on page </span>Research Consultation Appointment Form</li>
+        </ul>
+      </div>
+      <h1>Research Consultation Appointment <span class="special">(MIT only)</span></h1>
+      <form action="/scripts/php/mail.php" method="post" name="appt" id="appt">
+        <input type="hidden" name="subject" value="Research Consultation Appointment Request">
+        <input type="hidden" name="copy" value="true">
+        <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+        <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+        <fieldset>
+          <legend>Topic Information</legend>
+          <p>
+            <label for="topic">Topic of your research <abbr class="required" title="required">*</abbr><br>
+              <input name="topic" type="text" id="topic" size="35" onChange="saveValue(this)" aria-required="true">
+            </label>
+            <input type="hidden" name="r_topic" value="-Please state the topic of your research.">
+          </p>
+          <p>
+            <label for="timeframe">Timeframe for your research<br>
+              <input name="timeframe" type="text" id="timeframe" size="35" onChange="saveValue(this)">
+            </label>
+          </p>
+          <p>
+            <label for="description">How can we help you with your research? <abbr class="required" title="required">*</abbr><br>
+              Please describe: <br>
+              - the kind of information you are looking for.<br>
+              - the type of research you have already done.<br>
+              <textarea name="description" cols="35" rows="4" id="description" onChange="saveValue(this)" aria-required="true"></textarea>
+            </label>
+            <input type="hidden" name="r_description" value="-Please describe what assistance you require.">
+          </p>
+          <p>
+            I am doing research for<br>
+            <label for="courseWhy"><input type="radio" id="courseWhy" name="why" class="why" value="Course"> Course</label>
+            <label for="thesisWhy"><input type="radio" id="thesisWhy" name="why" class="why" value="Thesis"> Thesis</label>
+            <label for="researchWhy"><input type="radio" id="researchWhy" name="why" class="why" value="Research"> Research</label>
+          </p>
+          <p>
+            <label for="course">Which course?<br>
+              <input name="course" type="text" id="course" size="35" onChange="saveValue(this)">
+            </label>
+          </p>
+          <p>
+            <label for="recipient">I would like to discuss this subject: <abbr class="required" title="required">*</abbr><br>
+              <select name="recipient" id="recipient" aria-required="true">
+                <option value="" selected>---- choose a subject ----</option>
+                <option value="ask-aah@mit.edu">General</option>
+                <option value="ask-aah@mit.edu">Art &amp; Architecture</option>
+                <option value="data-management@mit.edu">Data Management</option>
+                <option value="ask-sci-eng@mit.edu">Engineering &amp; Computer Science</option>
+                <option value="gishelp@mit.edu">GIS</option>
+                <option value="ask-aah@mit.edu">Humanities </option>
+                <option value="ask-socsci@mit.edu">Management &amp; Business</option>
+                <option value="ask-sci-eng@mit.edu">Science </option>
+                <option value="ask-socsci@mit.edu">Social Sciences</option>
+                <option value="ask-socsci@mit.edu">Urban Planning</option>
+              </select>
+            </label>
+            <input type="hidden" name="r_recipient" value="-Please indicate the subject you would like to discuss.">
+            <br>
+            Your request will be sent to the appropriate person, based on your choice of subject. 
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Personal Information</legend>
+          <p>
+            <label for="firstname">Your first name<br>
+              <input name="firstname" type="text"  id="firstname" size="35" onChange="saveValue(this)">
+            </label>
+          </p>
+          <p>
+            <label for="lastname">Your last name <abbr class="required" title="required">*</abbr><br>
+              <input name="lastname" type="text" id="lastname" size="35" onChange="saveValue(this)" aria-required="true">
+            </label>
+            <input type="hidden" name="r_lastname" value="-Please enter your last name.">
+          </p>
+          <p>
+            <label for="email">Your email address <abbr class="required" title="required">*</abbr><br>
+              <input name="email" type="text" id="email" size="35" onChange="saveValue(this)" aria-required="true">
+            </label>
+            <input type="hidden" name="e_email" value="-Please specify a valid email address.">
+          </p>
+          <p>
+            <label for="address">Your mailing address<br>
+              <textarea name="address" cols="35" rows="3" id="address" onChange="saveValue(this)"></textarea>
+            </label>
+          </p>
+          <p>
+            <label for="phone">Your phone number<br>
+              <input name="phone" type="text" id="phone" size="35" onChange="saveValue(this)">
+            </label>
+          </p>
+          <p>
+            <label for="status">Your status <abbr class="required" title="required">*</abbr><br>
+              <select name="status" id="status" onChange="saveValue(this)" aria-required="true">
+                <option value="" selected>Please indicate your status</option>
+                <option value="ug">MIT Undergrad Student</option>
+                <option value="grad">MIT Grad Student</option>
+                <option value="fac">MIT Faculty</option>
+                <option value="rs">MIT Research Staff</option>
+                <option value="staff">MIT Staff</option>
+                <option value="other">MIT Other</option>
+              </select>
+            </label>
+            <input type="hidden" name="r_status" value="-Please indicate your status.">
+          </p>
+          <p>
+            <label for="department">Your department <abbr class="required" title="required">*</abbr><br>
+              <select name="department" id="department" onChange="saveValue(this)" aria-required="true">
+                <option value="" selected>- choose department -</option>
+                <!--#include virtual="../forms-text/departments.txt" -->
+              </select>
+            </label>
+            <input type="hidden" name="r_department" value="-Please specify your department.">
+          </p>
+          <p>
+            <label for="lab">Lab or Center name<br>
+              <input name="lab" id="lab" value="" type="text" size="35">
+            </label>
+          </p>
+        </fieldset>
+        <p id="submit">
+          <input type="submit" value="Send">
+        </p>
+      </form>
+    </div>
+    <!--#include virtual="/includes/footer-semantic.html" -->
+  </div> <!-- /end container -->
+</body>
+</html>

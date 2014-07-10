@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IR Search Request for MIT Libraries Staff</title>
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript">
+  <!--
+  $(document).ready(function() {
+    // GA enhancements
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+  -->
+  </script>
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+  <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+<body>
+  <div id="container">
+    <!-- page text -->
+    <form action="/scripts/php/mail.php" method="post" name="tellus">
+      <input type="hidden" name="recipient" value="irbooksearch@mit.edu">
+      <input type="hidden" name="subject" value="IR Search Form">
+      <input type="hidden" name="fullname" value="Library Staff">
+      <p>
+        <label for="email">Staff email</label><br>
+        <input name="email" type="text" id="email" size="40">
+      </p>
+      <p>
+        <label for="title">Title</label><br>
+        <input name="title" type="text" id="title" size="40">
+      </p>
+      <p>
+        <label for="author">Author</label><br>
+        <input name="author" type="text" id="author" size="40">
+      </p>
+      <p>
+        <label for="barcode">Barcode or system number</label><br>
+        <input name="barcode" type="text" id="barcode" size="40">
+      </p>
+      <p>
+        <label for="status">Item process status</label><br>
+        <select name="status" id="status"  >
+          <option value="">Choose one</option>
+          <option value="BD">BD - At Bindery</option>
+          <option value="CT">CT - In Cataloging</option>
+          <option value="IP">IP - Received/Ask for Assistance</option>
+          <option value="PR">PR - At Preservation</option>
+          <option value="SC">SC - Offsite Reformatting/Scanning</option>
+          <option value="TS">TS - At Tangibles Serials</option>
+        </select>
+      </p>
+      <p>
+        <label for="callnumber">Is there a call number attached to the item record?</label><br>
+        <select name="callnumber" id="callnumber"  >
+          <option value="">Choose one</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </p>
+      <p>
+        <label for="arrival_date">Arrival date (available only in staff interface)</label><br>
+        <input name="arrival_date" type="text" id="arrival_date" size="40">
+      </p>
+      <p>
+        <label for="pickup_location">Desired pickup location</label><br>
+        <select name="pickup_location" id="pickup_location"  >
+          <option value="">Choose one</option>
+          <option value="Barker">Barker</option>
+          <option value="Dewey">Dewey</option>
+          <option value="Hayden">Hayden</option>
+          <option value="Music">Music</option>
+          <option value="Rotch">Rotch</option>
+          <option value="Other">Other Instructions (please specify below)</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="other_instructions">Other instructions<br>
+          <textarea name="other_instructions" cols="50" rows="10" id="other_instructions"></textarea>
+        </label>
+      </p>
+      <p id="submit">
+        <input type="submit" value="Send">
+      </p>
+    </form>
+
+  </div> <!-- /end container -->
+</body>
+</html>

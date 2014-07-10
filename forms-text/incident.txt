@@ -1,0 +1,35 @@
+Report filed by: [>fullname<], email: [>email<] 
+Time/Date: [>time<]
+Location: [>location<]
+Other location: [>where<]
+Incident type:
+  Disruptive Behavior: [>type-d<]
+  Computer Issue: [>type-c<]
+  Theft: [>type-t<]
+  Medical Emergency: [>type-m<]
+Police Department called: [>police<]
+User asked to leave library: [>leave<]
+
+
+About the incident:
+
+Narrative:
+[>narrative<]
+
+Name: [>name<]
+User affiliation: [>affiliation<]
+Age range: [>age<]
+Gender: [>gender<]
+Height: [>height<]
+Weight: [>weight<]
+Race: [>race<]
+Eye color: [>eye<]
+Build type: [>build<]
+Complexion type: [>complexion<]
+Hair color: [>hair<]
+Other descriptive information, e.g., marks, tattoos, facial hair, clothing: 
+[>other<]
+Previous incidents with user: [>incidents<]
+If yes, description: 
+[>previous<]
+

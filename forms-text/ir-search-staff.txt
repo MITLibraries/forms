@@ -1,0 +1,23 @@
+IR Staff: Please do not reply to this email directly.  Instead use Request Tracker when replying to all IR Search Form requests.
+
+Staff email:  [>email<]
+
+Title: [>title<]
+
+Author: [>author<]
+
+Barcode or system number: [>barcode<]
+
+Item process status: [>status<]
+
+Call Number? [>callnumber<]
+
+Arrival date: [>arrival_date<]
+
+Desired pickup location: [>pickup_location<]
+
+Other instructions:
+[>other_instructions<]
+
+----
+NOTE: This message was sent using a WWW form. The address [>email<] was typed manually, and may easily be incorrect.

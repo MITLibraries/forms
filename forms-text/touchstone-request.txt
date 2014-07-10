@@ -1,0 +1,12 @@
+You will receive an email shortly that will give you directions on how to access your account in the Barton Catalog via Touchstone.
+
+Requestor: [>fullname<] 
+
+Email: [>email<] 
+
+Phone: [>phone<] 
+
+
+Comment: 
+
+[>comment<] 

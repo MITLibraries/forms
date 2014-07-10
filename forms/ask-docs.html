@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Questions for Document Services: MIT Libraries</title>
+	<link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+     cookie_functions.setDocumentValues("libForma", ",", "=");
+   }
+   var strPath = $(location).attr('pathname');
+   $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+ });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+
+<body>
+  <div id="container">
+   <!--#include virtual="/includes/header-semantic.html"-->
+   <!-- breadcrumb - TODO: make this semantic -->
+   <div class="breadcrumb">
+    <span class="semantic">You are located in:</span>
+    <ul>
+      <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+      <li><a href="/docs"><span class="semantic">in subsection </span>Document Services</a></li>
+      <li><span class="semantic">on page </span>Ask Document Services</li>
+    </ul>
+  </div>
+  <h1>Questions for Document Services?</h1>
+  <!--#include virtual="../includes/touchstone_login.html" -->
+  <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+  <form method="post" action="scripts/php/mail.php" name="doc" id="doc">
+    <input type="hidden" name="subject" value="Question for Document Services">
+    <input type="hidden" name="recipient" value="docs@mit.edu">
+
+        <!--
+        <p><strong>NOTE:</strong> From May 2-16, 2012, due to a combination of a significant spamming attack on our forms and some overzealous spam filtering by the MIT email system, some messages sent using this form were not properly submitted. </p>
+        <p>If you submitted a request in that time period and did not receive an automated response, it&rsquo;s possible it did not go through.  Please resubmit your request using this form (<em>the issue causing the problem has been resolved</em>).  We apologize for any inconvenience this may have caused.</p>
+      -->
+      <p>
+       <label for="fullname">Your name <abbr class="required" title="required">*</abbr><br>
+         <input name="fullname" type="text" id="fullname" size="50" maxlength="100" aria-required="true"></label>
+         <input type="hidden" name="r_fullname" value="-Please enter your name.">
+       </p>
+       <p>
+         <label for="email">Your email <abbr class="required" title="required">*</abbr><br>
+           <input name="email" type="text" id="email" size="50" maxlength="100" aria-required="true"></label>
+           <input type="hidden" value="-The email address format is incorrect." name="e_email">
+         </p>
+
+
+         <p>
+           <label for="status">Please select your status<br>
+             <select name="status" id="status">
+              <option value="-----"></option>
+              <option value="undergrad">MIT undergrad student</option>
+              <option value="grad">MIT grad student</option>
+              <option value="faculty">MIT faculty</option>
+              <option value="research staff">MIT research staff</option>
+              <option value="staff">MIT staff</option>
+              <option value="MIT other">MIT other</option>
+              <option value="non-MIT">non-MIT</option>
+            </select></label>
+          </p>
+
+          <p>
+            <label for="question">Question or comments <abbr class="required" title="required">*</abbr><br>
+              <textarea name="question" id="question" cols="60" rows="10" aria-required="true"></textarea></label> 
+              <input type="hidden" name="r_question" value="-Please enter your question or comment.">
+            </p>
+            <p id="submit">
+              <input type="submit" value="Send">
+            </p>
+          </form>
+          <!--#include virtual="/includes/footer-semantic.html" -->
+        </div>
+
+      </body>
+      </html>
+
+
+
+
+
+
+
+

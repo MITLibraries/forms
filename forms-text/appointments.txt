@@ -1,0 +1,70 @@
+
+
+Thank you for your research consultation appointment request.
+
+
+
+Your request has been forwarded to the librarians handling your research topic. You will be contacted within 24 business hours.
+
+
+
+We look forward to meeting with you!
+
+
+
+--------------------------------------------------------------
+
+
+
+
+
+name: [>lastname<], [>firstname<]
+
+
+
+dept: [>department<]
+
+
+
+Lab or Center name: [>lab<]
+
+
+
+status: [>status<]
+
+
+
+email: [>email<]
+
+
+
+address: [>address<]
+
+
+
+phone: [>phone<]
+
+
+
+topic: [>topic<]
+
+
+
+timeframe: [>timeframe<]
+
+
+
+description: [>description<]
+
+
+
+research for: [>why<]
+
+
+
+course: [>course<]
+
+
+
+
+

@@ -1,0 +1,9 @@
+This email confirms your recent form submission.
+
+Requestor: [>fullname<] 
+
+Email: [>email<] 
+
+Question: 
+[>question<] 
+

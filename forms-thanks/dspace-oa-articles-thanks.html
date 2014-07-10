@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Thanks: DSpace@MIT Help: MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+     cookie_functions.setDocumentValues("libForma", ",", "=");
+   }
+   var strPath = $(location).attr('pathname');
+   $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+ });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+
+<body>
+  <div id="container">
+   <!--#include virtual="/includes/header-semantic.html"-->
+   <!-- breadcrumb - TODO: make this semantic -->
+   <div class="breadcrumb">
+    <span class="semantic">You are located in:</span>
+    <ul>
+      <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+      <li><a href="http://dspace.mit.edu"><span class="semantic">in subsection </span>DSpace@MIT</a></li>
+      <li><a href="http://dspace.mit.edu/handle/1721.1/49433"><span class="semantic">in subsection </span>Open Access Articles</a></li>
+      <li><a href="/forms/dspace-oa-articles.html"><span class="semantic">in subsection </span>Share your Open Access story</a></li>
+      <li><span class="semantic">on page </span>Thank you!</li>
+    </ul>
+  </div>
+  <h1>Thank you</h1>
+  <p>Thank you for submitting your story!</p>
+  <!--#include virtual="/includes/footer-semantic.html" -->
+</div>
+
+</body>
+</html>

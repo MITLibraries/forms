@@ -1,0 +1,40 @@
+Email:  [>email<]
+
+
+
+Last name:  [>lastname<]
+
+
+
+First name:  [>firstname<]
+
+
+
+Status: [>status<]
+
+
+
+Other role (if any): [>other-role<]
+
+
+
+Country: [>country<]
+
+
+
+May we share this story? [>share<]
+
+
+
+Story:  
+
+
+
+[>comments<]
+
+
+
+Reading: [>title<]
+
+
+

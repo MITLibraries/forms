@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Incident Report: MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+     cookie_functions.setDocumentValues("libForma", ",", "=");
+   }
+   var strPath = $(location).attr('pathname');
+   $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+ });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+<style>
+ul {
+  list-style-type: none;
+}
+</style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>Incident Report </h1>
+    <p>Thank you for using MIT Libraries Incident Report Form. This information will be distributed to Libraries' staff to keep them informed of incidents in the Libraries. Please use objective, neutral language.</p>
+
+    <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+    <form id="incident" name="incident" action="scripts/php/mail.php" method="post">
+      <input type="hidden" name="recipient" value="access-lib@mit.edu">
+      <!-- access-lib@mit.edu -->
+      <input type="hidden" name="subject" value="Incident report">
+      <input type="hidden" name="copy" value="true">
+      <fieldset>
+        <legend>About this report</legend>
+        <p>
+          <label for="fullname">Report filed by <abbr class="required" title="required">*</abbr></label><br>
+          <input name="fullname" type="text" id="fullname" size="40">
+          <input type="hidden" value="-Please enter the name of the person filing the report." name="r_fullname">
+        </p>
+
+        <p>
+          <label for="email">Your email address <abbr class="required" title="required">*</abbr></label><br>
+          <input name="email" type="text" id="email" size="40">
+          <input type="hidden" value="-Please enter a valid email address." name="e_email">
+        </p>
+
+        <p>
+          <label for="time">Time/date of incident (<em>AM/PM</em>) <abbr class="required" title="required">*</abbr></label><br>
+          <input name="time" type="text" id="time" size="25">
+          <input type="hidden" value="-Please enter the time of the incident." name="r_time">
+        </p>
+
+        <p>
+          <label for="location">Location <abbr class="required" title="required">*</abbr></label><br>
+          <select name="location" id="location">
+            <option value="" selected="selected">Please choose a location</option>
+            <option value="Aero">Aero</option>
+            <option value="Archives">Archives</option>
+            <option value="Barker">Barker</option>
+            <option value="Dewey">Dewey</option>
+            <option value="Doc Svcs">Doc Svcs</option>
+            <option value="Hayden">Hayden</option>
+            <option value="Lindgren">Lindgren</option>
+            <option value="LSA">LSA</option>
+            <option value="Music">Music</option>
+            <option value="Rotch">Rotch</option>
+            <option value="RVC">RVC</option>
+            <option value="other">other</option>
+          </select>
+          <input type="hidden" value="-Please choose a location." name="r_location">
+        </p>
+
+        <p>
+          <label for="where">If other, where?</label><br>
+          <input name="where" type="text" id="where" size="25">
+        </p>
+
+        <p>Incident type (<em>check all that apply</em>) <abbr class="required" title="required">*</abbr></p>
+        <input type="hidden" name="type-d" value="">
+        <input type="hidden" name="type-c" value="">
+        <input type="hidden" name="type-t" value="">
+        <input type="hidden" name="type-m" value="">
+        <ul>
+          <li><label for="type-disruptive"><input name="type-d" type="checkbox" id="type-disruptive" value="disruptive"> Disruptive behavior</label></li>
+          <li><label for="type-computer"><input name="type-c" type="checkbox" id="type-computer" value="computer"> Computer issue</label></li>
+          <li><label for="type-theft"><input name="type-t" type="checkbox" id="type-theft" value="theft"> Theft</label></li>
+          <li><label for="type-medical"><input name="type-m" type="checkbox" id="type-medical" value="medical"> Medical Emergency</label></li>
+        </ul>
+        <input type="hidden" value="-Please enter the type of incident." name="r_type">
+
+        <p>Police Department called <abbr class="required" title="required">*</abbr></p>
+        <ul>
+          <li><label for="police-yes"><input type="radio" name="police" id="police-yes" value="yes"> Yes</label></li>
+          <li><label for="police-no"><input type="radio" name="police" id="police-no" value="no"> No</label></li>
+        </ul>
+        <input type="hidden" value="-Please enter whether the police were informed of the incident." name="r_police">
+
+        <p>User asked to leave library</p>
+        <input type="hidden" name="leave" value="">
+        <ul>
+          <li><label for="leave-staff"><input type="radio" name="leave" id="leave-staff" value="staff"> Yes, by library staff</label></li>
+          <li><label for="leave-police"><input type="radio" name="leave" id="leave-police" value="police"> Yes, by police</label></li>
+          <li><label for="leave-no"><input type="radio" name="leave" id="leave-no" value="no"> No</label></li>
+        </ul>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>About the incident</legend>
+
+        <p>
+          <label for="narrative"><label for="narrative">Narrative <abbr class="required" title="required">*</abbr></label><br>
+          <textarea name="narrative" cols="60" rows="7" id="narrative"></textarea>
+          <input type="hidden" value="-Please tell us about the incident." name="r_narrative">
+        </p>
+
+        <p>
+          <label for="name">Name of the user causing the incident (if known)</label><br>
+          <input name="name" type="text" id="name" size="50">
+        </p>
+
+        <p>
+          <label for="affiliation">User affiliation</label><br>
+          <select name="affiliation" id="affiliation">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="Outside User">Outside User</option>
+            <option value="Student"> Student</option>
+            <option value="Faculty">Faculty</option>
+            <option value="Staff">Staff</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="age">Age range</label><br>
+          <select name="age" id="age">
+           <option value="unknown" selected="selected">unknown</option>
+            <option value="under 20">under 20</option>
+            <option value="21-30">21-30</option>
+            <option value="31-40">31-40</option>
+            <option value="41-50">41-50</option>
+            <option value="51-60">51-60</option>
+            <option value="over 60">over 60</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="gender">Gender</label><br>
+          <select name="gender" id="gender">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="height">Height</label><br>
+          <input name="height" type="text" id="height" size="25">
+        </p>
+
+        <p>
+          <label for="weight">Weight</label><br>
+          <input name="weight" type="text" id="weight" size="25">
+        </p>
+
+        <p>
+          <label for="race">Ethnicity/Race</label><br>
+          <select name="race" id="race">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="Amerind">American-Indian/Alaskan-Native</option>
+            <option value="Asian">Asian/Pacific Islander</option>
+            <option value="Black">Black</option>
+            <option value="Hispanic">Hispanic</option>
+            <option value="White">White</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="eye">Eye color</label><br>
+          <select name="eye" id="eye">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="black">black</option>
+            <option value="brown">brown</option>
+            <option value="blue">blue</option>
+            <option value="gray">gray</option>
+            <option value="green">green</option>
+            <option value="hazel">hazel</option>
+            <option value="maroon">maroon</option>
+            <option value="multicolored">multicolored</option>
+            <option value="pink">pink</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="build">Build type</label><br>
+          <select name="build" id="build">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="Heavy">Heavy</option>
+            <option value="Medium">Medium</option>
+            <option value="Muscular">Muscular</option>
+            <option value="Small">Small </option>
+            <option value="Thin">Thin</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="complexion">Complexion type</label><br>
+          <select name="complexion" id="complexion">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="Albino">Albino</option>
+            <option value="Black">Black</option>
+            <option value="Dark">Dark</option>
+            <option value="Dark Brown">Dark Brown</option>
+            <option value="Fair">Fair</option>
+            <option value="Light">Light</option>
+            <option value="Brown">Brown</option>
+            <option value="Olive">Olive</option>
+            <option value="Ruddy">Ruddy</option>
+            <option value="Yellow">Yellow</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="hair">Hair color</label><br>
+          <select name="hair" id="hair">
+            <option value="unknown" selected="selected">unknown</option>
+            <option value="Black">Black</option>
+            <option value="Blond/Strawberry Blond">Blond/Strawberry Blond</option>
+            <option value="Brown">Brown</option>
+            <option value="Gray">Gray/Partial Gray</option>
+            <option value="Red/Auburn">Red/Auburn</option>
+            <option value="Sandy">Sandy</option>
+            <option value="bald/shaven">Bald/shaven</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="other">Other descriptive information, e.g., marks, tattoos, facial hair, clothing</label><br>
+          <textarea name="other" cols="60" rows="3" id="other"></textarea>
+        </p>
+
+      </fieldset>
+
+      <p>Previous incidents with user</p>
+      <input type="hidden" name="incidents" value="">
+      <ul>
+        <li><label for="incidents-yes"><input type="radio" name="incidents" id="incidents-yes" value="yes">Yes</label></li>
+        <li><label for="incidents-no"><input type="radio" name="incidents" id="incidents-no" value="no">No</label></li>
+      </ul>
+
+     <p>
+       <label for="previous">If yes, please describe<label><br>
+       <textarea name="previous" cols="60" rows="5" id="previous"></textarea>
+     </p>
+
+      <p id="submit">
+        <input type="submit" value="Send">
+      </p>
+
+    </form>
+
+      <blockquote>
+        <form action="http://web.mit.edu/bin/cgiemail/afs/athena.mit.edu/dept/libraries/staff/psweb/incident.txt" >
+        
+        </form>
+
+</div>
+
+</body>
+</html>

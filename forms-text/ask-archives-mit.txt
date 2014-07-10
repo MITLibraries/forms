@@ -1,0 +1,17 @@
+lastname: [>lastname<]
+
+firstname: [>firstname<]
+
+email: [>email<]
+
+address: [>address<]
+
+phone: [>phone<]
+
+status: [>status<]
+
+alum: [>alum<]
+
+query: [>query<]
+
+otherinfo: [>otherinfo<]

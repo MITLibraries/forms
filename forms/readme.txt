@@ -1,0 +1,1 @@
+This folder is to keep our forms that are NOT restricted to "MIT-only" or other MIT community segments.  Those forms are kept in the "forms-mit" folder.

@@ -1,0 +1,26 @@
+From: [>email<]
+To: orbitee@mit.edu
+Subject: Tell Us!
+errors-to: webmaster-lib@mit.edu
+
+
+Thank you for sharing your thoughts.  Your ideas are appreciated.
+
+
+
+Name: [>name<]
+MIT affiliation: [>status<]
+email: [>email<]
+
+Your thoughts:
+
+[>suggestion<]
+
+
+
+_____
+
+
+
+Note: This message was sent using a WWW form.  The address [>email<] was
+typed manually, and may easily be incorrect.

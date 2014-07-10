@@ -1,0 +1,27 @@
+From: [>email<]
+To: [>topic<]
+Subject: [>subject<]
+Errors-To: webmaster-lib@mit.edu
+
+Email:  [>email<]
+Last name:  [>lastname<]
+First name:  [>firstname<]
+Phone:  [>phone<]
+IM 
+   screen name: [>im-name<]
+   system: [>im-system<]
+Status:  [>status<]
+Department:  [>department<]
+Lab or center: [>lab<]
+
+Question:  
+[>question<] 
+
+------------------------
+Problem relates to: [>ilb-topic<]
+Transaction number: [>ilb-number<]
+Citation info: 
+  Journal/Loan Title: [>ilb-title<]
+  Author: [>ilb-author<]  
+  Article Title: [>ilb-article<]
+  Year: [>ilb-year<]

@@ -1,0 +1,83 @@
+<html>
+<head>
+
+<title>Touchstone Authenticator</title>
+
+<base href="http://libraries.mit.edu/"/>
+
+<script type="text/javascript" src="scripts/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="scripts/login_functions.js"></script>
+
+<script type="text/javascript">
+
+	var referer = document.referer;
+	var redirecTo = "";
+
+	$(document).ready(function() {
+	    if (referer != "" && referer != "undefined") {
+		start = location.href.indexOf("pid");
+	        newlocation = location.href.substr(start);
+		redirecTo = newlocation.substr(newlocation.indexOf("=")+1);
+                eppn = '<!--#echo var="eppn" -->';
+                alert("eperson: " + eppn);
+        if (loginFunctions.getUserData(eppn)) {
+        	// only proceed if returns true.
+        	// alert(loginFunctions.qString);
+        	// loginFunctions.doRedirect(redirecTo);
+        }
+        alert("end document.ready . . .");
+		// loginFunctions.doAuthenticate(eppn);
+		alert(document.getElementById('userDataForm'));
+		document.getElementById('userDataForm').action="http://libraries.mit.edu/forms/ask-docs.html";
+		document.getElementById('userDataForm').submit();
+		
+	     }
+	 });
+ /** probably need to do something like this to share json
+ 
+ first i init my form like that :
+
+  $('FORM').submit(function () { 
+     shareData = $(this).serializeArray();     
+     $.address.value($(this).attr('action'));
+  })
+after I have in my change method something like that :
+
+$.address.change(function(event) {
+
+    if (event.path != '/' && event.parameters.layout_to_use != undefined) {
+
+        // if no json, load don't do a post request
+        shareData = _arrayToJson(shareData);;
+
+        $('#areatoreload')
+            .html('<span style="background-color:red;">loading...</span>')
+            .load('myscript.php', shareData, function() {});
+    }
+    return false;
+});
+*/
+	/** Add any load time jquery actions here */
+               // $(document).ready(function() {
+              //  loginFunctions.doParseQString();
+       // });
+
+</script>
+</head>
+<body>
+<h3>Authenticate.html</h3>
+
+<h4>Hidden Form Data Here</h4>
+<!--#set var="firstname" value="&lt;--#echo var=&quot;firstname&quot; --&gt;" -->
+<form id="userDataForm" method="POST"  enctype="UTF-8">
+<input name="firstname" id="firstname" type="text" value="&lt;--#echo var=&quot;firstname&quot; --&gt;" />
+<input name="lastname" id="lastname" type="text" value="&lt;--#echo var=&quot;lastname&quot; --&gt;" />
+<input name="email" id="email" type="text" value="&lt;--#echo var=&quot;email&quot; --&gt;" />
+<input name="status" id="status" type="text" value="&lt;--#echo var=&quot;status&quot; --&gt;" />
+<input name="phone" id="phone" type="text" value="&lt;--#echo var=&quot;phone&quot; --&gt;" />
+<input name="address" id="address" type="text" value="&lt;--#echo var=&quot;address&quot; --&gt;" />
+<!-- END HIDDEN FORM DATA -->
+</form>
+
+</body>
+</html>

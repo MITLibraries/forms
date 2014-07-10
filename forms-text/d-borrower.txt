@@ -1,0 +1,46 @@
+Requester's information:
+
+Name: [>fullname<]
+
+MIT ID#: [>id<]
+
+Phone: [>phone<]
+
+Email: [>email<]
+
+Affiliation: [>affiliation<]
+
+
+
+New, renewal, or cancellation? [>new<]
+
+
+
+Designated Borrower's information:
+
+Name: [>dname<]
+
+MIT ID#: [>did<]
+
+Phone: [>dphone<]
+
+Email: [>demail<]
+
+Affiliation: [>daffiliation<]
+
+
+
+Need for a Designated Borrower:[>explain<]
+
+
+
+Different expiration date: [>newdate<]
+
+
+
+Additional comments or questions:
+
+[>comments<]
+
+
+

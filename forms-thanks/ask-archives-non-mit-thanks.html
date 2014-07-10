@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Ask the Archives! Institute Archives &amp; Special Collections: MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+      cookie_functions.setDocumentValues("libForma", ",", "=");
+    }
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <div id="sidebar">
+      <p><a href="/archives/research/">Research Help</a></p>
+      <p><a href="/archives/research/#collections">The collections</a></p>
+      <p><a href="/archives/research/#bibliographies">Bibiographies and subject guides</a></p>
+      <p><a href="/archives/research/genealogical-research.html">Genealogical research</a></p>
+      <p><a href="/archives/research/#policies">Policies</a></p>
+    </div>
+    <div id="content">
+      <!-- breadcrumb - TODO: make this semantic -->
+      <div class="breadcrumb">
+        <span class="semantic">You are located in:</span>
+        <ul>
+          <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+          <li><a href="/archives"><span class="semantic">in subsection </span>Archives</a></li>
+          <li><a href="/forms/ask-archives-non-mit.html"><span class="semantic">in subsection </span>Ask the archives</a></li>
+          <li><span class="semantic">on page </span>Thank you!</li>
+        </ul>
+      </div>
+
+      <h1>Thank You</h1>
+
+      <p>Thank you for contacting the MIT Institute Archives and Special Collections. We will respond to your question as we can.</p>
+
+      <p>You will receive a copy of your request via email.<br>
+
+        (If you don't receive a copy, it's possible that your request didn't
+
+        go through. In that case, please fill out the form again, or send email to <a href="mailto:mithistory@mit.edu">mithistory@mit.edu</a>.)
+
+      </p>
+
+      <p><strong>Please note:</strong></p>
+
+      <ul>
+
+        <li>Our first priority is to answer questions from members of the MIT community.</li>
+
+        <li>Other questions are answered in the order in which we receive them.</li>
+
+        <li>Our 
+
+          reference staff is limited to spending one-half hour per patron 
+
+          to answer brief factual questions or provide information about 
+
+          our collections. We regret that we are unable to do research for patrons outside the MIT community.
+
+        </li>
+
+        <li>We have prepared a list of <a href="../archives/research/sources.html">other sources</a> 
+
+          that might help you in your research. See also <a href="../archives/research/genealogical-research.html">Genealogical Research in the Institute Archives</a>.
+
+        </li>
+
+        <li>You are encouraged to visit the Institute Archives to explore our 
+
+          collections. Check our website for our <a href="../archives/about/contact.html">location</a> 
+
+          and <a href="../archives/about/hours.html">hours</a>.
+
+          <ul>
+
+            <li>Most of our collections are stored off site and should be ordered by noon a week before your planned visit. Delivery is sometimes delayed by inclement weather.</li>
+
+            <li>Many of our collections have restrictions on access because they are unprocessed, or due to <a href="../archives/managing/policy-access.html">MIT access policies</a> or restrictive donor agreements.</li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+      <p>Please address follow-up correspondence to <a href="mailto:mithistory@mit.edu">mithistory@mit.edu</a>, rather than to individual staff members, who may be away from the office.</p>
+
+
+    </div>
+    <!--#include virtual="/includes/footer-semantic.html" -->
+  </div>
+</body>
+</html>

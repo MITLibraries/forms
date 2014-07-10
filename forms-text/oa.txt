@@ -1,0 +1,26 @@
+Eligibility requirements reviewed: [>eligibility<]
+ 
+Faculty Author's name: [>fullname<]
+
+Email address: [>email<]
+
+MIT address & phone: [>contact<]
+
+Department: [>department<]
+
+Lab or Center: [>lab<]
+
+Title of article: [>title<]
+
+Journal that will publish the article: [>journal<]
+ 
+Sponsor(s) providing the funding: [>funding<]
+
+Amount charged: [>charged<]
+
+Amount requested: [>requested<] 
+
+_____
+
+Note: This message was sent using a WWW form.  The address [>email<] was
+typed manually, and may easily be incorrect.

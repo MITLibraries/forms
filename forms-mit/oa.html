@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MIT Open Access Publishing Fund: MIT Libraries</title>
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript">
+  <!--
+  $(document).ready(function() {
+    eppn = document.getElementById('eppn').value;
+    loginFunctions.doAuthenticate(eppn);
+    var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
+    document.getElementById('eppn').value = "";
+
+    // GA enhancements
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+  -->
+  </script>
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+  <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+<body>
+  <a class="semantic" href="#content">Skip to main content</a>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <!-- breadcrumb - TODO: make this semantic -->
+    <div class="breadcrumb">
+      <span class="semantic">You are located in:</span>
+      <ul>
+        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+        <li><a href="/scholarly"><span class="semantic">in subsection </span>Scholarly Communication</a></li>
+        <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-publishing-fund/"><span class="semantic">in subsection </span>MIT Open Access Publishing Fund</a></li>
+        <li><span class="semantic">on page </span>Open Access Article Publication Subvention Fund (OAAPSF) Form</li>
+      </ul>
+    </div>
+
+    <h1><a name="content"></a>MIT Open Access Publishing Fund</h1>
+    <h2 class="raise">Form to request support from the Open Access Article Publication Subvention Fund (OAAPSF) </h2>
+    <p>This form should used by 
+      <a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-publishing-fund/#whoeligible">MIT faculty authors</a> to request funding for open access publication fees from <a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-publishing-fund/#whatpublications">eligible journals</a>.</p>  
+      <form action="scripts/php/mail.php" method="post" name="oa" id="oa">
+       <input type="hidden" name="copy" value="true">
+       <input type="hidden" name="subject" value="Open Access Article Publication Subvention Fund request">
+       <input type="hidden" name="recipient" value="oafund@mit.edu">
+       <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+       <p>The request will be reviewed for eligibility and the author informed whether it has been approved.</p>
+       <p>If the request is approved, the author will need to forward proof of payment for the publication charges to <a href="mailto:oafund@mit.edu">Ellen Duranceau</a>, Program Manager, Scholarly Publishing &amp; Licensing, or mail it to Room 14S-216. </p>
+       <p>Payment will be made directly to the journal on the author's behalf.</p>
+       <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+       <fieldset>
+        <legend>Eligibility requirements</legend>
+        <p>Please check here to indicate you have reviewed the <a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-publishing-fund/#whoeligible">eligibility requirements</a> and believe you and your article are eligible. Please note that articles supported by grant funds from sponsors who allow authors to use grant funds for publication fees are not eligible for reimbursement through the OAAPSF.</p>
+        <p>
+          <label for="eligibility"><input name="eligibility" type="checkbox" id="eligibility" value="yes" aria-required="true"><abbr class="required" title="required">*</abbr> Yes, I've reviewed the eligibility requirements</label>
+          <input type="hidden" name="r_eligibility" value="-Please indicate that you have reviewed the eligibility requirements.">
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Author information</legend>
+        <p> 
+          <label for="fullname">Faculty Author's name 
+            <abbr class="required" title="required">*</abbr><br>
+            <input name="fullname" type="text" id="fullname" size="35" onChange="saveValue(this)" aria-required="true">
+          </label>
+          <input type="hidden" name="r_fullname" value="-Please specify the faculty author's name.">
+        </p>
+        <p>
+          <label for="email">Email address 
+            <abbr class="required" title="required">*</abbr><br>
+            <input name="email" placeholder="kerberos@mit.edu" type="text" id="email" onChange="saveValue(this)" size="35" aria-required="true">
+          </label>
+          <input type="hidden" name="e_email" value="-Please specify a valid email address.">
+          <br>
+          <span class="mini"><em>copy of form will be sent to this address</em></span>
+        </p>
+        <p>
+          <label for="contact">MIT address &amp; phone<br>
+            <textarea name="contact" cols="35" rows="3" id="contact" onChange="saveValue(this)"></textarea>
+          </label>
+        </p>
+        <p>
+          <label for="department">Author's Department (<em>choose department or choose "lab or center" and then enter that in the text box below</em>)<br>
+            <select name="department"  id ="department"  onChange="saveValue(this)">
+              <option value="" selected> - choose department -</option>
+              <!--#include virtual="../forms-text/departments.txt" -->
+            </select>
+          </label>
+        </p>
+        <p>
+          <label for="lab">Lab or Center name<br>
+            <input name="lab" id="lab" value="" type="text" size="35">
+          </label>
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Article information</legend>
+        <p>
+          <label for="title">Title of article <abbr class="required" title="required">*</abbr><br>
+            <textarea name="title" cols="35" id="title" onChange="saveValue(this)" aria-required="true"></textarea>
+          </label>
+          <input type="hidden" name="r_title" value="-Please specify the article title.">
+        </p>
+        <p>
+          <label for="journal">Journal that will publish the article <abbr class="required" title="required">*</abbr><br>
+            <textarea name="journal" cols="35" id="journal" onChange="saveValue(this)" aria-required="true"></textarea>
+          </label>
+          <input type="hidden" name="r_journal" value="-Please specify the publishing journal.">
+        </p>
+        <p>
+          <label for="funding">Which sponsor(s) provided funding for the article, if any? <abbr class="required" title="required">*</abbr><br>
+            <textarea name="funding" cols="35" id="funding" onChange="saveValue(this)" aria-required="true"></textarea>
+          </label>
+          <input type="hidden" name="r_funding" value="-Please specify the funding sponsor(s).">
+          <br>
+          <span class="mini">(<em>Articles supported by grant funds from sponsors who allow authors to use grant funds for publication fees are not eligible for reimbursement through the MIT Open Access Fund</em>.) </span>
+        </p>
+        <p>
+          <label for="charged">Amount charged for publication <abbr class="required" title="required">*</abbr><br>
+            <input name="charged" type="text" id="charged" value="" onChange="saveValue(this)" size="35" aria-required="true">
+          </label>
+          <input type="hidden" name="r_charged" value="-Please specify the amount charged for publication.">
+        </p>
+        <p>
+          <label for="requested">Amount requested <abbr class="required" title="required">*</abbr><br>
+            <input name="requested" type="text" id="requested" value="" onChange="saveValue(this)" size="35" aria-required="true">
+          </label>
+          <input type="hidden" name="r_requested" value="-Please specify the amount requested.">
+          <br>
+          <span class="mini">(<em>maximum reimbursement is $1000/article</em>)</span>
+        </p>
+          <p id="submit">
+            <input type="submit" value="Send">
+          </p>
+        </fieldset>
+      </form>
+      <p><strong>Please submit this form for review and approval, and then, when available, send the associated publisher's invoice to:</strong></p>
+      <p><a href="/profile/efinnie">Ellen Duranceau</a>, Program Manager<br>
+        Scholarly Publishing &amp; Licensing<br>
+        Room 14S-216</p>
+        <p><em>If the article meets eligibility requirements, the author will be notified that the request has been approved, and funds will be reimbursed to an MIT account after author submits proof of payment.</em></p>
+        <!--#include virtual="/includes/footer-semantic.html" -->
+      </div> <!-- /end container -->
+    </body>
+    </html>

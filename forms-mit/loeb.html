@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Harvard Loeb Library Special Borrower Card Application: MIT Libraries</title>
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript">
+  <!--
+  $(document).ready(function() {
+    eppn = document.getElementById('eppn').value;
+    loginFunctions.doAuthenticate(eppn);
+    var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
+    document.getElementById('eppn').value = "";
+
+    // GA enhancements
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+  -->
+  </script>
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+  <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+<body>
+  <a class="semantic" href="#content">Skip to main content</a>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <div id="sidebar" role="navigation">      
+      <!-- Left Sidebar contents -->
+      <!--#include virtual="subnavigation.html" -->
+    </div>
+    <div id="content" role="main">
+      <!-- breadcrumb - TODO: make this semantic -->
+      <div class="breadcrumb">
+        <span class="semantic">You are located in:</span>
+        <ul>
+          <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+          <li><a href="/circ"><span class="semantic">in subsection </span>Borrow &amp; Request</a></li>
+          <li><a href="/otherlibraries"><span class="semantic">in subsection </span>Access to non-MIT Libraries</a></li>
+          <li><a href="/harvard"><span class="semantic">in subsection </span>Harvard Libraries</a></li>
+          <li><span class="semantic">on page </span>Francis Loeb Library</li>
+        </ul>
+      </div>
+      <!-- page text -->
+      <h1>Francis Loeb Library <em>(Graduate School of Design)</em><br>Special Borrower Card Application</h1>
+
+      <p>If your work requires extensive use of resources not available at MIT, you may qualify for access to the <a href="http://www.gsd.harvard.edu/loeb_library/index.html">Frances Loeb Library</a> (Graduate School of Design).</p>
+      <table style="width: 95%;">
+        <thead>
+          <tr>
+            <th scope="col">Privileges</th>
+            <th scope="col">Status</th>
+            <th scope="col">Card valid from</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Borrowing privileges</td>
+            <td>Faculty &amp; Research Staff</td>
+            <td>September 1 - August 31</td>
+          </tr>
+          <tr>
+            <td>Borrowing privileges</td>
+            <td>Graduate Students</td>
+            <td>September 1 - May 31 *</td>
+          </tr>
+          <tr>
+            <td>Room use only</td>
+            <td>Undergraduate students</td>
+            <td>N/A</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>*For summer access, graduate students may reapply for a Special Borrower Card, valid for one year, beginning June 1. (The Harvard summer letter is no longer needed.)</p>
+      <form name="loeb" id="loeb" action="/hcl/submitapp-new.php" method="post">
+        <input name="hidden" type="hidden" id="eppn" value="<!--#echo var="eppn" -->" >
+        <fieldset>
+          <legend>Frances Loeb Library borrower application</legend>
+          <p>If your application is successful (i.e. no spelling errors in the submission, your library account is in good standing and you are a current, qualifying member of the MIT community), a PDF of your approved form will be emailed to you within an hour. If your application requires review, a Libraries&rsquo; staff member will respond to you as soon as possible, and no later than 5:00 pm the next business day.</p>
+          <p><em>Please note:</em> If you have a current Harvard College Library Special Borrower Card or have recently applied for one, you do not need to re-apply for Loeb Library privileges. The HCL Special Borrower Card can be used for Loeb Library access and borrowing.</p>
+          <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+          <input type="hidden" name="source" value="Harvard">
+          <p>
+            <label for="kerbname">Your Kerberos name <abbr class="required" title="required">*</abbr><br>
+              <input type="text" name="kerbname" id="kerbname" size="8" maxlength="8" aria-required="true">
+            </label>
+            <input type="hidden" name="r_kerbname" value="-Please specify your Kerberos name.">
+          </p>
+          <p>
+            <label for="mit_id">Your MIT ID number <abbr class="required" title="required">*</abbr><br>
+              <input type="text" name="mit_id" id="mit_id" size="9" maxlength="9" aria-required="true">
+            </label>
+            <input type="hidden" name="r_mit_id" value="-Please specify your MIT ID number.">
+          </p>
+          <p>
+            <label for="email">Your email address <abbr class="required" title="required">*</abbr><br>
+              <input type="text" name="email" id="email" size="20" maxlength="100" aria-required="true">
+            </label>
+            <input type="hidden" name="e_email" value="-Please specify a valid email address.">
+          </p>
+          <p>
+            <label for="fullname">Your full name <abbr class="required" title="required">*</abbr><br>
+              <input type="text" name="fullname" id="fullname" size="20" maxlength="100" aria-required="true">
+            </label>
+            <input type="hidden" name="r_fullname" value="-Please specify your full name.">
+          </p>
+          <p>
+            <label for="address">Your physical address <abbr class="required" title="required">*</abbr><br>
+              <textarea name="address" id="address" rows="3" cols="40" aria-required="true"></textarea>
+            </label>
+            <input type="hidden" name="r_address" value="-Please enter your physical address.">
+          </p>
+          <p>
+            <label for="phone">Your phone number <abbr class="required" title="required">*</abbr><br>
+              <input type="text" name="phone" id="phone" size="20" aria-required="true">
+            </label>
+            <input type="hidden" name="r_phone" value="-Please specify your phone number.">
+          </p>
+          <p>
+            <label for="status">Your MIT status <abbr class="required" title="required">*</abbr><br>
+              <select name="status" id="status" aria-required="true">
+                <option value="">Please indicate your status</option>
+                <option value="GRAD">Graduate Student</option>
+                <option value="FAC">Faculty</option>
+                <option value="RS">Research Staff</option>
+              </select>
+            </label>
+            <input type="hidden" name="r_status" value="-Please indicate your MIT status.">
+          </p>
+          <p>
+            <label for="department">Your department <abbr class="required" title="required">*</abbr><br>
+              <select name="department" id="department">
+                <option value="" selected>- choose department -</option>
+                <option value=""> If your choice is "Other," enter field of research in the box below</option>
+                <!--#include virtual="/forms-text/departments.txt"-->
+              </select>
+            </label>
+            <input type="hidden" name="r_department" value="-Please specify your department.">
+          </p>
+          <p>
+            <label for="other">Your Lab or Center name, or field of research<br>
+              <input type="text" name="other" id="other" size="40" maxlength="100">
+            </label>
+          </p>
+          <p>
+            <label for="graddate">Your expected graduation/termination date (leave blank if you are an ongoing employee)<br>
+              <input type="text" name="graddate" id="graddate" size="20" maxlength="20">
+            </label><br>
+            YYYY-MM-DD format 
+          </p>
+          <p>
+            <label for="comments">Please include any additional information or comments<br>
+              <textarea name="comments" id="comments" rows="3" cols="40"></textarea>
+            </label><br>
+            255 character limit 
+          </p>
+        </fieldset>
+        <p>After your application is approved, visit the <a href="http://www-hcl.harvard.edu/info/admittance/#privileges">Harvard Library Privileges Office</a>:</p>
+        <ul class="raised">
+          <li>Widener Library, Room 130, Harvard Yard</li>
+          <li>Monday, Wednesday, Friday: 9am &ndash; 5pm; Tuesday &amp; Thursday, 9am &ndash; 8pm; and Saturday 12 &ndash; 5pm.</li>
+        </ul>
+        <p>Bring with you:</p>
+        <ul class="raised">
+          <li>a printed copy of the reciprocal agreement  letter</li>
+          <li>your MIT ID</li>
+          <li>$5 for Harvard College Library ID processing fee.</li>
+        </ul>
+        <p>In clicking on this button, I promise to comply with Frances Loeb Library policies.</p>
+        <input type="submit" value="Submit application" name="submit">
+      </form>
+    </div>
+    <!--#include virtual="/includes/footer-semantic.html" -->
+  </div> <!-- /end container -->
+</body>
+</html>

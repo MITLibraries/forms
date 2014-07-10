@@ -1,0 +1,15 @@
+lastname: [>lastname<]
+
+firstname: [>firstname<]
+
+email: [>email<]
+
+address: [>address<]
+
+phone: [>phone<]
+
+status: [>status<]
+
+query: [>query<]
+
+otherinfo: [>otherinfo<]

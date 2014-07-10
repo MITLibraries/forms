@@ -1,0 +1,31 @@
+From: [>email<]
+To: [>topic<]
+X-QCF-Status: [>status<]
+X-QCF-Department: [>department<]
+Subject: [>subject<]
+Errors-To: webmaster-lib@mit.edu
+
+Email:  [>email<]
+Last name:  [>lastname<]
+First name:  [>firstname<]
+Phone:  [>phone<]
+IM 
+   screen name: [>im-name<]
+   system: [>im-system<]
+Status:  [>status<]
+Department:  [>department<]
+Lab or center: [>lab<]
+
+Question:  
+[>question<] 
+[>technical-details<]
+
+------------------------
+Is the problem happening on or off-campus? [>offcampus<]
+Are you using VPN? [>vpn<]
+
+User's browser: [>client-browser<]
+IP Address: [>client-ip<]
+
+
+
