@@ -1,0 +1,5 @@
+<div id="header-semantic">
+  <p class="organization"><abbr title="Massachusetts Institute of Technology">MIT</abbr> Libraries</p>
+  <ul class="index-search"><li><a href="/site-index.html">Site Search</a></li></ul>
+  <ul class="navigation"><li class="search"><a href="/search/index.html">Search Our Collections</a></li><li class="ask"><a href="/ask-us/index.html">Ask Us</a></li><li class="help-yourself"><a href="/help/index.html">Help Yourself</a></li><li class="faq"><a href="/ordering/index.html">Circulation FAQ</a></li><li class="about"><a href="/about/index.html">About Us</a></li></ul>
+</div>
