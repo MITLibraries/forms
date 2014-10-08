@@ -144,6 +144,9 @@ if(count($_POST)){
 				$mail->AddCC($strFrom);
 			}
 
+			// Temporarily copy Matt on all form submissions, for debugging purposes
+			$mail->AddBCC('mjbernha@mit.edu','Matt Bernhardt');
+
 			$mail->Subject = $strSubject;
 			$mail->Body = $email_template;
 
