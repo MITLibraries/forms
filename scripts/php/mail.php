@@ -145,7 +145,9 @@ if(count($_POST)){
 			}
 
 			// Temporarily copy Matt on all form submissions, for debugging purposes
-			$mail->AddBCC('mjbernha@mit.edu','Matt Bernhardt');
+			if($strSubject=='Open access policy opt-out form') {
+				$mail->AddBCC('mjbernha@mit.edu','Matt Bernhardt');
+			}
 
 			$mail->Subject = $strSubject;
 			$mail->Body = $email_template;
