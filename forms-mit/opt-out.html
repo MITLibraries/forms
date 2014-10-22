@@ -43,6 +43,7 @@
       <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/">MIT Faculty Open-Access Policy</a></li>
       <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/mit-faculty-open-access-policy-faq/">Faculty Open Access Policy FAQ</a></li>
     </ul>
+    <!-- 
     <p>To opt out of the MIT Faculty Open Access Policy, waiving the Policy for an article:</p>
     <p>Please send an email or other written notice to <a href="mailto:oapolicyoptout@mit.edu">oapolicyoptout@mit.edu</a> informing MIT of the following:</p>
     <ul>
@@ -53,13 +54,13 @@
     </ul>
     <p>Please cc any other MIT authors that should be included in the waiver.</p>
     <p><em>NOTE: Our waiver form is being redesigned and is currently not accessible.   We hope to have it up again soon. If you have any questions, please email oapolicyoptout@mit.edu.</em></p>
-    <!-- 
+    -->
     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
     <form action="scripts/php/mail.php" method="post" name="optout" id="optout">
       <input type="hidden" name="subject" value="Open access policy opt-out form">
-      <input type="hidden" name="recipient" value="oapolicyoptout@mit.edu">
+      <input type="hidden" name="recipient" value="mjbernha@mit.edu">
       <input type="hidden" name="copy" value="true">
-      <input type="hidden" id="eppn" value="echo eppn">
+      <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
       <p>
        <label for="fullname">Name of MIT author <abbr class="required" title="required">*</abbr><br><input name="fullname" id="fullname" type="text" size="50" aria-required="true"></label>
        <input type="hidden" name="r_fullname" value="-Please enter your name.">
@@ -84,7 +85,6 @@
       <input type="submit" value="Send">
     </p>
   </form>
--->
 <p>If you have any questions about working with the MIT Faculty Open Access Policy, please contact <a href="mailto:efinnie@mit.edu">Ellen Duranceau</a>.</p>
 <!--#include virtual="/includes/footer-semantic.html" -->
 </div>
