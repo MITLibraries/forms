@@ -12,6 +12,10 @@ $valid = TRUE;
 $boolCC = FALSE;
 
 require '../PHPMailer/class.phpmailer.php';
+require 'debuglog.php';
+
+$log = new DebugLog();
+$log->write('FORM - submission detected');
 
 debugText("Begin");
 
@@ -27,6 +31,8 @@ if(count($_POST)){
 	$fileTemplate = $_SERVER['DOCUMENT_ROOT'].'/forms-text/'.$fileTemplate;
 	$strThankYou = substr($strTemplateFile,0,strpos($strTemplateFile,"."))."-thanks.html";
 	$strThankYou = '/forms-thanks/'.$strThankYou;
+
+	$log->write('FORM - Referer ' . $strTemplateFile);
 
 	debugText("Thank You: ".$strThankYou);
 	debugText("Template: ".$fileTemplate);
@@ -61,15 +67,17 @@ if(count($_POST)){
 					// This is intended to be the submitter's email address, which could be copied on any submission
 					// It will also be used to set sender of the email (rather than "Website Visitor")
 					$value = cleanse($value);
-					if(validateEmail($value)){
+					if(validateEmail($value,$log)){
 						$strFrom = filter_var($value,FILTER_SANITIZE_EMAIL);
 					} else {
 						if($_POST['recipient']=='libraries-tellus@mit.edu'){
 							// Form came from Tell Us, which allows anonymous submissions
+							$log->write('FORM: Email - Sender address verification failed, using stand-in address for Tell Us');
 							debugText("Anonymous submission, using stand-in email address");
 							$strFrom = "tellus-lib@mit.edu";
 						} else {
 							// Flag as invalid
+							$log->write('FORM: Email - Sender address verification failed, rejecting submission');
 							debugText("Email validation failed");
 							$valid = FALSE;
 						}
@@ -93,9 +101,10 @@ if(count($_POST)){
 					// original form. This could also be set via the email template form, but would make processing
 					// the template more complex (read/write, rather than read)
 					$value = cleanse($value);
-					if(validateEmail($value)){
+					if(validateEmail($value,$log)){
 						$strRecipient = filter_var($value,FILTER_SANITIZE_EMAIL);
 					} else {
+						$log->write('FORM: Email - Recipient address validation failed, rejecting submission');
 						debugText("Recipient validation failed");
 						$valid = FALSE;
 					}
@@ -160,25 +169,31 @@ if(count($_POST)){
 			}
 
 			if(!$mail->Send()) {
+				$log->write('FORM: Error - Error sending email');
 				errorText($mail->ErrorInfo);
 			} else {
+				$log->write('FORM: Success - Email sent');
 				debugText("Email Sent");
 			}			
 		} else {
+			$log->write('FORM: Error - Validation checks failed');
 			errorText("Validation checks failed");
 		}
 
 	} else {
+		$log->write('FORM: Error - Email template not found');
 		errorText("Email template not found");
 	}
 
 	if($boolDebug){
 		debugText("Finished - redirect now");
 	} else {
+		$log->write('FORM: Success - Redirecting user...');
 		header("Location: ".$strThankYou);
 	}
 
 } else {
+	$log->write('FORM: Error - No posted content received');
 	errorText("No posted content received");
 }
 
@@ -196,6 +211,7 @@ function debugText($msg) {
 function errorText($msg){
 	echo '<p class="error">'.$msg.'</p>';
 }
+
 /**
 * validateEmail performs two checks:
 * 1 - consults isemail.info lookup service to verify syntax
@@ -211,8 +227,9 @@ function errorText($msg){
 *
 * Returns TRUE/FALSE
 */
-function validateEmail($addr) {
+function validateEmail($addr,$log) {
 	// Set result to false (guilty until proven innocent)
+	$log->write('FORM: Email - validation begun');
 	$result = FALSE;
 
 	$boolDebug = FALSE;
@@ -222,12 +239,15 @@ function validateEmail($addr) {
 	// 1 = valid format
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, "http://isemail.info/valid/".$addr);
+	// curl_setopt($ch, CURLOPT_URL, "http://www.asdasdljaskdhf.org/".$addr);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$out = curl_exec($ch);
+	$log->write("FORM: Email - check result: ".$out);
 	curl_close($ch);
 	
 	// Part 2: DNS lookup (provided first part passed)
 	if($out==1) {
+		$log->write('FORM: Email validation 1 of 2');
 		// isolate the domain ("remote part")
 		// adapted from http://www.linuxjournal.com/article/9585?page=0,3
 		$domain = substr($addr,strrpos($addr, "@")+1);
@@ -235,13 +255,21 @@ function validateEmail($addr) {
 		// If domain checks out, set result to true
 		if (checkdnsrr($domain,"MX") || checkdnsrr($domain,"A")) {
 
+			$log->write('FORM: Email validation 2 of 2');
+
 			$result = TRUE;
 
 			// A planned third component is to contact the MX server in the email address and 
 			// confirm that the address is valid. Not all servers will respond, but some will
 
+		} else {
+
+			$log->write('FORM: Email validation failed step 2');
+
 		}
 
+	} else {
+		$log->write('FORM: Email validation failed step 1');
 	}
 
 	// Part 3: coming (either here or inside previous block)
