@@ -32,6 +32,8 @@ if(count($_POST)){
 	$strThankYou = substr($strTemplateFile,0,strpos($strTemplateFile,"."))."-thanks.html";
 	$strThankYou = '/forms-thanks/'.$strThankYou;
 
+	$log->write('FORM - Referer ' . $strTemplateFile);
+
 	debugText("Thank You: ".$strThankYou);
 	debugText("Template: ".$fileTemplate);
 
@@ -65,7 +67,7 @@ if(count($_POST)){
 					// This is intended to be the submitter's email address, which could be copied on any submission
 					// It will also be used to set sender of the email (rather than "Website Visitor")
 					$value = cleanse($value);
-					if(validateEmail($value)){
+					if(validateEmail($value,$log)){
 						$strFrom = filter_var($value,FILTER_SANITIZE_EMAIL);
 					} else {
 						if($_POST['recipient']=='libraries-tellus@mit.edu'){
@@ -99,7 +101,7 @@ if(count($_POST)){
 					// original form. This could also be set via the email template form, but would make processing
 					// the template more complex (read/write, rather than read)
 					$value = cleanse($value);
-					if(validateEmail($value)){
+					if(validateEmail($value,$log)){
 						$strRecipient = filter_var($value,FILTER_SANITIZE_EMAIL);
 					} else {
 						$log->write('FORM: Email - Recipient address validation failed, rejecting submission');
@@ -225,7 +227,7 @@ function errorText($msg){
 *
 * Returns TRUE/FALSE
 */
-function validateEmail($addr) {
+function validateEmail($addr,$log) {
 	// Set result to false (guilty until proven innocent)
 	$log->write('FORM: Email - validation begun');
 	$result = FALSE;
