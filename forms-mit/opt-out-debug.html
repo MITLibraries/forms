@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Opt out of Open Access Policy : MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    eppn = document.getElementById('eppn').value;
+    loginFunctions.doAuthenticate(eppn);
+    var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
+    document.getElementById('eppn').value = "";
+
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <!-- breadcrumb - TODO: make this semantic -->
+    <div class="breadcrumb">
+      <span class="semantic">You are located in:</span>
+      <ul>
+        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+        <li><a href="/scholarly"><span class="semantic">in subsection </span>Scholarly Publishing</a></li>
+        <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/"><span class="semantic">in subsection </span>MIT Faculty Open Access Policy</a></li>
+        <li><span class="semantic">on page </span>Opt Out Form</li>
+      </ul>
+    </div>
+
+    <h1>Opt out of MIT Faculty Open-Access Policy</h1>
+    <p>(for a particular article)</p>
+    <ul>
+      <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/">MIT Faculty Open-Access Policy</a></li>
+      <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/mit-faculty-open-access-policy-faq/">Faculty Open Access Policy FAQ</a></li>
+    </ul>
+    <!-- 
+    <p>To opt out of the MIT Faculty Open Access Policy, waiving the Policy for an article:</p>
+    <p>Please send an email or other written notice to <a href="mailto:oapolicyoptout@mit.edu">oapolicyoptout@mit.edu</a> informing MIT of the following:</p>
+    <ul>
+      <li>Name of MIT author(s)</li>
+      <li>Title of article (expected or working title)</li>
+      <li>Journal you expect to publish in</li>
+      <li>Reason you are opting out (e.g. "Publisher requirement")</li>
+    </ul>
+    <p>Please cc any other MIT authors that should be included in the waiver.</p>
+    <p><em>NOTE: Our waiver form is being redesigned and is currently not accessible.   We hope to have it up again soon. If you have any questions, please email oapolicyoptout@mit.edu.</em></p>
+    -->
+    <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+    <form action="scripts/php/mail-debug.php" method="post" name="optout" id="optout">
+      <input type="hidden" name="subject" value="Open access policy opt-out form">
+      <input type="hidden" name="recipient" value="mjbernha@mit.edu">
+      <input type="hidden" name="copy" value="true">
+      <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+      <p>
+       <label for="fullname">Name of MIT author <abbr class="required" title="required">*</abbr><br><input name="fullname" id="fullname" type="text" size="50" aria-required="true"></label>
+       <input type="hidden" name="r_fullname" value="-Please enter your name.">
+     </p>
+     <p>
+      <label for="email">Email of MIT author <abbr class="required" title="required">*</abbr><br><input name="email" id="email" type="text" size="50" aria-required="true"></label>
+       <input type="hidden" name="e_email" value="-Please enter a valid email.">
+    </p>
+    <p>
+      <label for="title">Title of article (expected or working title) <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
+       <input type="hidden" name="r_title" value="-Please provide the article title.">
+    </p>
+    <p>
+      <label for="journal">Journal you expect to publish in <abbr class="required" title="required">*</abbr><br><input name="journal" id="journal" type="text" size="50" aria-required="true"></label>
+       <input type="hidden" name="r_journal" value="-Please enter the journal name.">
+    </p>
+    <p>
+      <label for="reason">Reason you are opting out <abbr class="required" title="required">*</abbr><br><textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea></label>
+       <input type="hidden" name="r_reason" value="-Please provide the reason you are opting out.">
+    </p>
+    <p id="submit">
+      <input type="submit" value="Send">
+    </p>
+  </form>
+<p>If you have any questions about working with the MIT Faculty Open Access Policy, please contact <a href="mailto:efinnie@mit.edu">Ellen Duranceau</a>.</p>
+<!--#include virtual="/includes/footer-semantic.html" -->
+</div>
+</body>
+</html>
