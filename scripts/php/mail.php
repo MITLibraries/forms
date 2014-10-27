@@ -34,6 +34,13 @@ if(count($_POST)){
 
 	$log->write('FORM - Referer ' . $strTemplateFile);
 
+	// Log submitted values for everything but the tell us staff form (which is more strictly anonymous)
+	if ($strTemplateFile != 'tell-us-staff.html') {
+		foreach ($_REQUEST as $key => $value) {
+			$log->write('FORM: ' . $key . ": " . $value);
+		}
+	}
+
 	debugText("Thank You: ".$strThankYou);
 	debugText("Template: ".$fileTemplate);
 
