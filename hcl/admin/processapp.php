@@ -6,13 +6,15 @@
 <body>
 
 <?php
-if ($_SERVER[REMOTE_ADDR] != '18.7.29.240') {
+if ($_SERVER['REMOTE_ADDR'] != '18.7.29.240') {
    echo "$_SERVER[REMOTE_ADDR]";
    echo "<p>Sorry, proxy server access only.</p>";
    echo "</body>";
    echo "</html>";
    exit (0);
 }
+
+date_default_timezone_set('America/New_York');
 
 if (isset($_GET['app_number']))
   $app_number = $_GET['app_number'];
