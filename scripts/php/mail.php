@@ -86,7 +86,7 @@ if(count($_POST)){
 							// Flag as invalid
 							$log->write('FORM: Email - Sender address verification failed, rejecting submission');
 							debugText("Email validation failed");
-							$valid = FALSE;
+							// $valid = FALSE;
 						}
 					}
 					break;
@@ -113,7 +113,7 @@ if(count($_POST)){
 					} else {
 						$log->write('FORM: Email - Recipient address validation failed, rejecting submission');
 						debugText("Recipient validation failed");
-						$valid = FALSE;
+						// $valid = FALSE;
 					}
 					break;
 				case 'subject':
