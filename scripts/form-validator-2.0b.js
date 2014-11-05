@@ -613,55 +613,49 @@ function check(form,x)
 
 
 
-	//Email validation added 6/20/98
-	function e_check(form,x,fieldname,i)
+//Email validation added 6/20/98
+function e_check(form,x,fieldname,i)
+{
+	for (var y = 0; y <= x; y++)
 	{
-		for (var y = 0; y <= x; y++)
+		if (form.elements[y].name == fieldname)
+			break
+	}                       
+	var msg_addition = ""
+	period = ".";
+	if (form.elements[y].value == "" || form.elements[y].value.indexOf ('@', 0) < 1)
+		error = 1;
+	else
+	{
+		test = form.elements[y].value.indexOf('.', form.elements[y].value.indexOf ('@', 0))
+		if (test != -1)
 		{
-			if (form.elements[y].name == fieldname)
-				break
-		}                       
-		var msg_addition = ""
-		period = ".";
-		if (form.elements[y].value == "" || form.elements[y].value.indexOf ('@', 0) < 1)
-			error = 1;
-		else
-		{
-			test = form.elements[y].value.indexOf('.', form.elements[y].value.indexOf ('@', 0))
-			if (test != -1)
-			{
-				error = 0;
-			}
-			else
-			{
-				error=1;
-			}
-		}
-		if (error == 1)
-		{
-			msg_addition = form.elements[i].value
+			error = 0;
 		}
 		else
 		{
-			new_length = form.elements[y].value.length - test
-			if (new_length == 4 || new_length == 3 || (new_length >= 5 && form.elements[y].value.indexOf ('.', (test+1)) != -1))
-			{
-				msg_addition = ""
-			}
-			else
-				msg_addition = form.elements[i].value;
+			error=1;
 		}
-		return(msg_addition)
-	}   
+	}
+	if (error == 1)
+	{
+		msg_addition = form.elements[i].value
+	}
+	else
+	{
+		new_length = form.elements[y].value.length - test
+		if (new_length == 4 || new_length == 3 || (new_length >= 5 && form.elements[y].value.indexOf ('.', (test+1)) != -1))
+		{
+			msg_addition = ""
+		}
+		else
+			msg_addition = form.elements[i].value;
+	}
+	return(msg_addition)
+}   
 
-
-
-
-
-
-
-function d_check(form,x,fieldname,i)
 //date must be in MM/DD/YY format OR M/D/YY or a MIX of the two
+function d_check(form,x,fieldname,i)
 {
 	for (var y = 0; y <= x; y++)
 	{
