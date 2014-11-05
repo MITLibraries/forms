@@ -46,218 +46,57 @@ function check(form,x)
 				{
 					more_message = e_check(form,x,fieldname,i)
 				}           
-
-
-
 				if (more_message != "")
-
-
-
 				{
-
-
-
 					if (message == "")
-
-
-
 					{
-
-
-
 						message = more_message
-
-
-
 						more_message=""
-
-
-
 					}
-
-
-
 					else
-
-
-
 					{
-
-
-
 						message = message + "\n" + more_message
-
-
-
 						more_message=""
-
-
-
 					}
-
-
-
 				}
-
-
-
 				
-
-
-
 				if (message > "")
-
-
-
 				{
-
-
-
 					showmsg = "yes"
-
-
-
 				}                                                   
-
-
-
 			}   
-
-
-
 		}
-
-
-
 		
-
-
-
 		
-
-
-
 		//This code will prevent a submit if data is incoorect
-
-
-
 		if (showmsg == "yes")
-
-
-
 		{
-
-
-
 			alert("The following form field(s) were incomplete or incorrect:\n\n" + message + "\n\n Please complete or correct the form and submit again.")
-
-
-
 		}
-
-
-
 		else
-
-
-
 		{
-
-
-
 			form.submit()
-
-
-
 		}
-
-
-
 		
-
-
-
 		
-
-
-
-			//This code will just warn and then submit if OK is selected.
-
-
-
+		//This code will just warn and then submit if OK is selected.
 		//if (showmsg == "yes")
-
-
-
-			//{
-
-
-
-				//if (confirm("The following form field(s) were incomplete or incorrect:\n\n" + message + "\n\n Please complete or correct the form and submit again."))
-
-
-
-				
-
-
-
-				//form.submit()
-
-
-
-			//}
-
-
-
-		//else
-
-
-
-			//{
-
-
-
+		//{
+			//if (confirm("The following form field(s) were incomplete or incorrect:\n\n" + message + "\n\n Please complete or correct the form and submit again."))
 			//form.submit()
-
-
-
-			//}
-
-
-
+		//}
+		//else
+		//{
+			//form.submit()
+		//}
 			
-
-
-
-			
-
-
-
-			
-
-
-
-		}
-
-
-
-		else
-
-
-
-		{
-
-
-
-			alert ("The copyright information has been changed. \n In order to use this javascript please keep the copyright information intact. \n\n Script Name: Form Validator ver 2.0 \n Copyright: (c) 1998 - Art Lubin / Artswork \n Email: perflunk@aol.com")
-
-
-
-		}
-
-
-
-	}   
+		
+	}
+	else
+	{
+		alert ("The copyright information has been changed. \n In order to use this javascript please keep the copyright information intact. \n\n Script Name: Form Validator ver 2.0 \n Copyright: (c) 1998 - Art Lubin / Artswork \n Email: perflunk@aol.com")
+	}
+}   
 
 
 
