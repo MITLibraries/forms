@@ -660,537 +660,138 @@ function check(form,x)
 
 
 
-	function d_check(form,x,fieldname,i)
-
-
-
+function d_check(form,x,fieldname,i)
 //date must be in MM/DD/YY format OR M/D/YY or a MIX of the two
-
-
-
 {
-
-
-
 	for (var y = 0; y <= x; y++)
-
-
-
 	{
-
-
-
 		if (form.elements[y].name == fieldname)
-
-
-
 			break
-
-
-
 	}       
 
-
-
-	
-
-
-
 	var msg_addition = ""   
-
-
-
 	var sDate = form.elements[y].value
-
-
-
 	var int_or_not = isInteger(form.elements[y].value)
-
-
-
 	if (int_or_not == "true")
-
-
-
 	{
-
-
-
 		if ((!(form.elements[y].value.length >= 6)) || (!(form.elements[y].value.length <= 8)))
-
-
-
 		{
-
-
-
 			msg_addition = form.elements[i].value
-
-
-
 		}
-
-
-
 		else
-
-
-
 		{
-
-
-
 			var SlashlPos = form.elements[y].value.indexOf("/",0)
-
-
-
 			if (SlashlPos > 0 && SlashlPos <= 2)
-
-
-
 			{
-
-
-
 				if (SlashlPos == 1)
-
-
-
 				{
-
-
-
 					if (form.elements[y].value.charAt(0) < 1 || form.elements[y].value.charAt(0) > 9)
-
-
-
 					{
-
-
-
 						msg_addition = form.elements[i].value
-
-
-
 					}
-
-
-
 					else
-
-
-
 					{
-
-
-
 						if ((form.elements[y].value.charAt(0) == 1 || form.elements[y].value.charAt(0) == 3 || form.elements[y].value.charAt(0) == 5 || form.elements[y].value.charAt(0) == 7 || form.elements[y].value.charAt(0) == 8) && ((form.elements[y].value.charAt(2) == 0 && form.elements[y].value.charAt(3) == "/") || (form.elements[y].value.charAt(3) == "/" && form.elements[y].value.length >= 7) || (form.elements[y].value.charAt(1) == "/" && form.elements[y].value.charAt(2) == "/")))
-
-
-
 						{ 
-
-
-
 							msg_addition = form.elements[i].value
-
-
-
 						}
-
-
-
 						else if ((form.elements[y].value.charAt(0) == 1 || form.elements[y].value.charAt(0) == 3 || form.elements[y].value.charAt(0) == 5 || form.elements[y].value.charAt(0) == 7 || form.elements[y].value.charAt(0) == 8) && ((form.elements[y].value.charAt(2) >= 3 && form.elements[y].value.charAt(3) > 1) || (form.elements[y].value.charAt(2) == 0 && form.elements[y].value.charAt(3) == 0) || (form.elements[y].value.charAt(1) == "/" && (form.elements[y].value.charAt(3) != "/" && form.elements[y].value.charAt(4) != "/" && form.elements[y].value.charAt(5) != "/" && form.elements[y].value.charAt(6) != "/"))))
-
-
-
 						{ 
-
-
-
 							msg_addition = form.elements[i].value + "hi"
-
-
-
 						}
-
-
-
 						else if ((form.elements[y].value.charAt(0) == 1 || form.elements[y].value.charAt(0) == 3 || form.elements[y].value.charAt(0) == 5 || form.elements[y].value.charAt(0) == 7 || form.elements[y].value.charAt(0) == 8) && (((form.elements[y].value.charAt(2) > 3 && form.elements[y].value.charAt(3) != "/") || (((form.elements[y].value.charAt(1) == "/" && form.elements[y].value.charAt(4) == "/")) && ((form.elements[y].value.length == 6 || form.elements[y].value.length == 8)))) || form.elements[y].value.charAt(5) == "/"))
-
-
-
 						{
-
-
-
 							msg_addition = form.elements[i].value
-
-
-
 						}
-
-
-
 						else
-
-
-
 						{
-
-
-
 							if ((form.elements[y].value.charAt(0) == 2 && ((form.elements[y].value.charAt(2) == 0 && form.elements[y].value.charAt(3) == "/") || (form.elements[y].value.charAt(3) == "/" && form.elements[y].value.length >= 7) || (form.elements[y].value.charAt(1) == "/" && form.elements[y].value.charAt(2) == "/") || (form.elements[y].value.charAt(2) == 0 && form.elements[y].value.charAt(3) == 0) || (form.elements[y].value.charAt(1) == "/" && (form.elements[y].value.charAt(3) != "/" && form.elements[y].value.charAt(4) != "/" && form.elements[y].value.charAt(5) != "/" && form.elements[y].value.charAt(6) != "/")))))
-
-
-
 							{ 
-
-
-
 								msg_addition = form.elements[i].value
-
-
-
 							}
-
-
-
 							else if (form.elements[y].value.charAt(0) == 2 && ((form.elements[y].value.charAt(2) > 2 && form.elements[y].value.charAt(3) != "/") || (((form.elements[y].value.charAt(1) == "/" && form.elements[y].value.charAt(4) == "/") && ((form.elements[y].value.length == 6 || form.elements[y].value.length == 8)))) || form.elements[y].value.charAt(5) == "/"))
-
-
-
 							{ 
-
-
-
 								msg_addition = form.elements[i].value
-
-
-
 							}
-
-
-
 							else
-
-
-
 							{
-
-
-
 								if ((form.elements[y].value.charAt(0) == 4 || form.elements[y].value.charAt(0) == 6 || form.elements[y].value.charAt(0) == 9) && ((form.elements[y].value.charAt(2) == 0 && form.elements[y].value.charAt(3) == "/") || (form.elements[y].value.charAt(3) == "/" && form.elements[y].value.length >= 7) || (form.elements[y].value.charAt(1) == "/" && form.elements[y].value.charAt(2) == "/")))
-
-
-
 								{ 
-
-
-
 									msg_addition = form.elements[i].value
-
-
-
 								}
-
-
-
 								else if ((form.elements[y].value.charAt(0) == 4 || form.elements[y].value.charAt(0) == 6 || form.elements[y].value.charAt(0) == 9) && ((form.elements[y].value.charAt(2) >= 3 && form.elements[y].value.charAt(3) > 0) || (form.elements[y].value.charAt(2) == 0 && form.elements[y].value.charAt(3) == 0) || (form.elements[y].value.charAt(1) == "/" && (form.elements[y].value.charAt(3) != "/" && form.elements[y].value.charAt(4) != "/" && form.elements[y].value.charAt(5) != "/" && form.elements[y].value.charAt(6) != "/"))))
-
-
-
 								{ 
-
-
-
 									msg_addition = form.elements[i].value
-
-
-
 								}
-
-
-
 								else if ((form.elements[y].value.charAt(0) == 4 || form.elements[y].value.charAt(0) == 6 || form.elements[y].value.charAt(0) == 9) && (((form.elements[y].value.charAt(2) > 3 && form.elements[y].value.charAt(3) != "/") || ((form.elements[y].value.charAt(1) == "/" && form.elements[y].value.charAt(4) == "/") && ((form.elements[y].value.length == 6 || form.elements[y].value.length == 8)))) || form.elements[y].value.charAt(5) == "/"))
-
-
-
 								{
-
-
-
 									msg_addition = form.elements[i].value
-
-
-
 								}
-
-
-
 							}
-
-
-
 						}
-
-
-
 					}
-
-
-
 				}
-
-
-
 				else
-
-
-
 				{
-
-
-
 					if (form.elements[y].value.charAt(0) > 1 || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) > 2) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 0))
-
-
-
 					{
-
-
-
 						msg_addition = form.elements[i].value
-
-
-
 					}
-
-
-
 					else
-
-
-
 					{
-
-
-
 						if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 1) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 3) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 5) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 7) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 8) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 0) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 2)) && ((form.elements[y].value.charAt(3) == 0 && form.elements[y].value.charAt(4) == "/") || (form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(3) == "/") || (form.elements[y].value.charAt(2) == "/" && (form.elements[y].value.charAt(4) != "/" && form.elements[y].value.charAt(5) != "/" && form.elements[y].value.charAt(6) != "/" && form.elements[y].value.charAt(7) != "/"))))
-
-
-
 						{
-
-
-
 							msg_addition = form.elements[i].value       
-
-
-
 						}
-
-
-
 						else if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 1) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 3) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 5) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 7) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 8) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 0) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 2)) && ((form.elements[y].value.charAt(3) >= 3 && form.elements[y].value.charAt(4) > 1) || (form.elements[y].value.charAt(3) == 0 && form.elements[y].value.charAt(4) == 0) || form.elements[y].value.length < 7))
-
-
-
 						{
-
-
-
 							msg_addition = form.elements[i].value
-
-
-
 						}
-
-
-
 						else if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 1) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 3) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 5) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 7) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 8) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 0) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 2)) && ((form.elements[y].value.charAt(3) > 3 && form.elements[y].value.charAt(4) != "/")   || ((form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(5) == "/" && form.elements[y].value.length == 7 || form.elements[y].value.charAt(6) == "/") || (form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(4) == "/" && (form.elements[y].value.length == 6 || form.elements[y].value.length == 8)))))
-
-
-
 						{
-
-
-
 							msg_addition = form.elements[i].value
-
-
-
 						}
-
-
-
 						else
-
-
-
 						{
-
-
-
 							if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 2) && ((form.elements[y].value.charAt(3) == 0 && form.elements[y].value.charAt(4) == "/") || (form.elements[y].value.charAt(3) == 0 && form.elements[y].value.charAt(4) == 0)) || form.elements[y].value.length < 7) || (form.elements[y].value.charAt(2) == "/" && (form.elements[y].value.charAt(4) != "/" && form.elements[y].value.charAt(5) != "/" && form.elements[y].value.charAt(6) != "/" && form.elements[y].value.charAt(7) != "/")))
-
-
-
 							{
-
-
-
 								msg_addition = form.elements[i].value
-
-
-
 							}
-
-
-
 							else if ((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 2) && ((form.elements[y].value.charAt(3) > 2 && form.elements[y].value.charAt(4) != "/") || ((form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(5) == "/" && form.elements[y].value.length == 7 || form.elements[y].value.charAt(6) == "/") || (form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(4) == "/" && (form.elements[y].value.length == 6 || form.elements[y].value.length == 8)))))
-
-
-
 							{
-
-
-
 								msg_addition = form.elements[i].value
-
-
-
 							}
-
-
-
 							else
-
-
-
 							{           
-
-
-
 								if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 4) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 6) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 9) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 1)) && ((form.elements[y].value.charAt(3) == 0 && form.elements[y].value.charAt(4) == "/") || (form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(3) == "/") || (form.elements[y].value.charAt(2) == "/" && (form.elements[y].value.charAt(4) != "/" && form.elements[y].value.charAt(5) != "/" && form.elements[y].value.charAt(6) != "/" && form.elements[y].value.charAt(7) != "/"))))
-
-
-
 								{
-
-
-
 									msg_addition = form.elements[i].value
-
-
-
 								}
-
-
-
 								else if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 4) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 6) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 9) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 1)) && ((form.elements[y].value.charAt(3) >= 3 && form.elements[y].value.charAt(4) > 0) || (form.elements[y].value.charAt(3) == 0 && form.elements[y].value.charAt(4) == 0) || form.elements[y].value.length < 7))
-
-
-
 								{
-
-
-
 									msg_addition = form.elements[i].value
-
-
-
 								}
-
-
-
 								else if (((form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 4) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 6) || (form.elements[y].value.charAt(0) == 0 && form.elements[y].value.charAt(1) == 9) || (form.elements[y].value.charAt(0) == 1 && form.elements[y].value.charAt(1) == 1)) && ((form.elements[y].value.charAt(3) > 3 && form.elements[y].value.charAt(4) != "/") || ((form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(5) == "/" && form.elements[y].value.length == 7 || form.elements[y].value.charAt(6) == "/") || (form.elements[y].value.charAt(2) == "/" && form.elements[y].value.charAt(4) == "/" && (form.elements[y].value.length == 6 || form.elements[y].value.length == 8)))))
-
-
-
 								{
-
-
-
 									msg_addition = form.elements[i].value
-
-
-
 								}
-
-
-
 							}
-
-
-
 						}       
-
-
-
 					}
-
-
-
 				}
-
-
-
 			}
-
-
-
 			else
-
-
-
 			{
-
-
-
 				msg_addition = form.elements[i].value
-
-
-
 			}
-
-
-
 		}
-
-
-
 	}
-
-
-
 	else
-
-
-
 	{
-
-
-
 		msg_addition = form.elements[i].value
-
-
-
 	}
-
-
-
 	return(msg_addition)
-
-
-
 }
-
-
-
-
-
-
 
 function isInteger(sDate) {
 
@@ -1238,7 +839,9 @@ function doall(script_name, copyright, email) {
 }
 
 function charSetStr() {
+
 	var str;
 	str = ' !"#$%&' + "'" + '()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
 	return str;
+
 }
