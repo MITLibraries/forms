@@ -103,85 +103,85 @@ function check(form,x)
 }   
 
 
-	function r_check(form,x,fieldname,i)
+function r_check(form,x,fieldname,i)
+{
+	var msg_addition = ""
+	new_fieldname = fieldname
+	for (var y = 0; y <= x; y++)
 	{
-		var msg_addition = ""
-		new_fieldname = fieldname
-		for (var y = 0; y <= x; y++)
-		{
 
-			if ((form.elements[y].type == "radio" || form.elements[y].type == "checkbox") && form.elements[y].name == new_fieldname && form.elements[y].checked == true)
-			{
-				msg_addition = ""
-				break
-			}
-			else if ((form.elements[y].type == "radio" || form.elements[y].type == "checkbox") && form.elements[y].name == new_fieldname && form.elements[y].checked == false)
-			{
-				msg_addition = form.elements[i].value
-			}
-			else if (form.elements[y].type == "select-one")
-			{
-				var l = form.elements[y].selectedIndex
-				if (form.elements[y].name == fieldname && form.elements[y].options[l].value != "")
-				{
-					msg_addition = ""
-					break
-				}
-				else if (form.elements[y].name == fieldname && form.elements[y].options[l].value == "")
-				{
-					msg_addition = form.elements[i].value
-				}
-			}
-			else if (form.elements[y].name == fieldname && form.elements[y].value == "" && form.elements[y].type != "radio" && form.elements[y].type != "checkbox" && form.elements[y].type != "select-one")
-			{
-				msg_addition = form.elements[i].value
-				break
-			}
-			else if (form.elements[y].name == fieldname && form.elements[y].value != "" && form.elements[y].type != "radio" && form.elements[y].type != "checkbox" && form.elements[y].type != "select-one")
-			{
-				msg_addition = ""
-			}   
+		if ((form.elements[y].type == "radio" || form.elements[y].type == "checkbox") && form.elements[y].name == new_fieldname && form.elements[y].checked == true)
+		{
+			msg_addition = ""
+			break
 		}
-		return(msg_addition)
-	}
-
-
-	function i_check(form,x,fieldname,i)
-	{
-		for (var y = 0; y <= x; y++)
-		{
-			if (form.elements[y].name == fieldname)
-				break
-		}                       
-		
-		var msg_addition = ""
-		var decimal = ""
-		inputStr = form.elements[y].value.toString()
-		if (inputStr == "")
+		else if ((form.elements[y].type == "radio" || form.elements[y].type == "checkbox") && form.elements[y].name == new_fieldname && form.elements[y].checked == false)
 		{
 			msg_addition = form.elements[i].value
 		}
-		else
+		else if (form.elements[y].type == "select-one")
 		{
-			for (var c = 0; c < inputStr.length; c++)
+			var l = form.elements[y].selectedIndex
+			if (form.elements[y].name == fieldname && form.elements[y].options[l].value != "")
 			{
-				var oneChar = inputStr.charAt(c)
-				if (c == 0 && oneChar == "-" || oneChar == "."  && decimal == "")
-				{
-					if (oneChar == ".")
-					{
-						decimal = "yes"
-					}
-					continue
-				}
-				if (oneChar < "0" || oneChar > "9")
-				{
-					msg_addition = form.elements[i].value
-				}
+				msg_addition = ""
+				break
+			}
+			else if (form.elements[y].name == fieldname && form.elements[y].options[l].value == "")
+			{
+				msg_addition = form.elements[i].value
 			}
 		}
-		return(msg_addition)
-	}   
+		else if (form.elements[y].name == fieldname && form.elements[y].value == "" && form.elements[y].type != "radio" && form.elements[y].type != "checkbox" && form.elements[y].type != "select-one")
+		{
+			msg_addition = form.elements[i].value
+			break
+		}
+		else if (form.elements[y].name == fieldname && form.elements[y].value != "" && form.elements[y].type != "radio" && form.elements[y].type != "checkbox" && form.elements[y].type != "select-one")
+		{
+			msg_addition = ""
+		}   
+	}
+	return(msg_addition)
+}
+
+
+function i_check(form,x,fieldname,i)
+{
+	for (var y = 0; y <= x; y++)
+	{
+		if (form.elements[y].name == fieldname)
+			break
+	}                       
+	
+	var msg_addition = ""
+	var decimal = ""
+	inputStr = form.elements[y].value.toString()
+	if (inputStr == "")
+	{
+		msg_addition = form.elements[i].value
+	}
+	else
+	{
+		for (var c = 0; c < inputStr.length; c++)
+		{
+			var oneChar = inputStr.charAt(c)
+			if (c == 0 && oneChar == "-" || oneChar == "."  && decimal == "")
+			{
+				if (oneChar == ".")
+				{
+					decimal = "yes"
+				}
+				continue
+			}
+			if (oneChar < "0" || oneChar > "9")
+			{
+				msg_addition = form.elements[i].value
+			}
+		}
+	}
+	return(msg_addition)
+}   
 
 
 // Iterate over comma separated list of email addresses
