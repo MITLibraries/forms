@@ -34,17 +34,21 @@ function check(form,x)
 				{
 					more_message = r_check(form,x,fieldname,i)
 				}
-				else if (messenger == "i_")
+				else if (messenger == "i_") // integers
 				{
 					more_message = i_check(form,x,fieldname,i)
 				}
-				else if (messenger == "d_")
+				else if (messenger == "d_") // dates
 				{
 					more_message = d_check(form,x,fieldname,i)
 				}
-				else if (messenger == "e_")
+				else if (messenger == "e_") // email addresses
 				{
 					more_message = e_check(form,x,fieldname,i)
+				}           
+				else if (messenger == "m_") // multiple email addresses
+				{
+					more_message = e_check_multi(form,x,fieldname,i)
 				}           
 				if (more_message != "")
 				{
@@ -449,7 +453,17 @@ function check(form,x)
 
 
 	
-
+// Iterate over comma separated list of email addresses
+function e_check_multi(form,x,fieldname,i)
+{
+	console.log(form);
+	console.log(x);
+	console.log(fieldname);
+	console.log(i);
+	
+	var msg_addition = ""
+	return(msg_addition)
+}
 
 
 //Email validation added 6/20/98
