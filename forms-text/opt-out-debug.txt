@@ -16,10 +16,16 @@ oapolicyoptout@mit.edu
 
 Name of MIT author: [>fullname<]
 
+Email: [>email<]
+
+Coauthors: [>coauthors<]
+
 Title of article: [>title<]
 
 Journal you expect to publish in: [>journal<]
 
 Reason you are opting out: 
+
+[>why<]
 
 [>reason<]
