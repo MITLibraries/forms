@@ -76,7 +76,7 @@ class FormProcessor {
     }
 
     // Redirect to thank you page
-    $this->log->write('[FORM] Redirecting user');
+    $this->log->write('[Form] Redirecting user');
     header("Location: ".$this->thankyou);
 
   }
@@ -254,62 +254,6 @@ class FormProcessor {
 
   private function templateExists ($file) {
     return (file_exists($file)) ? TRUE : FALSE;
-  }
-
-  /**
-  * validateEmail performs two checks:
-  * 1 - consults isemail.info lookup service to verify syntax
-  *     (the rules for email syntax are surprisingly arcane, not easily summed up in a short regex)
-  *     about the service: http://isemail.info/about
-  *
-  * 2 - attempts to look up DNS for specified remote server to verify that it exists
-  *     technique from http://www.linuxjournal.com/article/9585?page=0,3
-  * 
-  * A planned third part will attempt to verify the local part, depending on the responsiveness of 
-  * the remote mailserver.
-  * Ref: http://www.endseven.net/php-check-if-an-email-address-exists
-  *
-  * Returns TRUE/FALSE
-  */
-  private function validateEmail($addr) {
-    $this->log->write('FORM - Email validation of ' . $addr);
-
-    // set result to false (guilty until proven innocent)
-    $result = FALSE;
-
-    // Part 1: consult isemail.info via curl
-    // 0 = invalid
-    // 1 = valid
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "http://isemail.info/valid/".$addr);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $out = curl_exec($ch);
-    $this->log->write("FORM - Email 1/2 validation result: ".$out);
-    curl_close($ch);
-
-    if ( $out != 1 ) {
-      return $result;
-    }
-
-    // Part 2: DNS lookup
-    // isolate the domain ("remote part")
-    // adapted from http://www.linuxjournal.com/article/9585?page=0,3
-    $domain = substr( $addr , strrpos( $addr , "@" ) + 1 );
-    if ( checkdnsrr( $domain , "MX" ) || checkdnsrr( $domain , "A" ) ) {
-
-      $result = true;
-      $this->log->write("FORM - Email 2/2 validation passed");
-
-    } else {
-
-      $this->log->write("FORM - Email 2/2 validation failed");
-
-    }
-
-    // Part 3: verifying the local part of $addr will come later
-
-    return $result;
-
   }
 
 }
