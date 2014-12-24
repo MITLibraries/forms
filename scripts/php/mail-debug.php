@@ -34,13 +34,6 @@ if(count($_POST)){
 
 	$log->write('FORM - Referer ' . $strTemplateFile);
 
-	// Log submitted values for everything but the tell us staff form (which is more strictly anonymous)
-	if ($strTemplateFile != 'tell-us-staff.html') {
-		foreach ($_REQUEST as $key => $value) {
-			$log->write('FORM: ' . $key . ": " . $value);
-		}
-	}
-
 	debugText("Thank You: ".$strThankYou);
 	debugText("Template: ".$fileTemplate);
 
@@ -86,7 +79,7 @@ if(count($_POST)){
 							// Flag as invalid
 							$log->write('FORM: Email - Sender address verification failed, rejecting submission');
 							debugText("Email validation failed");
-							// $valid = FALSE;
+							$valid = FALSE;
 						}
 					}
 					break;
@@ -113,7 +106,7 @@ if(count($_POST)){
 					} else {
 						$log->write('FORM: Email - Recipient address validation failed, rejecting submission');
 						debugText("Recipient validation failed");
-						// $valid = FALSE;
+						$valid = FALSE;
 					}
 					break;
 				case 'subject':

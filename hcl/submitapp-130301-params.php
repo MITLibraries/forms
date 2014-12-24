@@ -1,22 +1,67 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Harvard Library Application:  MIT Libraries</title>
-    <!-- Copyright (C) 2001 Massachusetts Institute of Technology-->
-    <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-    <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-  </head>
-<body>
-  <div id="container">
-   <!--#include virtual="/includes/header-semantic.html"-->
+<!Doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+               "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Harvard Library Application:  MIT Libraries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- Copyright (C) 2001 Massachusetts Institute of Technology-->
+<link href="../css/simple2.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#333333" link="#336699" vlink="#000033">
+<!-- top stuff -->
+<table width="717" border=0 cellpadding=0 cellspacing=0> 
+  <tr><!-- graphics and links at top --> 
+<td width=717> <map name="topgfxmap"> 
+<area shape="rect" coords="9,6,23,17" href="#content" alt="Skip to content">
+<area shape="rect" coords="54,7,78,19" href="#form" alt="Skip to form">
+<area shape="rect" alt="MIT libraries" coords="176,2,298,20" href="../index.html"> 
+<area shape="rect" alt="Site Index" coords="544,7,628,17" href="../site-index.html"> 
+<area shape="rect" alt="Search" coords="631,7,693,17" href="../search-web.html">
+</map> 
+<img src="../img/topgfx.gif" width=717 height=25 border=0 usemap="#topgfxmap" alt="Skip to content | Skip to form | MIT Libraries | Site Index | Search"></td>
+</tr> 
+<tr><!-- white line --> <td width=717 bgcolor="#FFFFFF"> <img src="../img/spacer.gif" width=717 height=1 alt=""></td>
+</tr> 
+<tr><!-- blue band --> <td width=717 bgcolor="#669999"> <img src="../img/spacer.gif" width=717 height=6 alt=""></td>
+</tr> 
+<tr><!-- white line --> <td width=717 bgcolor="#FFFFFF"> <img src="../img/spacer.gif" width=717 height=1 alt=""></td>
+</tr> 
+<tr><!-- navigation --> <td width=717 bgcolor="#FFFFFF"> <a href="../search/index.html"><img
+       src="../img/nav/nav_soc.gif" width=183 height=14 border=0
+       alt="Search Our Collections |" ></a><img
+       src="../img/spacer.gif" width=1 height=14
+       alt=""><a href="../ask-us/index.html"><img
+       src="../img/nav/nav_rh.gif" width=122 height=14 border=0
+       alt="Ask Us |" ></a><img
+       src="../img/spacer.gif" width=1 height=14
+       alt=""><a href="../help/index.html"><img
+       src="../img/nav/nav_sc.gif" width=144 height=14 border=0
+       alt="Help Yourself |" ></a><img
+       src="../img/spacer.gif" width=1 height=14
+       alt=""><a href="../ordering/index.html"><img
+       src="../img/nav/nav_bo.gif" width=174 height=14 border=0
+       alt="Borrowing + Ordering |" ></a><img
+       src="../img/spacer.gif" width=1 height=14
+       alt=""><a href="../about/index.html"><img
+       src="../img/nav/nav_au.gif" width=90 height=14 border=0
+       alt="About Us" ></a><br> 
+  <img src="../img/spacer.gif" width=717 height=10  alt="--"></td>
+</tr> </table>
+<table><tr><!-- header and white space --> <td width=717 height=16 bgcolor="#FFFFFF"> 
+<img src="../img/spacer.gif" width=717 height=18 alt=""></td></tr> 
+<tr><!-- libraries logo and main text --> 
+<td width=715 bgcolor="#FFFFFF"> <table width="715" border=0 cellpadding=0 cellspacing=0> 
+<tr> <td rowspan=2 align=left valign=top> <p><a href="../index.html"><img src="../img/level2/logo_on_white.gif" width=80 height=36 border=0 alt="MIT Libraries"></a></p>
+  <p>&nbsp;</p>
+  </td><td width=418 height=15> 
+<img src="../img/spacer.gif" width=418 height=15 alt=""></td><td width=117 height=15> 
+<img src="../img/spacer.gif" width=115 height=15 alt=""></td>
+</tr> <tr> <td colspan="2" align=left valign=top> 
+
   <p>
 <?php
 
-// Setting this causes CCs to be sent - check the code for recipients
-$boolDebug = FALSE;
-
-date_default_timezone_set('America/New_York');
+  date_default_timezone_set('America/New_York');
 
 //get post data - proxy server actually sends back get data.
 $source = isset($_POST['source'])?$_POST['source']:'';
@@ -53,6 +98,7 @@ if( (strlen($mit_id) == 0)
   echo "Please resubmit your application with correct input.</p>\n";
   echo "<p>\n";
 }
+
 
 $form_problem = false;	// flag to mark if something goes wrong
 // form problems result in immediate error and does not submit
@@ -125,7 +171,7 @@ if (strlen($email) == 0)
   echo "<p>Error - \'$email\' doesn't appear to be an email address</p>";
   $form_problem = true;
 }
- 
+
 /* Build a formdata array */
 $formdata = "Submission form: $source\n";
 $formdata .= "Full name: $fullname\n";
@@ -140,17 +186,21 @@ $formdata .= "Lab/center/research: $department2\n";
 $formdata .= "Leaving date: $endingdate\n";
 $formdata .= "Comments: $comment\n";
 
+
+
 //check warehouse and aleph to see if this kerberos/id is valid for auto-approval
 //if it is, then make pdf and email it to applicant
 //email to monitoring address with form data, approval, and pdf regardless
 
 require_once 'fpdf/fpdi.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/PHPMailer/class.phpmailer.php';
+require_once '/usr/share/php/Mail.php';
+require_once '/usr/share/php/Mail/mime.php';
 
 // make kerbname uppercase and escape any apostrophes (there shouldn't be apostrophes anyway, but there might be bad input)
 $fixed_kerbname = str_replace("'","''",strtoupper($kerbname));
 
 // warehouse lookups
+
 $warehousedata = '';
 
   // connect to warehouse
@@ -234,7 +284,7 @@ if ($warehouse) {
         $warehousedata .= "Error - Student type is Undergrad, not eligible for Countway privileges.\n";
         $data_problem = true;
       }
-      $fullname = $studentresult['LAST_NAME'] . ', ' . $studentresult['FIRST_NAME'] . ' ' . $studentresult['MIDDLE_NAME'];
+      $fullname = $studentresult['LAST_NAME'] . ', ' . $studentresult['FIRST_NAME'] . ' ' . $studentresult['MIDDLE NAME'];
     } else {
       $warehousedata .= "Name: {$employeeresult['FULL_NAME']}\n";
       $warehousedata .= "Email: {$employeeresult['EMAIL_ADDRESS']}\n";
@@ -256,13 +306,13 @@ if ($warehouse) {
     }
   }
  }
-
 // aleph lookups
+
 $alephdata = '';
 
   // connect to aleph (currently using test server)
   $aleph = oci_connect('script_user','tuespref',
-		       '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=library.mit.edu)(PORT=1521)))(CONNECT_DATA=(SID=ALEPH22)))');
+		       '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=library.mit.edu)(PORT=1521)))(CONNECT_DATA=(SID=ALEPH20)))');
 
   if (!$aleph) {
      $alephdata .= "Error - Unable to connect to Aleph for verification.\n";
@@ -272,8 +322,8 @@ $alephdata = '';
 if ($aleph) {
   //get aleph id for this person
   $fixed_kerbname_z308 = $fixed_kerbname . '@MIT.EDU';
-  $z308kerbname = substr_replace('04                                                                                                                                                                                                                                                               MIT50',$fixed_kerbname_z308,2,strlen($fixed_kerbname_z308));
-  $z308mit_id = substr_replace('02                                                                                                                                                                                                                                                               MIT50',$mit_id,2,strlen($mit_id));
+  $z308kerbname = substr_replace('04                    MIT50',$fixed_kerbname_z308,2,strlen($fixed_kerbname_z308));
+  $z308mit_id = substr_replace('02                    MIT50',$mit_id,2,strlen($mit_id));
 
   $statement = oci_parse($aleph, "select z308_id from mit50.z308 where z308_rec_key = '$z308kerbname'");
   oci_execute($statement, OCI_DEFAULT);
@@ -384,17 +434,23 @@ EOL;
   // disconnect from aleph
   oci_close($aleph);
  }
-
 if($form_problem == true)
 {
-  if($boolDebug){
-    echo "<p>Possible Problem:  $warehousedata</p>\n";
-    echo "<p>Possible Problem:  $alephdata</p>\n";
-  }
+//  echo "<p>Possible Problem:  $warehousedata</p>\n";
+//  echo "<p>Possible Problem:  $alephdata</p>\n";
   print_footer();
 
   exit (0);
  } 
+
+//if($data_problem == true)
+//{
+//  echo "<p>Possible Problem:  $warehousedata</p>\n";
+//  echo "<p>Possible Problem:  $alephdata</p>\n";
+//  print_footer();
+
+//  exit (0);
+// }
 
 if ($source == 'Harvard')
 {
@@ -427,7 +483,6 @@ if ($source == 'Harvard')
 }
 
 // build pdf using FPDF, with FPDI to put a template pdf in the background
-$tmpdir = "/var/tmp/hcl/";
 $pdf =& new FPDI();
 $pdf->AddPage();
 $pdf->setSourceFile('blankletterhead.pdf');
@@ -466,161 +521,138 @@ else
   $identifier = 'unknown user';
 }
 
-// Write PDF to temp storage
-$tmppdf = $source."-".$identifier.".pdf";
-$pdf->Output($tmpdir.$tmppdf,'F');
-
-/* ############################################################################
-####
-#### Checks are over, now send notifications
-# */
-
-// build and send emails 
-$responseaddr = 'circulation@mit.edu'; // email address to notify of applications, and to use as reply address on approval email
-if($boolDebug){
-  $responseaddr = 'orbitee@mit.edu';
-}
+// build and send emails with Mail_Mime and Mail PEAR packages
+   $responseaddr = 'circulation@mit.edu'; // email address to notify of applications, and to use as reply address on approval email
+// $responseaddr = 'orbitee@mit.edu';
 
 // Only send this email to the patron if it was auto-approved.
-if(!$data_problem || $boolDebug) {
+if(!$data_problem)
+{
 
-  echo "<!-- No data problem, so email the patron -->";
   $body = file_get_contents($source . '_approval.txt');
   $body = str_replace('[name]',$fullname,$body);
   if ($source == 'Harvard' && $status == 'UG') {
     $body .= "\n Please note that borrowing privileges for undergraduates is a pilot service with the Harvard College Library offered for the 2010-11 academic year.  Undergraduate borrowing privileges do not extend to the Loeb Graduate School of Design Library, but on site access is permitted.\n";
   }
 
-  // Initialize email
-  $mail = new PHPMailer;
-  $mail->IsSendmail();
-
-  // Set body
-  $mail->Body = $body;
-  // Attach PDF
-  $mail->AddAttachment($tmpdir.$tmppdf,$tmppdf,'base64','application/pdf');
-  // From
-  $mail->SetFrom($responseaddr,'Circulation');
-  // Subject
-  $mail->Subject = ($source . '-MIT-' . $identifier);
-  // CC
+  $mime = new Mail_mime ();
+  $mime->setTXTBody($body);
+  $mime->addAttachment($pdf->Output("$source-$identifier.pdf",'S'), 'application/pdf', "$source-$identifier.pdf", false, 'base64');
+  $mime->setFrom($responseaddr);
+  $mime->setSubject($source . '-MIT-' . $identifier);
   if ($source == 'Countway') {
-    if($boolDebug){
-      $mail->AddCC('cassfox@mit.edu');
-      $mail->AddCC('mjbernha@mit.edu');
-    } else {
-      $mail->AddCC('circinfo@hms.harvard.edu');
-    }
+    $mime->addCc('circinfo@hms.harvard.edu');
+//    $mime->addCc('cassfox@mit.edu');
   } else {
-    if($boolDebug){
-      $mail->AddCC('orbitee@mit.edu');
-      $mail->AddCC('mjbernha@mit.edu');
-    } else {
-      $mail->AddCC('wprivmit@fas.harvard.edu');
-    }
-  }
-  $mail->AddAddress($email);
-  // Send email
-  if(!$mail->Send()){
-    echo $mail->ErrorInfo;
-  } else {
-    echo "<!-- Patron email sent -->";
+    $mime->addCc('wprivmit@fas.harvard.edu');
+//    $mime->addCc('orbitee@mit.edu');
   }
 
-} else {
-  echo "<!-- data problem -->";
+  $body = $mime->get();
+  $hdrs = $mime->headers();
+
+  $mail =& Mail::factory('mail', '-fcirculation@mit.edu');
+  $mail->send($email, $hdrs, $body);
 }
 
 // send notification email regardless
+
 $body = 'Application submitted on ' . date('Y-m-d');
 $body .= "\n\n-- Form data --\n" . $formdata;
 $body .= "\n\n-- Warehouse data --\n" . $warehousedata;
 $body .= "\n\n-- Aleph data --\n" . $alephdata;
 $body .= "\n\n-- Process applications here: http://libproxy.mit.edu/login?url=http://libraries.mit.edu/hcl/admin/listapps.php --\n" . $alephdata;
 
-$mail = new PHPMailer;
-$mail->IsSendmail();
-$mail->Body = $body;
-$mail->AddAttachment($tmpdir.$tmppdf,$tmppdf,'base64','application/pdf');
-$mail->SetFrom($responseaddr,'Circulation');
-$mail->Subject = $source." access application for ".$identifier.(!$data_problem?' Auto-approved':' Requires review');
-$mail->AddCC('circulation@mit.edu');
-if($boolDebug){
-  $mail->AddCC('orbitee@mit.edu');
-  $mail->AddCC('mjbernha@mit.edu');
-}
-$mail->AddAddress($responseaddr);
-// Send email
-if(!$mail->Send()){
-  echo $mail->ErrorInfo;
-} else {
-  echo "<!-- Notification email sent -->";
-}
+$mime = new Mail_mime ();
+$mime->setTXTBody($body);
+$mime->addAttachment($pdf->Output("$source-$identifier.pdf",'S'), 'application/pdf', "$source-$identifier.pdf", false, 'base64');
+$mime->setFrom($responseaddr);
+$mime->setSubject("$source access application for $identifier" . (!$data_problem?' Auto-approved':' Requires review'));
+$mime->addCc('circulation@mit.edu');
+//$mime->addCc('orbitee@mit.edu');
+
+$body = $mime->get();
+$hdrs = $mime->headers();
+
+$mail =& Mail::factory('mail','-fcirculation@mit.edu');
+$mail->send($responseaddr, $hdrs, $body);
 
 $decision =  (!$data_problem?'approved':'pending');
 $decisionmaker = (!$data_problem?'AUTO':'');
 $decisiondate = (!$data_problem?date('Y-m-d'):'');
 
-// Store application in database
-// Code cribbed from http://php.net/manual/en/mysqli-stmt.bind-param.php
+// attempting to switch applications db call from mysql to mysqli in order to parameterize the insert statement
+if($kerbname == 'MJBERNHA') {
+  // connect to db, test connection
+  $conn = mysqli_connect('libdb.mit.edu','hcl','54aH0FCe1xmx','hcl');
+  if (mysqli_connect_errno()) {
+    echo '<p>Connection failed: %s \n', mysqli_connect_error();
+    exit();
+  }
 
-// connect to db, test connection
-$conn = mysqli_connect('libdb.mit.edu','hcl','54aH0FCe1xmx','hcl');
-if (mysqli_connect_errno()) {
-  $mail = new PHPMailer;
-  $mail->IsSendmail();
-  $mail->Body = "An error occurred with a database connection to the HCL database. Please investigate.";
-  $mail->Subject = "HCL Connection Error";
-  $mail->AddAddress("mjbernha@mit.edu");
-  $mail->Send();
-  echo '<p>Error: a connection to the database could not be established. The support team has been notified.</p>';
-  print_footer();
-  exit();
+  // define sql statement
+  $sql = "INSERT INTO hcl.applications_test ("
+    ."source, appdate, mit_id, kerbname, fullname, email, address, phone, status, department1, department2, endingdate, comment, decision, decisionmaker, decisiondate, expirydate"
+    .") VALUES ("
+    ."?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+  // define statement
+  $stmt = mysqli_prepare($conn, $sql)
+
+  // bind sql and parameters into statement
+  mysqli_stmt_bind_param($stmt, 'sssssssssssssssss', 'Harvard', CURDATE(), $mit_id, $kerbname, $fullname, $email, $address, $phone, $status, $department1, $department2, $endingdate, $comment, $decision, $decisionmaker, $decisiondate, $expiry);
+
+  // http://php.net/manual/en/mysqli-stmt.bind-param.php
+  // demonstration code has value definitions after the statement - but ours are already set?
+
+  // execute
+  mysqli_stmt_execute($stmt);
+
+  // discard statement
+  mysqli_stmt_close($stmt);
+
+  mysqli_close($conn);
+
+} else {
+  mysql_connect('libdb.mit.edu','hcl','54aH0FCe1xmx');
+  $sql = "";
+  mysql_query("insert into hcl.applications(source, appdate, mit_id, kerbname, fullname, email, address, phone, status, department1, department2, endingdate, comment, decision, decisionmaker, decisiondate, expirydate) values('Harvard', CURDATE(), '$mit_id','$kerbname','$fullname','$email','$address','$phone','$status','$department1','$department2','$endingdate','$comment','$decision','$decisionmaker', '$decisiondate', '$expiry')") or die(mysql_error());
 }
 
-// define sql statement
-$sql = "INSERT INTO hcl.applications ("
-  ."source, appdate, mit_id, kerbname, fullname, email, address, phone, status, department1, department2, endingdate, comment, decision, decisionmaker, decisiondate, expirydate"
-  .") VALUES ("
-  ."?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+echo "<h1><a name=\"content\"></a>Thank You</h1>\n";
+echo "<p>Your request for Harvard Library access has been sent. </p>\n";
+echo "<p>You will get a response as soon as possible, and no later than 5:00 PM the\n";
+echo "next business day.\n";
 
-// define statement and static parameters
-$stmt = mysqli_prepare($conn, $sql);
-$source = 'Harvard';
-$appdate = date('Y-m-d');
-
-// bind sql and parameters into statement
-mysqli_stmt_bind_param($stmt, 'sssssssssssssssss', $source, $appdate, $mit_id, $kerbname, $fullname, $email, $address, $phone, $status, $department1, $department2, $endingdate, $comment, $decision, $decisionmaker, $decisiondate, $expiry);
-
-// execute
-mysqli_stmt_execute($stmt);
-
-// discard statement
-mysqli_stmt_close($stmt);
-
-// close db connection
-mysqli_close($conn);
-
-print_thanks();
 print_footer();
 
-function print_thanks() {
-?>
-    <h1>Thank You</h1>
-    <p>Your request for Harvard Library access has been sent.</p>
-    <p>You will get a response as soon as possible, and no later than 5:00 PM the next business day.</p>
-    <p>If you have questions, please <a href="mailto:circulation@mit.edu">Ask Us!</a></p>
-<?php  
-}
-
-function print_footer() {
-?>
-
-    <!--#include virtual="/includes/footer-semantic.html" -->
-  </div>
-</body>
-</html>
-<?php
+function print_footer()
+{
+  echo "If you have questions, please <a href=\"mailto:circulation@mit.edu\">Ask Us!</a> </p>\n";
+//  echo "<p>    You will receive a copy of your request via email. <br>\n";
+//  echo "(If you don't receive a copy, it's possible that your request didn't go through. In that case, please fill out the form again, or send email to <a href=\"mailto:webmaster@libraries.mit.edu\">webmaster@libraries.mit.edu</a>). </p>\n";
+  echo "<p>&nbsp;</p>\n";
+  echo "<hr noshade size=\"1\" align=\"LEFT\">\n";
+  //  echo "<p><a href=\"http://libraries.mit.edu/about/contact.html\">Contact us</a> </p>\n";
+  echo "<p>&nbsp;</p>\n";
+  echo "</td>\n";
+  echo "</tr> \n";
+  echo "<tr> <td width=182 height=50><img src=\"../img/spacer.gif\" width=95 height=50> </td>\n";
+  echo "<td width=418 height=50>\n";
+  echo "<img src=\"../img/spacer.gif\" width=505 height=50></td>\n";
+  echo "<td width=117 height=50>\n";
+  echo "<img src=\"../img/spacer.gif\" width=115 height=50></td></tr> </table></td></tr> \n";
+  echo "</table>\n";
+  echo "<script type=\"text/javascript\">\n";
+  echo "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n";
+  echo "document.write(unescape(\"%3Cscript src=\'\" + gaJsHost + \"google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E\"));\n";
+  echo "</script>\n";
+  echo "<script type=\"text/javascript\">\n";
+  echo "var pageTracker = _gat._getTracker(\"UA-1760176-1\");\n";
+  echo "pageTracker._initData();\n";
+  echo "pageTracker._trackPageview();\n";
+  echo "</script></body>\n";
+  echo "</html>\n";
 }
 
 ?>

@@ -1,0 +1,90 @@
+
+/** 
+ * CSS styles for the 2012 semantic header scheme, worked out between Darcy Duke and Matt Bernhardt
+ */
+ /* General styles */
+#header-semantic {
+  background: #fff url('/img/header-background.png') repeat-x;
+}
+div#header-semantic * {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#header-semantic ul {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+#header-semantic li {
+  display: inline;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  height: 14px;
+}
+#header-semantic a {
+  text-decoration: none;
+  color: black;
+}
+#header-semantic a:focus,
+#header-semantic a:hover {
+  text-decoration: underline;
+}
+/* Organization "MIT libraries" */
+div#header-semantic p.organization {
+  color: #cbfe99;
+  text-transform: lowercase;
+  font-weight: bold;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  padding-left: 178px;
+  padding-top: 5px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid white;
+}
+div#header-semantic p.organization a {
+  color: #CBFE99;
+}
+div#header-semantic p.organization abbr {
+  text-transform: uppercase;
+  border: none;
+}
+
+
+/* Index-Search menu */
+div#header-semantic ul.index-search {
+  float: right;
+  margin: 0;
+  margin-top: -29px;
+  margin-right: 24px;
+  padding: 0;
+}
+div#header-semantic ul.index-search li {
+  background: #4b78a5;
+/*  display: inline-block; */
+}
+div#header-semantic ul.index-search li a {
+  font-weight: bold;
+  width: 100px;
+  padding: 0 1em;
+}
+div#header-semantic ul.index-search li a:hover,
+div#header-semantic ul.index-search li a:focus {
+  color: #cbfe99;
+  background: #3c6084;
+}
+
+
+/* Navigation menu */
+div#header-semantic ul.navigation li {
+  border-left: 1px solid #669c9c;
+  padding: 0 1em;
+}
+div#header-semantic ul.navigation li:first-child {
+  border-left: none;
+}
+div#header-semantic ul.navigation li a {
+  color: #4A7171;
+}

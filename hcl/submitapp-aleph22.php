@@ -234,7 +234,7 @@ if ($warehouse) {
         $warehousedata .= "Error - Student type is Undergrad, not eligible for Countway privileges.\n";
         $data_problem = true;
       }
-      $fullname = $studentresult['LAST_NAME'] . ', ' . $studentresult['FIRST_NAME'] . ' ' . $studentresult['MIDDLE_NAME'];
+      $fullname = $studentresult['LAST_NAME'] . ', ' . $studentresult['FIRST_NAME'] . ' ' . $studentresult['MIDDLE NAME'];
     } else {
       $warehousedata .= "Name: {$employeeresult['FULL_NAME']}\n";
       $warehousedata .= "Email: {$employeeresult['EMAIL_ADDRESS']}\n";
