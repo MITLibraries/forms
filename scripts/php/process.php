@@ -8,6 +8,9 @@ require '../is_email/is_email.php';
 
 require 'debuglog.php';
 
+// connection to data warehouse to look up author names by their email address
+require 'warehouse.php';
+
 class FormProcessor {
 
   private $debug = FALSE;
@@ -24,6 +27,7 @@ class FormProcessor {
   private $recipient = "mjbernha@mit.edu";
   private $coauthors = "";
   private $cohort = Array();
+  private $warehouse = '';
 
   public function __construct() {
     // Turn on all debugging
@@ -93,6 +97,12 @@ class FormProcessor {
 
       // Filter certain expected fields more thoroughly
       switch($key) {
+
+        // coauthors need to be looked up in the data warehouse
+        case 'coauthors':
+          // note that this also directly manipulates the message for the salutation
+          $value = $this->lookupCoauthors($value);
+          break;
 
         // copy the submitter?
         case 'copy':
@@ -189,6 +199,51 @@ class FormProcessor {
         $this->log->write('[Form] [submission] ' . $key . ': ' . $value);
       }
     }
+  }
+
+  private function lookupCoauthors($string) {
+    // This takes in a string of comma-separated email addresses, and returns a list of names and email addresses:
+    // IN: mjbernha@mit.edu, efinnie@mit.edu
+    // OUT: 
+    // Matt Bernhardt, mjbernha@mit.edu
+    // Ellen Finnie Duranceau, efinnie@mit.edu
+    // NOTE: It also directly manipulates the message template by adding the comma separated names to the salutation
+
+    // Open warehouse connection
+    $this->warehouse = new Warehouse();
+
+    // initialize rebuilt string
+    $rebuiltString = "";
+    $salutation = "";
+
+    // replace semicolons with commas
+    $string = str_replace( ";" , "," , $string );
+
+    // split emails on commas
+    $emails = explode(",",$string);
+
+    // This builds two variables:
+    // $salutation is simply: name, name, name, 
+    // and is used in the salutation
+    // $rebuiltString is: name: email, name: email,
+    // and is used in the original submission
+    foreach ( $emails as $email ) {
+      $this->log->write("[Form] Coauthor lookup: _" . $email . "_");
+      $name = $this->warehouse->lookupDisplayName(trim($email));
+      $this->log->write("[Form] Coauthor result: _" . $name . "_");
+      if( strlen($name) > 2 )  {
+        $rebuiltString .= $name . ": " . $email . "\n";
+        $salutation .= $name .", ";
+      } else {
+        $rebuiltString .= $email . "\n";
+      }
+    }
+    $salutation .= "\n";
+
+    // add salutation to message text
+    $this->messageText = preg_replace("/\[>coauthor-names<\]/U", $salutation, $this->messageText);
+
+    return $rebuiltString;
   }
 
   private function postExists () {
