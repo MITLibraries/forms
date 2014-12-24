@@ -39,26 +39,26 @@
 
     <h1>Opt out of MIT Faculty Open-Access Policy</h1>
     <p>(for a particular article)</p>
-    <!-- 
-    <div class="box">
-      <strong>We apologize, but the opt out form is temporarily out of service.</strong>
-      <p>To opt out, send an email to oapolicyoptout@mit.edu informing MIT of the following:</p>
-      <ul>
-        <li>Name of MIT author<li>
-        <li>Title of article (expected or working title)</li>
-        <li>Journal you expect to publish in</li>
-        <li>Reason you are opting out</li>
-      </ul>
-    </div>
-    -->
     <ul>
       <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/">MIT Faculty Open-Access Policy</a></li>
       <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/mit-faculty-open-access-policy-faq/">Faculty Open Access Policy FAQ</a></li>
     </ul>
+    <!-- 
+    <p>To opt out of the MIT Faculty Open Access Policy, waiving the Policy for an article:</p>
+    <p>Please send an email or other written notice to <a href="mailto:oapolicyoptout@mit.edu">oapolicyoptout@mit.edu</a> informing MIT of the following:</p>
+    <ul>
+      <li>Name of MIT author(s)</li>
+      <li>Title of article (expected or working title)</li>
+      <li>Journal you expect to publish in</li>
+      <li>Reason you are opting out (e.g. "Publisher requirement")</li>
+    </ul>
+    <p>Please cc any other MIT authors that should be included in the waiver.</p>
+    <p><em>NOTE: Our waiver form is being redesigned and is currently not accessible.   We hope to have it up again soon. If you have any questions, please email oapolicyoptout@mit.edu.</em></p>
+    -->
     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
     <form action="scripts/php/mail.php" method="post" name="optout" id="optout">
       <input type="hidden" name="subject" value="Open access policy opt-out form">
-      <input type="hidden" name="recipient" value="oapolicyoptout@mit.edu">
+      <input type="hidden" name="recipient" value="mjbernha@mit.edu">
       <input type="hidden" name="copy" value="true">
       <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
       <p>
@@ -85,8 +85,8 @@
       <input type="submit" value="Send">
     </p>
   </form>
-  <p>If you have any questions about working with the MIT Faculty Open Access Policy, please contact <a href="mailto:efinnie@mit.edu">Ellen Duranceau</a>.</p>
-  <!--#include virtual="/includes/footer-semantic.html" -->
+<p>If you have any questions about working with the MIT Faculty Open Access Policy, please contact <a href="mailto:efinnie@mit.edu">Ellen Duranceau</a>.</p>
+<!--#include virtual="/includes/footer-semantic.html" -->
 </div>
 </body>
 </html>

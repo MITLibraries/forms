@@ -1,0 +1,107 @@
+
+/** 
+ * CSS styles for the 2012 semantic header scheme, worked out between Darcy Duke and Matt Bernhardt
+ */
+div#custom_header {
+  padding: 10px;
+  width: 717px;
+  border-bottom: 15px solid #eceaea;
+  font-family: Arial, sans-serif;
+}
+/* Logo */
+div#custom_header div#logo-container {
+  width: 50%;
+  float: left;
+  margin-bottom: 10px;
+}
+div#custom_header div#logo-container a {
+  color: #fff;
+}
+div#custom_header #logo {
+  cursor: pointer;
+  width: 150px;
+  height: 56px;
+  background: transparent url("/wp-content/themes/libraries/images/logo.png") no-repeat;
+  text-indent: -9999px;
+}
+/* Tools, including Ask Us / Tell Us */
+div#tools {
+  display: inline;
+  float: right;
+}
+div#tools a#barton-account {
+  margin-right:15px;
+  vertical-align: top;
+  margin-top: 10px;
+  display: inline-block;
+  font-weight: bold;
+  color: #0099ff;
+  text-decoration: none;
+}
+div#tools a#barton-account:hover,
+div#tools a#barton-account:focus {
+  text-decoration: underline;
+  color: #424286;
+}
+/* Suggestion nav */
+div#tools #suggestionnav {
+  display: inline-block;
+  width:175px;
+  bottom:0;
+  right:0;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-left: 1px solid #eceaea;
+}
+div#tools #suggestionnav a#askus {
+  float:left;
+  display:inline;
+  background:url("/images/suggestionnav_ask.gif") no-repeat 0 0;
+  height:19px;
+  width:79px;
+  margin-left:15px;
+  text-indent:-5000px;
+}
+div#tools #suggestionnav a#askus:hover {
+  background-position:0 -19px;
+}
+div#tools #suggestionnav a#tellus {
+  float:left;
+  display:inline;
+  background:url("/images/suggestionnav_tell.gif") no-repeat 0 0;
+  height:19px;
+  width:79px;
+  margin-top:-4px;
+  margin-left:-6px;
+  margin-right:8px;
+  text-indent:-5000px;
+}
+div#tools #suggestionnav a#tellus:hover {
+  background-position:0 -19px;
+}
+/* 
+  Pull breadcrumb into gray background on bottom of header nav 
+  (probably a more elegant way to do this) 
+*/
+div#custom_header nav {
+  clear: both;
+}
+div#custom_header nav ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+div#custom_header nav li {
+  display: inline;
+  list-style-type: none;
+}
+div#custom_header nav li a {
+  color: #004BBD;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 13px 5px 5px;
+}
+div#custom_header nav li a:hover,
+div#custom_header nav li a:focus {
+  text-decoration: underline;
+}
