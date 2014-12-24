@@ -14,14 +14,6 @@
   <!--
   $(document).ready(function() {
     /** Add any load time jquery actions here */
-    $("ul.radio-buttons").click(function() {
-      var reason = $('input[name="why"]:checked').val();
-      if(reason === "Other") {
-        $("#whyReason").removeClass("hidden");
-      } else {
-        $("#whyReason").addClass("hidden");
-      }
-    });
     var strPath = $(location).attr('pathname');
     $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
   });
@@ -54,32 +46,38 @@
     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
     <form action="scripts/php/process.php" method="post" name="optout" id="optout">
       <input type="hidden" name="subject" value="Open access policy opt-out form">
-      <input type="hidden" name="recipient" value="mjbernha@mit.edu">
+      <input type="hidden" name="recipient" value="oapolicyoptout@mit.edu">
       <input type="hidden" name="fullname" value="<!--#echo var="displayname" -->">
       <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
+      <input type="hidden" name="copy" value="true">
+      <p><label>Your name</label><br><!--#echo var="displayname" --></p>
+      <p><label>Your email address</label><br><!--#echo var="eppn" --></p>
+      <p>Are you a member of the faculty?</p>
+      <ul class="radio-buttons">
+        <li><label for="facultyYes"><input type="radio" name="faculty" id="facultyYes" value="Professor " checked="checked">Yes, I am a member of the faculty.</label></li>
+        <li><label for="facultyNo"><input type="radio" name="faculty" id="facultyNo" value="">No, I am not.</label></li>
+      </ul>
       <p>
-        <label for="title">Title of article (expected or working title) <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
+        <label for="title">Title of article (expected or working title): <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
         <input type="hidden" name="r_title" value="-Please provide the article title.">
       </p>
       <p>
-        <label for="journal">Journal you expect to publish in <abbr class="required" title="required">*</abbr><br><input name="journal" id="journal" type="text" size="50" aria-required="true"></label>
+        <label for="journal">Journal you expect to publish in: <abbr class="required" title="required">*</abbr><br><input name="journal" id="journal" type="text" size="50" aria-required="true"></label>
         <input type="hidden" name="r_journal" value="-Please enter the journal name.">
       </p>
       <p>
-        <label for="coauthors">You acknowledge that the MIT co-authors whose email addresses you supply below would also like waivers for this publication<br>
+        <label for="coauthors">You acknowledge that the MIT co-authors whose email addresses you supply below would also like waivers for this publication:<br>
           <em>(please separate email addresses with commas)</em><br>
           <input name="coauthors" id="coauthors" type="text" size="50">
         </label>
       </p>
-      <p>Reason you are opting out: <abbr class="required" title="required">*</abbr></p>
+      <p><label for="reason">Reason you are opting out:</label> <abbr class="required" title="required">*</abbr></p>
       <ul class="radio-buttons">
         <li><label for="whyPublisher"><input type="radio" name="why" id="whyPublisher" value="Publisher requirement" checked="checked">Publisher requirement</label></li>
-        <li><label for="whyOther"><input type="radio" name="why" id="whyOther" value="Other">Other (see below)</label></li>
+        <li><label for="whyOther"><input type="radio" name="why" id="whyOther" value="Other">Other: please specify</label></li>
       </ul>
-      <p id="whyReason" class="hidden">
-        <label for="reason">Please briefly state your reason for opting out of this policy<br>
-          <textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea>
-        </label>
+      <p id="whyReason">
+        <textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea>
       </p>    
       <p id="submit">
         <input type="submit" value="Send">
