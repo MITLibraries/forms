@@ -16,7 +16,7 @@
 <OPTION VALUE="economics">Economics</OPTION>
 <OPTION VALUE="elec. eng. & computer sci.">Electrical Engineering &amp; Computer Sci.</OPTION>
 <OPTION VALUE="engineering systems div.">Engineering Systems Division</OPTION>
-<OPTION VALUE="foreign languages and literature">Foreign Languages & Literature</OPTION>
+<OPTION VALUE="global studies & languages">Global Studies & Languages</OPTION>
 <OPTION VALUE="health sci. & technology">Health Sciences &amp; Technology</OPTION>
 <OPTION VALUE="history">History</OPTION>
 <OPTION VALUE="libraries">Libraries</OPTION>
