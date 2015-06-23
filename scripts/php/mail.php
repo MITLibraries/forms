@@ -125,6 +125,9 @@ if(count($_POST)){
 						$strSubject = $_POST['library'].', '.$_POST['lastname'].', '.$_POST['title'];
 					} elseif($strSubject=='Standards Request'){
 						$strSubject .=' '.$_POST['number'];
+					} elseif($strSubject=='Suggested Purchase'){
+						// Suggested Purchase gets the first 20 characters of the title
+						$strSubject .=': '.substr(cleanse($_POST['title']),0,20);
 					}
 					$strSubject = filter_var($strSubject,FILTER_SANITIZE_STRING);
 					break;
