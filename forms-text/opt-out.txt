@@ -1,26 +1,32 @@
+Hello [>faculty<][>fullname<], [>coauthor-names<]
+
+Thank you for this notice, accepted on behalf of the MIT Libraries' Director's Office, which is the Provost's designate for waivers of the MIT Faculty Open Access Policy.
+
+As noted in the policy:  "The Provost or Provost's designate will waive application of the policy for a particular article upon written notification by the author, who informs MIT of the reason."
+
+The policy is therefore waived for this article by receipt of your message below.
+
+Thank you, and best wishes for your publication,
+
+Office of Scholarly Publishing, Copyright, & Licensing,
+Office of the Director,
+oapolicyoptout@mit.edu
+
+--- Article waiver request ---
+
 Name of MIT author: [>fullname<]
 
+Email: [>email<]
 
+Coauthors: 
+[>coauthors<]
 
 Title of article: [>title<]
 
-
-
 Journal you expect to publish in: [>journal<]
-
-
 
 Reason you are opting out: 
 
+[>why<]
+
 [>reason<]
-
-
-
-
-
-
-
--------------------------------------------------------
-
-NOTE: This message was sent using a WWW form.
-
