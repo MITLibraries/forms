@@ -45,18 +45,18 @@
     </ul>
     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
     <form action="scripts/php/process.php" method="post" name="optout" id="optout">
-      <input type="hidden" name="subject" value="Open access policy opt-out form">
+      <input type="hidden" name="subject" value="DEBUG: Open access policy opt-out form">
       <input type="hidden" name="recipient" value="oapolicyoptout@mit.edu">
       <input type="hidden" name="fullname" value="<!--#echo var="displayname" -->">
       <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
       <input type="hidden" name="copy" value="true">
       <p><label>Your name</label><br><!--#echo var="displayname" --></p>
       <p><label>Your email address</label><br><!--#echo var="eppn" --></p>
-      <p>Are you a member of the faculty?</p>
+      <p>What is your role at MIT?</p>
       <ul class="radio-buttons">
-        <li><label for="facultyYes"><input type="radio" name="faculty" id="facultyYes" value="Professor " checked="checked">Yes, I am a member of the faculty.</label></li>
-        <li><label for="facultyNo"><input type="radio" name="faculty" id="facultyNo" value="">No, I am not.</label></li>
-        <li><label for="facultyProxy"><input type="radio" name="faculty" id="facultyProxy" value="Administrative proxy ">I am an administrative proxy, submitting on behalf of an MIT author.</label></li>
+        <li><label for="facultyYes"><input type="radio" name="faculty" id="facultyYes" value="Professor " checked="checked">I am a member of the faculty.</label></li>
+        <li><label for="facultyNo"><input type="radio" name="faculty" id="facultyNo" value="">I am a non-faculty author.</label></li>
+        <li><label for="facultyProxy"><input type="radio" name="faculty" id="facultyProxy" value="Proxy">I am submitting this form on behalf an author.</label></li>
       </ul>
       <p>
         <label for="title">Title of article (expected or working title): <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
