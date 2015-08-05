@@ -1,4 +1,4 @@
-Hello [>faculty<][>fullname<], [>coauthor-names<]
+[>optOutHello<]
 
 Thank you for this notice, accepted on behalf of the MIT Libraries' Director's Office, which is the Provost's designate for waivers of the MIT Faculty Open Access Policy.
 
@@ -14,11 +14,11 @@ oapolicyoptout@mit.edu
 
 --- Article waiver request ---
 
-Name of MIT author: [>fullname<]
+[>optOutRequestor<]
 
 Email: [>email<]
 
-Coauthors: 
+[>optOutCoauthorLabel<]
 [>coauthors<]
 
 Title of article: [>title<]
