@@ -4,14 +4,11 @@
 	<title>Ask the Archives! Institute Archives &amp; Special Collections: MIT Libraries</title>
 	<link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
 	<link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-	<!--#include virtual="/includes/base_scripts.html" -->
+	<!--#include virtual="/includes/base_scripts_nologin.html" -->
 	<script language="JavaScript" type="text/javascript">
 	<!--
 	/** Add any load time jquery actions here */
 	$(document).ready(function() {
-		if (cookie_functions.readCookie("libForma") != null) {
-			cookie_functions.setDocumentValues("libForma", ",", "=");
-		}
 		var strPath = $(location).attr('pathname');
 		$('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
 	});
