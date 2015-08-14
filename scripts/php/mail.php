@@ -37,7 +37,13 @@ if(count($_POST)){
 	// Log submitted values for everything but the tell us staff form (which is more strictly anonymous)
 	if ($strTemplateFile != 'tell-us-staff.html') {
 		foreach ($_REQUEST as $key => $value) {
-			$log->write('FORM: ' . $key . ": " . $value);
+			if (gettype($value) == "array") {
+				foreach ( $value as $term ) {
+					$log->write('FORM: ' . $key . ": " . $term);
+				}
+			} else {
+				$log->write('FORM: ' . $key . ": " . $value);
+			}
 		}
 	}
 
@@ -125,6 +131,9 @@ if(count($_POST)){
 						$strSubject = $_POST['library'].', '.$_POST['lastname'].', '.$_POST['title'];
 					} elseif($strSubject=='Standards Request'){
 						$strSubject .=' '.$_POST['number'];
+					} elseif($strSubject=='Suggested Purchase'){
+						// Suggested Purchase gets the first 20 characters of the title
+						$strSubject .=': '.substr(cleanse($_POST['title']),0,20);
 					}
 					$strSubject = filter_var($strSubject,FILTER_SANITIZE_STRING);
 					break;

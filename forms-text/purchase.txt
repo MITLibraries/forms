@@ -1,68 +1,29 @@
-----PLEASE DO NOT REPLY TO THIS MESSAGE - THANKS!--
-
-
-
-Your request has been sent to MIT Libraries. 
-
-This mail confirms your request. Thank you!
-
----------------------------------------------------
-
-
-
-PERSONAL INFO
-
-
-
-email: [>email<]
-
-Name: [>firstname<] [>lastname<]   
-
-address: [>address<]      phone: [>phone<]
-
-department: [>department<]
-
-status: [>status<]
-
-
-
-CITATION
-
-
-
-author: [>author<]
-
-title: [>title<]
-
-electronic: [>electronic<]
-
-url: [>url<]
-
-report#: [>report<]
-
-publisher: [>publisher<]
-
-place: [>place<]
-
-edition: [>edition<]
-
-date: [>date<]
-
-isbn/issn: [>isbn<]
-
-price: [>price<]
-
-
-
-other-info: 
-
-[>otherinfo<]
-
-
-
-notify: [>notify<]
-
-
-
-
-
+----PLEASE DO NOT REPLY TO THIS MESSAGE - THANKS!--
+
+Your request has been received and will be ordered.  Once it arrives, it will be placed on hold for you.  You will only hear from us if there's a problem.  Thank you!
+
+---------------------------------------------------
+PERSONAL INFO
+
+Email: [>email<]
+Name: [>firstname<] [>lastname<]   
+Address: [>address<]      phone: [>phone<]
+Department: [>department<]
+Status: [>status<]
+
+CITATION
+
+Subject: [>sp-subject<]
+Author: [>author<]
+Title: [>title<]
+Electronic or print: [>electronic<]
+Publisher: [>publisher<]
+Edition: [>edition<]
+Date: [>date<]
+ISBN/ISSN: [>isbn<]
+URL: [>url<]
+Information obtained from: [>otherinfo<]
+
+
+
+

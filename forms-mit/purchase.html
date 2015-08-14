@@ -1,300 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Suggest a Purchase Form: MIT Libraries</title>
-  <!--#include virtual="../includes/base_scripts.html" -->
-  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
-  <script type="text/javascript">
-  <!--
-  var never = new Date()
-  never.setTime(never.getTime() + 2000*24*60*60*1000);
-
-  function storedValues() {
- if (document.images) { // only do it in JavaScript 1.1 browsers
-  for (i=0;i<document.forms.length;i++) {
-   for (j=0;j<document.forms[i].elements.length; j++) {
-    cookie_name = "memory_"+document.forms[i].name+"_"
-    +document.forms[i].elements[j].name;
-    val = GetCookie(cookie_name);
-    if (val) {
-     if ((document.forms[i].elements[j].type == "text")
-       || (document.forms[i].elements[j].type == "password")
-       || (document.forms[i].elements[j].type == "textarea")) {
-      document.forms[i].elements[j].value = val;
-  } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
-    document.forms[i].elements[j].selectedIndex = -1;
-    while (((pos = val.indexOf(" ")) != -1) && (val.length > 1)) {
-     sel = parseInt(val.substring(0,pos));
-     val = val.substring(pos+1,val.length);
-     if (sel < document.forms[i].elements[j].length)
-      document.forms[i].elements[j].options[sel].selected = true;
-  }
-} else if (document.forms[i].elements[j].type == "checkbox") {
-  document.forms[i].elements[j].checked = val;
-} else if (document.forms[i].elements[j].type == "radio") {
-  if (document.forms[i].elements[j].value == val)
-   document.forms[i].elements[j].checked = true;
-}
-}
-}
-}
-}
-}
-
-window.onload = storedValues;
-
-$(document).ready(function() {
-  eppn = document.getElementById('eppn').value;
-  loginFunctions.doAuthenticate(eppn);
-  var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
-  document.getElementById('eppn').value = "";
-
-
-  // GA enhancements
-  var strPath = $(location).attr('pathname');
-  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
-});
--->
-</script>
-<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
-<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-</head>
-<body>
-  <a class="semantic" href="#content">Skip to main content</a>
-  <div id="container">
-    <!--#include virtual="/includes/header-semantic.html"-->
-    <!-- breadcrumb - TODO: make this semantic -->
-    <div class="breadcrumb">
-      <span class="semantic">You are located in:</span>
-      <ul>
-        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-        <li><a href="/circ"><span class="semantic">in subsection </span>Circulation</a></li>
-        <li><span class="semantic">on page </span>Suggest a Purchase Form</li>
-      </ul>
-    </div>
-    <!-- page text -->
-
-
-    <h1>Suggest a Purchase</h1>
-    <p>The MIT Libraries welcome suggestions for the acquisition of materials that support teaching, study, and research at the Institute. </p>
-    <p>Before you make a request for purchase, please check our catalog, <a href="http://libraries.mit.edu/barton">Barton</a>, to be sure that the item is not already in the MIT Libraries' collection.</p>
-    <p> If you need materials immediately that are not available in the MIT Libraries, use our <a href="http://libraries.mit.edu/ilb">Interlibrary Borrowing Service.</a> </p>
-    <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
-    <form method="post" action="scripts/php/mail.php" name="sp">
-      <input type="hidden" name="recipient" value="suggestedpurchase@mit.edu">
-      <input type="hidden" name="subject" value="Suggested Purchase">
-      <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
-      <fieldset> 
-        <legend>Personal Information</legend>    
-        <p>
-          <label for="email">Your email address <abbr class="required" title="required">*</abbr><br>
-            <input name="email" type="text" id="email" size="35" onChange="saveValue(this)" aria-required="true">
-          </label>
-          <input type="hidden" name="e_email" value="-Please specify a valid email address.">
-        </p>
-        <p>
-          <label for="lastname">Your last name <abbr class="required" title="required">*</abbr><br>
-            <input name="lastname" type="text" id="lastname" size="35" onChange="saveValue(this)" aria-required="true">
-          </label>
-          <input type="hidden" name="r_lastname" value="-Please specify your last name.">
-        </p>
-        <p> 
-          <label for="firstname">Your first name <abbr class="required" title="required">*</abbr><br>
-            <input name="firstname" type="text"  id="firstname" size="35" onChange="saveValue(this)" aria-required="true">
-          </label>
-          <input type="hidden" name="r_firstname" value="-Please specify your first name.">
-        </p>
-        <p> 
-          <label for="address">Your mailing address<br>
-            <textarea name="address" id="address" rows="3" cols="40"></textarea>
-          </label>
-        </p>
-        <p>
-          <label for="phone">Your phone number<br>
-            <input name="phone" type="text" id="phone" size="35" onChange="saveValue(this)">
-          </label>
-        </p>
-        <p>
-          <label for="department">Your department <abbr class="required" title="required">*</abbr><br>
-            <select name="department" id ="department"  onChange="saveValue(this)" aria-required="true">
-              <option value="">- choose department -</option>
-              <!--#include virtual="../forms-text/departments.txt" -->
-            </select>
-          </label>
-          <input type="hidden" name="r_department" value="-Please enter your department">
-        </p>
-        <p><label for="status">Your status <abbr class="required" title="required">*</abbr><br>  
-          <select name="status" id="status" onChange="saveValue(this)" aria-required="true">
-            <option value="">-- choose status --</option>
-            <option value="undergrad">MIT undergrad student</option>
-            <option value="grad">MIT grad student</option>
-            <option value="faculty">MIT faculty</option>
-            <option value="research staff">MIT research staff</option>
-            <option value="staff">MIT staff</option>
-            <option value="MIT other">MIT other</option>
-          </select>
-        </label>
-        <input type="hidden" name="r_status" value="-Please indicate your status">
-      </p>
-    </fieldset>
-    <fieldset>
-      <legend>Suggested Purchase</legend>
-      <p><label for="sp-subject">Subject <abbr class="required" title="required">*</abbr><br>                
-        <select name="sp-subject" id="sp-subject" aria-required="true">
-          <option value="">---- choose a subject ----</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-gis@mit.edu">Geographic Information System (GIS)</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-humanities-general@mit.edu">Arts &amp; Humanities (general or interdisciplinary)</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-anthropology@mit.edu">Anthropology/Archaeology</option>
-          <option value="sp-architecture@mit.edu">Architecture</option>
-          <option value="sp-arch-islam@mit.edu">Architecture &amp; Planning in Islamic Culture</option>
-          <option value="sp-art@mit.edu">Art</option>
-          <option value="sp-education@mit.edu">Education</option>
-          <option value="sp-filmstudies@mit.edu">Film Studies</option>
-          <option value="sp-history@mit.edu">History</option>
-          <option value="sp-historysci@mit.edu">History of Science &amp; Technology</option>
-          <option value="sp-linguistics@mit.edu">Linguistics</option>
-          <option value="sp-lit-eng-amer@mit.edu">Literature (English &amp; American)</option>
-          <option value="sp-lit-foreign@mit.edu">Literature (Foreign Literature)</option>
-          <option value="sp-media@mit.edu">Media Arts</option>
-          <option value="sp-music@mit.edu">Music</option>
-          <option value="sp-philosophy@mit.edu">Philosophy</option>
-          <option value="sp-psychology@mit.edu">Psychology</option>
-          <option value="sp-theaterarts@mit.edu">Theater Arts</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-eng-general@mit.edu">Engineering (general or interdisciplinary)</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-aeroastro@mit.edu">Aeronautics/Astronautics</option>
-          <option value="sp-chemeng@mit.edu">Chemical Engineering</option>
-          <option value="sp-civileng@mit.edu">Civil Engineering</option>
-          <option value="sp-compsci@mit.edu">Computer Science</option>
-          <option value="sp-ee@mit.edu">Electrical Engineering</option>
-          <option value="sp-environment@mit.edu">Environment</option>
-          <option value="sp-mecheng@mit.edu">Mechanical Engineering</option>
-          <option value="sp-nuceng@mit.edu">Nuclear Engineering</option>
-          <option value="sp-oceaneng@mit.edu">Ocean Engineering</option>
-          <option value="sp-transportation@mit.edu">Transportation</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-science-general@mit.edu">Science (general or interdisciplinary)</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-astronomy@mit.edu">Astronomy</option>
-          <option value="sp-biochemistry@mit.edu">Biochemistry</option>
-          <option value="sp-biology@mit.edu">Biology</option>
-          <option value="sp-biotechnology@mit.edu">Biotechnology</option>
-          <option value="sp-chemistry@mit.edu">Chemistry</option>
-          <option value="sp-eap@mit.edu">Earth, Atmospheric &amp; Planetary Sciences</option>
-          <option value="sp-energy@mit.edu">Energy</option>
-          <option value="sp-environment@mit.edu">Environment</option>
-          <option value="sp-matsci@mit.edu">Materials Science</option>
-          <option value="sp-math@mit.edu">Mathematics</option>
-          <option value="sp-medicine@mit.edu">Medicine</option>
-          <option value="sp-neuroscience@mit.edu">Neurosciences</option>
-          <option value="sp-physics@mit.edu">Physics</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-social-sci-general@mit.edu">Social Sciences (general or interdisciplinary)</option>
-          <option value="">-------------------------------------------</option>
-          <option value="sp-data@mit.edu">Data</option>
-          <option value="sp-economics@mit.edu">Economics</option>
-          <option value="sp-industrial-rel@mit.edu">Industrial Relations</option>
-          <option value="sp-law@mit.edu">Law</option>
-          <option value="sp-management@mit.edu">Management</option>
-          <option value="sp-polsci@mit.edu">Political Science</option>
-          <option value="sp-real-estate@mit.edu">Real Estate Development</option>
-          <option value="sp-sociology@mit.edu">Sociology</option>
-          <option value="sp-urbanplan@mit.edu">Urban Planning</option>
-          <option value="sp-womenstudies@mit.edu">Women's &amp; Men's Studies</option>
-        </select>
-      </label> 
-      <input type="hidden" name="r_sp-subject" value="-Please indicate the purchase's subject.">
-      <br>
-      Your request will be sent to the appropriate person, based on your choice of
-      subject.</p>
-      <p>
-        <label for="title">Title/Database/Data set <abbr class="required" title="required">*</abbr><br>
-          <textarea name="title" id="title" cols="35" rows="2" aria-required="true"></textarea>
-        </label>
-        <input type="hidden" name="r_title" value="-Please specify the item title/database/data set">
-      </p>
-      <p>
-        <label for="author">Author<br>
-          <input type="text" name="author" id="author" size="35" maxlength="100">
-        </label>
-      </p>
-      <p>Is this an electronic resource?<br>
-        <label for="yesElectronic"><input type="radio" id="yesElectronic" name="electronic" class="electronic" value="yes">Yes, this is an electronic resource.</label><br>
-        <label for="noElectronic"><input type="radio" id="noElectronic" name="electronic" class="electronic" value="no" checked>No, this is not an electronic resource.</label>
-      </p>
-      <p>
-        <label for="url">URL<br>
-          <input type="text" name="url" id="url" size="35" maxlength="100">
-        </label>
-      </p>
-      <p>
-        <label for="report">Technical Report # <em>(if applicable)</em><br>
-          <textarea name="report" id="report"  cols="35" rows="2" ></textarea>
-        </label>
-      </p>
-      <p>
-        <label for="version">Version <em>(if applicable)</em><br>
-          <textarea name="version" id="version"  cols="35" rows="2" ></textarea>
-        </label>
-      </p>
-      <p>
-        <label for="publisher">Publisher<br>
-          <input type="text" name="publisher" id="publisher" size="20" maxlength="100">
-        </label>
-      </p>
-      <p>
-        <label for="place">Place<br>
-          <input type="text" name="place" id="place" size="10" maxlength="50">
-        </label>
-      </p>
-      <p>
-        <label for="edition">Edition<br>
-          <input type="text" name="edition" id="edition" size="6" maxlength="20">
-        </label>
-      </p>
-      <p>
-        <label for="date">Date<br>
-          <input type="text" name="date" id="date" size="10" maxlength="50">
-        </label>
-      </p>
-      <p>
-        <label for="isbn">ISBN/ISSN<br>              
-          <input type="text" name="isbn" id="isbn" size="15" maxlength="50">
-        </label>
-      </p>
-      <p>
-        <label for="price">Price<br>
-          <input type="text" name="price" id="price" size="10" maxlength="50">
-        </label>
-      </p>
-    </fieldset>
-    <fieldset>
-      <legend>Information obtained from</legend>
-      <label for="otherinfo">Where did you obtain the information listed above? (Please be as specific as possible, i.e., which database, index, book or journal article, etc.) Include any other information or comments here.<br>
-        <textarea name="otherinfo" id="otherinfo"  cols="35"  rows="8"></textarea>
-      </label>
-    </fieldset>
-    <p>
-      If the item is ordered by the Libraries, do you want to be notified when it
-      is received?<br>
-      <label for="yesNotify"><input type="radio" id="yesNotify" name="notify" class="notify" value="yes" checked>Yes, please notify me.</label><br>
-      <label for="noNotify"><input type="radio" id="noNotify" name="notify" class="notify" value="no">No, do not notify me.</label>
-    </p>
-    <p id="submit">
-      <input type="submit" value="Send">
-    </p>
-  </form>
-
-
-
-
-  <!--#include virtual="/includes/footer-semantic.html" -->
-</div> <!-- /end container -->
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Suggest a Purchase Form: MIT Libraries</title>
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript">
+  <!--
+  var never = new Date()
+  never.setTime(never.getTime() + 2000*24*60*60*1000);
+
+  function storedValues() {
+ if (document.images) { // only do it in JavaScript 1.1 browsers
+  for (i=0;i<document.forms.length;i++) {
+   for (j=0;j<document.forms[i].elements.length; j++) {
+    cookie_name = "memory_"+document.forms[i].name+"_"
+    +document.forms[i].elements[j].name;
+    val = GetCookie(cookie_name);
+    if (val) {
+     if ((document.forms[i].elements[j].type == "text")
+       || (document.forms[i].elements[j].type == "password")
+       || (document.forms[i].elements[j].type == "textarea")) {
+      document.forms[i].elements[j].value = val;
+  } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
+    document.forms[i].elements[j].selectedIndex = -1;
+    while (((pos = val.indexOf(" ")) != -1) && (val.length > 1)) {
+     sel = parseInt(val.substring(0,pos));
+     val = val.substring(pos+1,val.length);
+     if (sel < document.forms[i].elements[j].length)
+      document.forms[i].elements[j].options[sel].selected = true;
+  }
+} else if (document.forms[i].elements[j].type == "checkbox") {
+  document.forms[i].elements[j].checked = val;
+} else if (document.forms[i].elements[j].type == "radio") {
+  if (document.forms[i].elements[j].value == val)
+   document.forms[i].elements[j].checked = true;
+}
+}
+}
+}
+}
+}
+
+window.onload = storedValues;
+
+$(document).ready(function() {
+  eppn = document.getElementById('eppn').value;
+  loginFunctions.doAuthenticate(eppn);
+  var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
+  document.getElementById('eppn').value = "";
+
+
+  // GA enhancements
+  var strPath = $(location).attr('pathname');
+  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+});
+-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+<body>
+  <a class="semantic" href="#content">Skip to main content</a>
+  <div id="container">
+    <!--#include virtual="/includes/header-semantic.html"-->
+    <!-- breadcrumb - TODO: make this semantic -->
+    <div class="breadcrumb">
+      <span class="semantic">You are located in:</span>
+      <ul>
+        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+        <li><a href="/circ"><span class="semantic">in subsection </span>Circulation</a></li>
+        <li><span class="semantic">on page </span>Suggest a Purchase Form</li>
+      </ul>
+    </div>
+    <!-- page text -->
+
+
+    <h1>Suggest a Purchase</h1>
+      <p>The MIT Libraries welcome suggestions for the acquisition of materials that support teaching, study, and research at the Institute. Before you make a request for purchase, please check our catalog, <a href="http://libraries.mit.edu/barton">Barton</a>, to be sure that the item is not already in the MIT Libraries' collection.</p>
+    <p> If you need materials immediately that are not available in the MIT Libraries--<strong>including journal articles</strong>--please use our <a href="http://libraries.mit.edu/ilb">Interlibrary Borrowing Service.</a> </p>
+    <p>To submit course reserve and textbook information, please go to <a href="http://tip.mit.edu">tip.mit.edu</a>.</p>
+    <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+    <form method="post" action="scripts/php/mail.php" name="sp">
+      <input type="hidden" name="recipient" value="suggestedpurchase@mit.edu">
+      <input type="hidden" name="subject" value="Suggested Purchase">
+      <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+      <fieldset> 
+        <legend>Personal Information</legend>    
+        <p>
+          <label for="email">Your email address <abbr class="required" title="required">*</abbr><br>
+            <input name="email" type="text" id="email" size="35" onChange="saveValue(this)" aria-required="true">
+          </label>
+          <input type="hidden" name="e_email" value="-Please specify a valid email address.">
+        </p>
+        <p>
+          <label for="lastname">Your last name <abbr class="required" title="required">*</abbr><br>
+            <input name="lastname" type="text" id="lastname" size="35" onChange="saveValue(this)" aria-required="true">
+          </label>
+          <input type="hidden" name="r_lastname" value="-Please specify your last name.">
+        </p>
+        <p> 
+          <label for="firstname">Your first name <abbr class="required" title="required">*</abbr><br>
+            <input name="firstname" type="text"  id="firstname" size="35" onChange="saveValue(this)" aria-required="true">
+          </label>
+          <input type="hidden" name="r_firstname" value="-Please specify your first name.">
+        </p>
+        <p> 
+          <label for="address">Your mailing address<br>
+            <textarea name="address" id="address" rows="3" cols="40"></textarea>
+          </label>
+        </p>
+        <p>
+          <label for="phone">Your phone number<br>
+            <input name="phone" type="text" id="phone" size="35" onChange="saveValue(this)">
+          </label>
+        </p>
+        <p>
+          <label for="department">Your department <abbr class="required" title="required">*</abbr><br>
+            <select name="department" id ="department"  onChange="saveValue(this)" aria-required="true">
+              <option value="">- choose department -</option>
+              <!--#include virtual="../forms-text/departments.txt" -->
+            </select>
+          </label>
+          <input type="hidden" name="r_department" value="-Please enter your department">
+        </p>
+        <p><label for="status">Your status <abbr class="required" title="required">*</abbr><br>  
+          <select name="status" id="status" onChange="saveValue(this)" aria-required="true">
+            <option value="">-- choose status --</option>
+            <option value="undergrad">MIT undergrad student</option>
+            <option value="grad">MIT grad student</option>
+            <option value="faculty">MIT faculty</option>
+            <option value="research staff">MIT research staff</option>
+            <option value="staff">MIT staff</option>
+            <option value="MIT other">MIT other</option>
+          </select>
+        </label>
+        <input type="hidden" name="r_status" value="-Please indicate your status">
+      </p>
+    </fieldset>
+    <fieldset>
+      <legend>Suggested Purchase</legend>
+      <p><label for="sp-subject">Subject <abbr class="required" title="required">*</abbr><br>                
+        <select name="sp-subject" id="sp-subject" aria-required="true">
+          <option value="">---- choose a subject ----</option>
+          <option value="Architecture">Architecture &amp; Planning</option>
+          <option value="Art">Art</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Humanities">Humanities</option>
+          <option value="Management">Management</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Music">Music</option>
+          <option value="Science">Science</option>
+          <option value="Social Sciences">Social Sciences</option>
+        </select>
+      </label> 
+      <input type="hidden" name="r_sp-subject" value="-Please indicate the purchase's subject.">
+      
+      </p>
+      <p>
+        <label for="title">Title/Database/Data set <abbr class="required" title="required">*</abbr><br>
+          <textarea name="title" id="title" cols="35" rows="2" aria-required="true"></textarea>
+        </label>
+        <input type="hidden" name="r_title" value="-Please specify the item title/database/data set">
+      </p>
+        <p>
+        <label for="author">Author<abbr class="required" title="required">*</abbr><br>
+          <input type="text" name="author" id="author" size="35" maxlength="100">
+        </label>
+        <input type="hidden" name="r_author" value="-Please include author name.">
+      </p>
+      <p>Would you prefer electronic or print/other tangible format (e.g., CD, DVD) for this resource? <abbr class="required" title="required">*</abbr><br>
+        <label for="yesElectronic"><input type="radio" id="yesElectronic" name="electronic" class="electronic" value="Electronic">
+        Electronic</label><br>
+        <label for="noElectronic"><input type="radio" id="noElectronic" name="electronic" class="electronic" value="Print">
+          Print/other tangible format
+        </label>
+   <input type="hidden" name="r_electronic" value="-Please indicate preference for electronic or print.">
+
+      </p>
+    
+     
+     
+      <p>
+        <label for="publisher">Publisher<br>
+          <input type="text" name="publisher" id="publisher" size="20" maxlength="100">
+        </label>
+      </p>
+    
+      <p>
+        <label for="edition">Edition<br>
+          <input type="text" name="edition" id="edition" size="6" maxlength="20">
+        </label>
+      </p>
+      <p>
+        <label for="date">Date<br>
+          <input type="text" name="date" id="date" size="10" maxlength="50">
+        </label>
+      </p>
+      <p>
+        <label for="isbn">ISBN/ISSN<br>              
+          <input type="text" name="isbn" id="isbn" size="15" maxlength="50">
+        </label>
+      </p>
+     <p>
+        <label for="url">URL<br>
+          <input type="text" name="url" id="url" size="35" maxlength="100">
+        </label>
+      </p>
+    </fieldset>
+    <fieldset>
+      <legend>Information obtained from</legend>
+      <label for="otherinfo">Where did you obtain the information listed above? (Please be as specific as possible, i.e., which database, index, book or journal article, etc.) Include any other information or comments here.<br>
+        <textarea name="otherinfo" id="otherinfo"  cols="35"  rows="8"></textarea>
+      </label>
+    </fieldset>
+  
+    <p id="submit">
+      <input type="submit" value="Send">
+    </p>
+  </form>
+
+
+
+
+  <!--#include virtual="/includes/footer-semantic.html" -->
+</div> <!-- /end container -->
+</body>
 </html>

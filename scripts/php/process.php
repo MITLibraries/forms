@@ -28,6 +28,9 @@ class FormProcessor {
   private $coauthors = "";
   private $cohort = Array();
   private $warehouse = '';
+  private $optOutCoauthors = '';
+  private $optOutSubmitter = '';
+  private $optOutRole = '';
 
   public function __construct() {
     // Turn on all debugging
@@ -119,6 +122,11 @@ class FormProcessor {
           $this->from = filter_var($value,FILTER_SANITIZE_EMAIL);
           break;
 
+        // faculty / role
+        case 'faculty':
+          $this->optOutRole = $value;
+          break;
+
         // names
         case 'firstname':
           $value = $this->cleanse($value);
@@ -127,6 +135,7 @@ class FormProcessor {
         case 'fullname':
           $value = $this->cleanse($value);
           $this->fromname = filter_var($value,FILTER_SANITIZE_STRING);
+          $this->optOutSubmitter = $this->fromname;
           break;
         case 'lastname':
           $value = $this->cleanse($value);
@@ -155,7 +164,51 @@ class FormProcessor {
       $this->messageText = preg_replace("/\[>" . $key . "<\]/U", $value, $this->messageText);
     }
 
+    // opt out form needs some special handholding on the salutation line
+    if (strpos($this->template, 'opt-out') !== FALSE) {
+      $this->messageText = preg_replace("/\[>optOutHello<\]/U", $this->buildOptOutHello(), $this->messageText);
+      $this->messageText = preg_replace("/\[>optOutRequestor<\]/U", $this->buildOptOutRequestor(), $this->messageText);
+      $this->messageText = preg_replace("/\[>optOutCoauthorLabel<\]/U", $this->buildOptOutCoauthorLabel(), $this->messageText);
+    }
+
     echo $this->messageText;
+  }
+
+  private function buildOptOutCoauthorLabel () {
+    $label = "";
+    if ($this->optOutRole == "Proxy") {
+      $label = "Authors:";
+    } else {
+      $label = "Coauthors:";
+    }
+
+    return $label;
+  }
+
+  private function buildOptOutHello () {
+    // This builds a special salutation line for the opt out form, which needs greater
+    // variability if it is submitted by an administrative proxy.
+    $hello = "Hello ";
+
+    // if proxied submission
+    if ($this->optOutRole == "Proxy") {
+      $hello .= $this->optOutSubmitter . ", acting as a proxy for " . $this->optOutCoauthors;
+    } else {
+      $hello .= $this->optOutRole . $this->optOutSubmitter . ", " . $this->optOutCoauthors;
+    }
+
+    return $hello;
+  }
+
+  private function buildOptOutRequestor () {
+    $requestor = "Name of ";
+    if ($this->optOutRole == "Proxy") {
+      $requestor .= "requesting proxy: " . $this->optOutSubmitter;
+    } else {
+      $requestor .= "MIT author: " . $this->optOutRole . " " . $this->optOutSubmitter;
+    }
+
+    return $requestor;
   }
 
   private function cleanse ($str) {
@@ -241,6 +294,14 @@ class FormProcessor {
     $salutation .= "\n";
 
     // add salutation to message text
+    // if(trim($salutation) != "") {
+    //   $this->log->write('[Form] Coauthor: formatting salutation');
+    //   $salutation = " and " . $salutation;
+    // } else {
+    //   $this->log->write('[Form] Coauthor: removing salutation');
+    //   $salutation = "\n";
+    // }
+    $this->optOutCoauthors = $salutation;
     $this->messageText = preg_replace("/\[>coauthor-names<\]/U", $salutation, $this->messageText);
 
     return $rebuiltString;

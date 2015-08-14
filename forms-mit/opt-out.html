@@ -5,15 +5,15 @@
   <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
   <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
   <!--#include virtual="/includes/base_scripts.html" -->
+  <style type="text/css">
+  .hidden {
+    display: none;
+  }
+  </style>
   <script language="JavaScript" type="text/javascript">
   <!--
-  /** Add any load time jquery actions here */
   $(document).ready(function() {
-    eppn = document.getElementById('eppn').value;
-    loginFunctions.doAuthenticate(eppn);
-    var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
-    document.getElementById('eppn').value = "";
-
+    /** Add any load time jquery actions here */
     var strPath = $(location).attr('pathname');
     $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
   });
@@ -43,50 +43,50 @@
       <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/">MIT Faculty Open-Access Policy</a></li>
       <li><a href="/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/mit-faculty-open-access-policy-faq/">Faculty Open Access Policy FAQ</a></li>
     </ul>
-    <!-- 
-    <p>To opt out of the MIT Faculty Open Access Policy, waiving the Policy for an article:</p>
-    <p>Please send an email or other written notice to <a href="mailto:oapolicyoptout@mit.edu">oapolicyoptout@mit.edu</a> informing MIT of the following:</p>
-    <ul>
-      <li>Name of MIT author(s)</li>
-      <li>Title of article (expected or working title)</li>
-      <li>Journal you expect to publish in</li>
-      <li>Reason you are opting out (e.g. "Publisher requirement")</li>
-    </ul>
-    <p>Please cc any other MIT authors that should be included in the waiver.</p>
-    <p><em>NOTE: Our waiver form is being redesigned and is currently not accessible.   We hope to have it up again soon. If you have any questions, please email oapolicyoptout@mit.edu.</em></p>
-    -->
     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
-    <form action="scripts/php/mail.php" method="post" name="optout" id="optout">
+    <form action="scripts/php/process.php" method="post" name="optout" id="optout">
       <input type="hidden" name="subject" value="Open access policy opt-out form">
-      <input type="hidden" name="recipient" value="mjbernha@mit.edu">
+      <input type="hidden" name="recipient" value="oapolicyoptout@mit.edu">
+      <input type="hidden" name="fullname" value="<!--#echo var="displayname" -->">
+      <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
       <input type="hidden" name="copy" value="true">
-      <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+      <p><label>Your name</label><br><!--#echo var="displayname" --></p>
+      <p><label>Your email address</label><br><!--#echo var="eppn" --></p>
+      <p>What is your role at MIT?</p>
+      <ul class="radio-buttons">
+        <li><label for="facultyYes"><input type="radio" name="faculty" id="facultyYes" value="Professor " checked="checked">I am a member of the faculty.</label></li>
+        <li><label for="facultyNo"><input type="radio" name="faculty" id="facultyNo" value="">I am a non-faculty author.</label></li>
+        <li><label for="facultyProxy"><input type="radio" name="faculty" id="facultyProxy" value="Proxy">I am submitting this form on behalf an author.</label></li>
+      </ul>
       <p>
-       <label for="fullname">Name of MIT author <abbr class="required" title="required">*</abbr><br><input name="fullname" id="fullname" type="text" size="50" aria-required="true"></label>
-       <input type="hidden" name="r_fullname" value="-Please enter your name.">
-     </p>
-     <p>
-      <label for="email">Email of MIT author <abbr class="required" title="required">*</abbr><br><input name="email" id="email" type="text" size="50" aria-required="true"></label>
-       <input type="hidden" name="e_email" value="-Please enter a valid email.">
-    </p>
-    <p>
-      <label for="title">Title of article (expected or working title) <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
-       <input type="hidden" name="r_title" value="-Please provide the article title.">
-    </p>
-    <p>
-      <label for="journal">Journal you expect to publish in <abbr class="required" title="required">*</abbr><br><input name="journal" id="journal" type="text" size="50" aria-required="true"></label>
-       <input type="hidden" name="r_journal" value="-Please enter the journal name.">
-    </p>
-    <p>
-      <label for="reason">Reason you are opting out <abbr class="required" title="required">*</abbr><br><textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea></label>
-       <input type="hidden" name="r_reason" value="-Please provide the reason you are opting out.">
-    </p>
-    <p id="submit">
-      <input type="submit" value="Send">
-    </p>
-  </form>
-<p>If you have any questions about working with the MIT Faculty Open Access Policy, please contact <a href="mailto:efinnie@mit.edu">Ellen Duranceau</a>.</p>
-<!--#include virtual="/includes/footer-semantic.html" -->
-</div>
+        <label for="title">Title of article (expected or working title): <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
+        <input type="hidden" name="r_title" value="-Please provide the article title.">
+      </p>
+      <p>
+        <label for="journal">Journal you expect to publish in: <abbr class="required" title="required">*</abbr><br><input name="journal" id="journal" type="text" size="50" aria-required="true"></label>
+        <input type="hidden" name="r_journal" value="-Please enter the journal name.">
+      </p>
+      <p>
+        <label for="coauthors">You acknowledge that the MIT co-authors whose email addresses you supply below would also like waivers for this publication:<br>
+          <em>(please separate email addresses with commas)</em><br>
+          <input name="coauthors" id="coauthors" type="text" size="50">
+        </label><br>
+        Authors included here will receive a copy of the waiver.
+      </p>
+      <p><label for="reason">Reason you are opting out:</label> <abbr class="required" title="required">*</abbr></p>
+      <ul class="radio-buttons">
+        <li><label for="whyPublisher"><input type="radio" name="why" id="whyPublisher" value="Publisher requirement" checked="checked">Publisher requirement</label></li>
+        <li><label for="whyOther"><input type="radio" name="why" id="whyOther" value="Other">Other: please specify</label></li>
+      </ul>
+      <p id="whyReason">
+        <textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea>
+      </p>    
+      <p id="submit">
+        <input type="submit" value="Send">
+      </p>
+    </form>
+    <p>If you have any questions about working with the MIT Faculty Open Access Policy, please contact <a href="mailto:efinnie@mit.edu">Ellen Duranceau</a>.</p>
+    <!--#include virtual="/includes/footer-semantic.html" -->
+  </div>
 </body>
 </html>
