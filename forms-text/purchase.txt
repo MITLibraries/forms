@@ -21,9 +21,6 @@ Title: [>title<]
 Electronic or print: [>electronic<]
 Alternate format permissible: [>alternate<]
 
-Alternate format notes:
-[>notesAlternate<]
-
 Publisher: [>publisher<]
 Edition: [>edition<]
 Date: [>date<]
