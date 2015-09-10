@@ -11,8 +11,15 @@ $fileTemplate = '';
 $valid = TRUE;
 $boolCC = FALSE;
 
+// PHP Mailer library
 require '../PHPMailer/class.phpmailer.php';
+
+// Logging library
 require 'debuglog.php';
+
+// Email verification library
+// https://github.com/dominicsayers/isemail
+require '../is_email/is_email.php';
 
 $log = new DebugLog();
 $log->write('FORM - submission detected');
@@ -253,6 +260,8 @@ function validateEmail($addr,$log) {
 	// Part 1: Consult isemail.info via curl
 	// 0 = invalid format
 	// 1 = valid format
+
+	/*
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, "http://isemail.info/valid/".$addr);
 	// curl_setopt($ch, CURLOPT_URL, "http://www.asdasdljaskdhf.org/".$addr);
@@ -260,7 +269,11 @@ function validateEmail($addr,$log) {
 	$out = curl_exec($ch);
 	$log->write("FORM: Email - check result: ".$out);
 	curl_close($ch);
-	
+	*/
+
+	// This uses a local copy of is_email() to verify emails, rather than the remote service
+	$out = is_email($addr);
+
 	// Part 2: DNS lookup (provided first part passed)
 	if($out==1) {
 		$log->write('FORM: Email validation 1 of 2');
