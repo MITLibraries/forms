@@ -38,56 +38,36 @@
   <form id="askdspace" name="askdspace" action="/scripts/php/mail.php" method="post">
     <input type="hidden" name="subject" value="Share your story: DSpace OA articles">
     <input type="hidden" name="recipient" value="oacomments@mit.edu">
+    <input type="hidden" name="email" value="oacomments@mit.edu">
     <a name="form" id="form"></a>
-    <p>The  MIT faculty has made their articles openly available to all readers.&nbsp; Please  share how this access affects or benefits you. </p>
+    <p>The MIT faculty have made their articles openly available to all readers.&nbsp; Please  share how this access affects or benefits you. </p>
     <p><label for="comments">Tell us your story.</label></p>
     <p><textarea name="comments" cols="60" rows="15" id="comments"></textarea></p>
     <p><label for="title">Please tell us what article you were reading (if you would like to share this information)</label></p>
     <p><textarea name="title" cols="60" rows="5" id="title"></textarea></p>
-    <label for="share">May we share your story?</label><br>
-    <select name="share" id="share">
-      <option value="----- "></option>
-      <option value="public">MIT may share my story</option>
-      <option value="anonymous">MIT may only share my story anonymously</option>
-      <option value="no">MIT may not share my story publicly</option>
-    </select>
-    <fieldset name="aboutyou">
-      <legend><strong>Please tell us who you are</strong></legend>
-      <p>
-        <label for="firstname">Your first name</label><br>
-        <input name="firstname" type="text" id="firstname" value="" size="40">
-      </p>
-      <p>
-        <label for="lastname">Your last name</label><br>
-        <input name="lastname" type="text" id="lastname" value="" size="40">
-      </p>
-      <p>
-        <label for="email">Your email address</label><br>
-        <input name="email" type="text" id="email" value="" size="40">
-      </p>
-
-      <p>
-        <label for="status">Select your role: </label><br>
-        <select name="status" id="status">
-          <option value="----- "></option>
-          <option value="univ-faculty-researcher">Faculty/researcher at a university</option>
-          <option value="corp-researcher">Researcher at a corporation</option>
-          <option value="student">Student</option>
-          <option value="other">Other (please specify below)</option>
-        </select>
-      </p>
-      <p>
-        <label for="other-role">If your role is "other," please specify:</label><br>
-        <input name="other-role" type="text" id="other-role" value="" size="40">
-      </p>
-      <p>
-        <label for="country">Your country</label><br>
-        <input name="country" type="text" id="country" value="" size="40">
-      </p>  
-    </fieldset>
+    <p>
+      <label for="status">Select your role: </label><br>
+      <select name="status" id="status">
+        <option value="----- "></option>
+        <option value="univ-faculty-researcher">Faculty/researcher at a university</option>
+        <option value="corp-researcher">Researcher at a corporation</option>
+        <option value="student">Student</option>
+        <option value="other">Other (please specify below)</option>
+      </select>
+    </p>
+    <p>
+      <label for="other-role">If your role is "other," please specify:</label><br>
+      <input name="other-role" type="text" id="other-role" value="" size="40">
+    </p>
+    <p>
+      <label for="country">Your country</label><br>
+      <input name="country" type="text" id="country" value="" size="40">
+    </p>  
+    <p>These stories, contributed anonymously by our readers, help support open access to research worldwide. We very much appreciate being able to share what this access has meant for you.</p>
     <p id="submit">
       <input type="submit" value="Send">
     </p>
+    <p><a href="http://oastories.mit.edu/">See stories shared by other readers</a></p>
   </form>
   <!--#include virtual="/includes/footer-semantic.html" -->
 </div>
