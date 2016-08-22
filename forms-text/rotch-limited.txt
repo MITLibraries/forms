@@ -1,0 +1,36 @@
+----PLEASE DO NOT REPLY TO THIS MESSAGE - THANKS!------
+
+Thank you for your request! If you wish, you may call the destination library to find out whether your item 
+has arrived. If you made an error, or have a question, please call the Annex at 617-253-7040. 
+
+----------------------
+
+Library: [>library<]
+[>lastname<], [>firstname<]
+
+Requestor information:
+
+	Email: [>email<]
+	MIT ID : [>id<]
+	Name: [>lastname<], [>firstname<]
+	Address: [>address<]
+	Phone: [>phone<]
+	Status: [>status<]
+	
+-----------------------
+
+Bibliographic information:
+
+	Author: [>author<]
+	Book or journal title: [>title<]
+	Call number: [>callnumb<]
+	Volume: [>volume<]
+	Issue: [>issue<]
+	Pages: [>pages<]
+	Publication date: [>date<]
+	
+	
+	
+Other information: [>notes<]
+
+Pick up at: [>library<]
