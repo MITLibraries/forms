@@ -1,0 +1,11 @@
+Story:  
+
+[>comments<]
+
+Reading: [>title<]
+
+Status: [>status<]
+
+Other role (if any): [>other-role<]
+
+Country: [>country<]

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Share your thesis story: MIT Libraries</title>
+  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
+  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    if (cookie_functions.readCookie("libForma") != null) {
+     cookie_functions.setDocumentValues("libForma", ",", "=");
+   }
+   var strPath = $(location).attr('pathname');
+   $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+ });
+//-->
+</script>
+<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+</head>
+
+<body>
+  <div id="container">
+   <!--#include virtual="/includes/header-semantic.html"-->
+   <!-- breadcrumb -->
+   <div class="breadcrumb">
+    <span class="semantic">You are located in:</span>
+    <ul>
+      <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
+      <li><span class="semantic">on page </span>Share your thesis story</li>
+    </ul>
+  </div>
+  <h1>Share your thesis story</h1>
+  <form id="thesisstory" name="thesisstory" action="/scripts/php/mail.php" method="post">
+    <input type="hidden" name="subject" value="Share your thesis story">
+    <input type="hidden" name="recipient" value="francesb@mit.edu">
+    <input type="hidden" name="email" value="francesb@mit.edu">
+    <a name="form" id="form"></a>
+    <p>MIT Theses are openly available to all readers. Please share how this access affects or benefits you.</p>
+    <p><label for="comments">Tell us your story <abbr class="required" title="required">*</abbr></label></p>
+    <p>
+      <textarea name="comments" cols="60" rows="15" id="comments"></textarea><br />
+      <input type="hidden" name="r_comments" value="-Tell us your story">
+    </p>
+    <p><label for="title">Please tell us what thesis you were reading (if you would like to share this information)</label></p>
+    <p><textarea name="title" cols="60" rows="5" id="title"></textarea></p>
+    <p>
+      <label for="status">Select your role: </label><br>
+      <select name="status" id="status">
+        <option value="----- "></option>
+        <option value="univ-faculty-researcher">Faculty/researcher at a university</option>
+        <option value="corp-researcher">Researcher at a corporation</option>
+        <option value="student">Student</option>
+        <option value="other">Other (please specify below)</option>
+      </select>
+    </p>
+    <p>
+      <label for="other-role">If your role is "other," please specify:</label><br>
+      <input name="other-role" type="text" id="other-role" value="" size="40">
+    </p>
+    <p>
+      <label for="country">Your country</label><br>
+      <input name="country" type="text" id="country" value="" size="40">
+    </p>  
+    <p>These stories, contributed anonymously by our readers, help support research worldwide. We very much appreciate being able to share what this has meant for you.</p>
+    <p id="submit">
+      <input type="submit" value="Send">
+    </p>
+  </form>
+  <!--#include virtual="/includes/footer-semantic.html" -->
+</div>
+
+</body>
+</html>
