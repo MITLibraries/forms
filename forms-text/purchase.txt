@@ -1,6 +1,6 @@
 ----PLEASE DO NOT REPLY TO THIS MESSAGE - THANKS!--
 
-Your request has been received and will be ordered.  Once it arrives, it will be placed on hold for you.  You will only hear from us if there's a problem.  Thank you!
+Your request has been received and will be ordered. Once it arrives, it will be placed on hold for you. You will only hear from us if there's a problem. If you requested a journal or database, a librarian will follow up with you via email about your request. Thank you!
 
 ---------------------------------------------------
 
@@ -20,6 +20,8 @@ Title: [>title<]
 
 Electronic or print: [>electronic<]
 Alternate format permissible: [>alternate<]
+Priority: [>priority<]
+  Priority Key: 1: Urgent (5-14 business days), 2: Soon (15-30 business days), 3: Anytime
 
 Publisher: [>publisher<]
 Edition: [>edition<]

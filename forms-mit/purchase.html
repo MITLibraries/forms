@@ -311,7 +311,7 @@ $(document).ready(function() {
 
       <p>
 
-        <label for="title">Title/Database/Data set <abbr class="required" title="required">*</abbr><br>
+        <label for="title">Title <abbr class="required" title="required">*</abbr><br>
 
           <textarea name="title" id="title" cols="35" rows="2" aria-required="true"></textarea>
 
@@ -323,7 +323,7 @@ $(document).ready(function() {
 
         <p>
 
-        <label for="author">Author<abbr class="required" title="required">*</abbr><br>
+        <label for="author">Author <abbr class="required" title="required">*</abbr><br>
 
           <input type="text" name="author" id="author" size="35" maxlength="100">
 
@@ -345,9 +345,7 @@ $(document).ready(function() {
 
         </label>
 
-   <input type="hidden" name="r_electronic" value="-Please indicate preference for electronic or print.">
-
-
+      <input type="hidden" name="r_electronic" value="-Please indicate preference for electronic or print.">
 
       </p>
 
@@ -358,6 +356,24 @@ $(document).ready(function() {
       </p>
       <input type="hidden" name="r_alternate" value="-Please indicate whether an alternate format is acceptable.">
      
+
+     <p>Priority <abbr class="required" title="required">*</abbr><br>
+
+       <label for="priorityUrgent"><input type="radio" id="priorityUrgent" name="priority" class="priority" value="1">
+
+       Urgent, as soon as possible (generally 5-14 business days)</label><br>
+
+       <label for="prioritySoon"><input type="radio" id="prioritySoon" name="priority" class="priority" value="2">
+
+       Soon, but not urgent (generally 15-30 business days)</label><br>
+
+       <label for="priorityAnytime"><input type="radio" id="priorityAnytime" name="priority" class="priority" value="3">
+
+       Anytime would be fine</label>
+
+       <input type="hidden" name="r_priority" value="-Please indicate the purchase's priority.">
+
+     </p>
      
 
       <p>
