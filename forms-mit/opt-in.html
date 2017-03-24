@@ -1,68 +1,132 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lte-ie9" lang="en"><![endif]-->
+<!--[if !(IE 8) | !(IE 9) ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MIT Authors' Opt-in Open Access license : MIT Libraries</title>
-  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-  <!--#include virtual="/includes/base_scripts.html" -->
+
+  <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+
+  <!-- form specific stuff -->
   <style type="text/css">
   .hidden {
     display: none;
   }
+  .box {
+    margin-bottom: 20px;
+    border: 3px solid rgba(51, 139, 197, 0.3);
+    background-color: #fff;
+    padding: 20px 30px;
+  }
+
+  .box blockquote {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #444;
+  }
   </style>
+
+</head>
+
+<body class="">
+  <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
+
+  <div class="wrap-page">
+    
+<!--#include virtual="/mitlib-style/inc/header-site-slim.html" -->
+
+    <div class="wrap-outer-breadcrumb layout-band">
+      <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
+        <div class="breadcrumbs">
+          <a href="http://libraries.mit.edu" title="MIT Libraries">Home</a>  &raquo;  <a href="/scholarly">Scholarly Publishing</a> &raquo; <a href="/scholarly/mit-open-access/opt-in-oa-license">Opt-in Open Access License</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap-outer-content layout-band">
+      <div class="wrap-content layout-3q1q">
+        <main id="content-main" class="content-main" role="main">
+          <div class="area-content entry-content">
+            <div class="layout-3q1q layout-band">
+              <div class="col3q">
+
+                <h2>MIT authors' opt-in open access license</h2>
+
+                <p>In 2009 the MIT faculty adopted a powerful and effective open access policy, which, through a license to MIT, allows authors to legally make their final, peer-reviewed manuscripts freely accessible through the open access repository <a href="http://dspace.mit.edu/handle/1721.1/49433">DSpace@MIT</a> and other venues.</p>
+
+                <p>As of April 2017, all MIT authors, including students, postdocs, and staff, have access to the same powerful means of retaining rights, via an <a href="/opt-in-license">"opt-in" open access license</a>.</p>
+
+                <p>Below is a voluntary, opt-in license that mirrors the language of the faculty open access policy. It applies to all scholarly articles written by an author after signing the license and while affiliated with MIT.</p>
+
+                <p>Authors covered by the <a href="/scholarly/mit-open-access/open-access-policy/">MIT faculty open access policy</a> do not need to sign this license.</p>
+
+                <hr />
+
+                <form action="scripts/php/process.php" method="post" name="optin" id="optin">
+                  <input type="hidden" name="subject" value="Open access opt-in license: <!--#echo var="displayname" -->">
+                  <input type="hidden" name="recipient" value="oapolicyoptin@mit.edu">
+                  <input type="hidden" name="fullname" value="<!--#echo var="displayname" -->">
+                  <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
+                  <input type="hidden" name="copy" value="true">
+                  <p><label>Your name:</label> <strong><!--#echo var="displayname" --></strong></p>
+                  <p><label>Your email address:</label> <strong><!--#echo var="eppn" --></strong></p>
+                  <div class="box">
+                    <strong>MIT authors' opt-in open access license</strong>
+                    <blockquote>Authors at the Massachusetts Institute of Technology are committed to disseminating the fruits of their research and scholarship as widely as possible. In keeping with that commitment, by signing this license, I hereby grant to the Massachusetts Institute of Technology nonexclusive permission to make available my scholarly articles and to exercise the copyright in those articles for the purpose of open dissemination. In legal terms, I grant to MIT a nonexclusive, irrevocable, paid-up, worldwide license to exercise any and all rights under copyright relating to each of my scholarly articles, in any medium, provided that the articles are not sold for a profit, and to authorize others to do the same. This license will apply to all scholarly articles written while I am employed by, have an Academic Instructional Staff or Academic Research Staff (e.g., Postdoctoral Fellow) appointment from, or am registered as a student at MIT, except for any articles completed before the execution of this license and any articles for which I entered into an incompatible licensing or assignment agreement before the execution of this license. This license will not cover any article for which I notify MIT in writing that I am opting out of the license for that particular article. To assist the Institute in distributing the scholarly articles, as of the date of publication, I will make available an electronic copy of my final version of the article at no charge to a designated representative of the Provost's Office in appropriate formats (such as PDF) specified by the Provost's Office. I understand that the Provost's Office will make the scholarly article available to the public in an open-access repository.</blockquote>
+                    <p class="field-wrap">
+                      <label for="permission"><input name="permission" type="checkbox" id="permission" value="Grants permission" aria-required="true"> Yes, I grant this nonexclusive permission to MIT.</label>
+                      <input type="hidden" name="r_permission" value="-Please check the box to indicate that you grant this nonexclusive permission to MIT.">
+                    </p>
+                  </div>
+                  <p id="submit">
+                    <input class="btn button-primary" type="submit" value="Send">
+                  </p>
+                </form>
+                <hr />
+                <p>If you have any questions about working with the <a href="/opt-in-license">MIT authors' opt-in open access license</a>, please contact <a href="mailto:scholarlypub@mit.edu">scholarlypub@mit.edu</a>.</p>
+              </div>
+              <aside class="content-sup col1q-r" role="complementary">
+
+                <div class="bit">
+                  <h3 class="title">Related</h3>
+                  <ul>
+                    <li><a href="https://libraries.mit.edu/opt-in-license">Opt-in open access license</a></li>
+                    <li><a href="/scholarly/mit-open-access/open-access-policy/">MIT faculty open access policy</a></li>
+                    <li><a href="http://dspace.mit.edu/handle/1721.1/49433">OA collection in DSpace@MIT</a></li>
+                    <li>Contact: <a href="mailto:scholarlypub@mit.edu">scholarlypub@mit.edu</a></li>
+                  </ul>
+                </div>
+
+              </aside>
+            </div>
+          </div>
+        </main>
+        <!-- end .content-main -->   
+      </div>
+    </div>
+
+<!--#include virtual="/mitlib-style/inc/footer-site.html" -->
+
+  </div>
+  <!-- close wrap-page -->    
+
+<!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
+
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+
   <script language="JavaScript" type="text/javascript">
-  <!--
+  <!-- 
   $(document).ready(function() {
     /** Add any load time jquery actions here */
     var strPath = $(location).attr('pathname');
-    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+    $('#submit').html('<input class="btn button-primary" type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
   });
-//-->
-</script>
-<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
-<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-</head>
+  //-->
+  </script>
 
-<body>
-  <div id="container">
-    <!--#include virtual="/includes/header-semantic.html"-->
-    <!-- breadcrumb - TODO: make this semantic -->
-    <div class="breadcrumb">
-      <span class="semantic">You are located in:</span>
-      <ul>
-        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-        <li><a href="/scholarly"><span class="semantic">in subsection </span>Scholarly Publishing</a></li>
-        <li><a href="/scholarly/mit-open-access/opt-in-oa-license"><span class="semantic">in subsection </span>Opt-in Open Access License</a></li>
-        <li><span class="semantic">on page </span>Opt In Form</li>
-      </ul>
-    </div>
-
-    <h1>MIT Authors' Opt-in Open Access License</h1>
-    <p>In 2009 the MIT faculty adopted a powerful and effective open access policy, which, through a license to MIT, allows authors to legally make their final, peer-reviewed manuscripts freely accessible through the open access repository <a href="http://dspace.mit.edu/handle/1721.1/49433">DSpace@MIT</a> and other venues.</p>
-    <p>As of April 2017, all MIT authors, including students, postdocs, and staff, have access to the same powerful means of retaining rights, via an <a href="/opt-in-license">"opt-in" open access license</a>.</p>
-    <p>Below is a voluntary, opt-in license that mirrors the language of the faculty open access policy. It applies to all scholarly articles written by an author after signing the license and while affiliated with MIT.</p>
-    <p>Authors covered by the <a href="/scholarly/mit-open-access/open-access-policy/">MIT Faculty Open Access Policy</a> do not need to sign this license.</p>
-    <form action="scripts/php/process.php" method="post" name="optin" id="optin">
-      <input type="hidden" name="subject" value="Open access policy opt-in license: <!--#echo var="displayname" -->">
-      <input type="hidden" name="recipient" value="oapolicyoptin@mit.edu">
-      <input type="hidden" name="fullname" value="<!--#echo var="displayname" -->">
-      <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
-      <input type="hidden" name="copy" value="true">
-      <p><label>Your name</label><br><!--#echo var="displayname" --></p>
-      <p><label>Your email address</label><br><!--#echo var="eppn" --></p>
-      <div class="box">
-        <p>Authors at the Massachusetts Institute of Technology are committed to disseminating the fruits of their research and scholarship as widely as possible. In keeping with that commitment, by signing this license, I hereby grant to the Massachusetts Institute of Technology nonexclusive permission to make available my scholarly articles and to exercise the copyright in those articles for the purpose of open dissemination. In legal terms, I grant to MIT a nonexclusive, irrevocable, paid-up, worldwide license to exercise any and all rights under copyright relating to each of my scholarly articles, in any medium, provided that the articles are not sold for a profit, and to authorize others to do the same. This license will apply to all scholarly articles written while I am employed by, have an Academic Instructional Staff or Academic Research Staff (e.g., Postdoctoral Fellow) appointment from, or am registered as a student at MIT, except for any articles completed before the execution of this license and any articles for which I entered into an incompatible licensing or assignment agreement before the execution of this license. This license will not cover any article for which I notify MIT in writing that I am opting out of the license for that particular article. To assist the Institute in distributing the scholarly articles, as of the date of publication, I will make available an electronic copy of my final version of the article at no charge to a designated representative of the Provost's Office in appropriate formats (such as PDF) specified by the Provost's Office. I understand that the Provost's Office will make the scholarly article available to the public in an open-access repository.</p>
-        <p>
-          <label for="permission"><input name="permission" type="checkbox" id="permission" value="yes" aria-required="true">Yes, I grant this nonexclusive permission to MIT.</label>
-          <input type="hidden" name="r_permission" value="-Please check the box to indicate that you grant this nonexclusive permission to MIT.">
-        </p>
-      </div>
-      <p id="submit">
-        <input type="submit" value="Send">
-      </p>
-    </form>
-    <p>If you have any questions about working with the <a href="/opt-in-license">MIT Authors' Opt-in Open Access License</a>, please contact <a href="mailto:scholarlypub@mit.edu">scholarlypub@mit.edu</a>.</p>
-    <!--#include virtual="/includes/footer-semantic.html" -->
-  </div>
 </body>
 </html>
