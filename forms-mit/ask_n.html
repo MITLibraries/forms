@@ -206,19 +206,19 @@
   </script>
 <script type="text/javascript">
   <!--
- function storedValues() {
+  function storedValues() {
  if (document.images) { // only do it in JavaScript 1.1 browsers
   for (i=0;i<document.forms.length;i++) {
    for (j=0;j<document.forms[i].elements.length; j++) {
     cookie_name = "memory_"+document.forms[i].name+"_"
     +document.forms[i].elements[j].name;
-    val = GetCookie(cookie_name);
-    if (val) {
-     if ((document.forms[i].elements[j].type == "text")
-       || (document.forms[i].elements[j].type == "password")
-       || (document.forms[i].elements[j].type == "textarea")) {
-      document.forms[i].elements[j].value = val;
-  } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
+ val = GetCookie(cookie_name);
+   if (val) {
+    if ((document.forms[i].elements[j].type == "text")
+    || (document.forms[i].elements[j].type == "password")
+    || (document.forms[i].elements[j].type == "textarea")) {
+    document.forms[i].elements[j].value = val;
+ } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
     document.forms[i].elements[j].selectedIndex = -1;
     while (((pos = val.indexOf(" ")) != -1) && (val.length > 1)) {
      sel = parseInt(val.substring(0,pos));
@@ -230,15 +230,12 @@
   document.forms[i].elements[j].checked = val;
 } else if (document.forms[i].elements[j].type == "radio") {
   if (document.forms[i].elements[j].value == val)
-   document.forms[i].elements[j].checked = true;
+ document.forms[i].elements[j].checked = true;
 }
 }
 }
 }
 }
-}
-
-
 
 window.onload = storedValues;
 
@@ -247,7 +244,7 @@ $(document).ready(function() {
 
   eppn = document.getElementById("eppn").value;
 
-  loginFunctions.doAuthenticate(eppn);
+  loginFunctions.doAuthenticate("hattie@mit.edu");
   var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',5000);
  // document.getElementById('eppn').value = "";
 
