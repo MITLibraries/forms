@@ -11,25 +11,6 @@
 
   <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
 
-  <!-- form specific stuff -->
-  <style type="text/css">
-  .hidden {
-    display: none;
-  }
-  .box {
-    margin-bottom: 20px;
-    border: 3px solid rgba(51, 139, 197, 0.3);
-    background-color: #fff;
-    padding: 20px 30px;
-  }
-
-  .box blockquote {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    color: #444;
-  }
-  </style>
-
 </head>
 
 <body class="">
@@ -59,12 +40,6 @@
                   <form action="scripts/php/process.php" method="post" name="finedispute" id="finedispute">
                     <input type="hidden" name="subject" value="Fine Appeal">
                     <input type="hidden" name="recipient" value="circulation@mit.edu">
-                   <!-- <table width="98%" border="0" cellpadding="5" cellspacing="0" bgcolor="#FFFFCC">
-                      <tr>
-                        <td><p><strong>NOTE:</strong> From May 2-16, 2012, due to a combination of a significant spamming attack on our forms and some overzealous spam filtering by the MIT email system, some messages sent using this form were not properly submitted. </p>
-                            <p>If you submitted a request in that time period and did not receive an automated response, it&rsquo;s possible it did not go through.  Please resubmit your request using this form (<em>the issue causing the problem has been resolved</em>).  We apologize for any inconvenience this may have caused.</p></td>
-                      </tr>
-                    </table>-->
                     <p>Provide all of the information in the form below. Libraries' staff will investigate your appeal and respond within a week.</p>
                     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
                     <p>
@@ -96,7 +71,7 @@
                       <textarea name="reason" cols="60" rows="10" id="reason"></textarea>
                     </p>
                     <p id="submit">
-                      <input type="submit" value="Send">
+                      <input type="submit" value="Send" class="button button-primary">
                     </p>
                 </form>
               </div>
