@@ -7,9 +7,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MIT Authors' Opt-out of Open Access Policy : MIT Libraries</title>
+  <title>Opt out of the MIT open access policy : MIT Libraries</title>
 
   <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+x`
+  <!-- form specific stuff -->
+  <style type="text/css">
+  .hidden {
+    display: none;
+  }
+  </style>
 
 </head>
 
@@ -23,7 +30,7 @@
     <div class="wrap-outer-breadcrumb layout-band">
       <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
         <div class="breadcrumbs">
-          <a href="/" title="MIT Libraries">Home</a>  &raquo;  <a href="/scholarly">Scholarly Publishing</a> &raquo; <a href="/scholarly/mit-open-access/opt-in-oa-license">Opt-in Open Access License</a> &raquo;  Opt-out Form
+          <a href="/" title="MIT Libraries">Home</a>  &raquo;  <a href="/scholarly">Scholarly Publishing</a> &raquo; <a href="/scholarly/mit-open-access">Open Access Policies at MIT</a> &raquo;   Opt-out Form
         </div>
       </div>
     </div>
@@ -35,13 +42,10 @@
             <div class="layout-3q1q layout-band">
               <div class="col3q">
 
-                <h2>Opt out of the MIT faculty open access policy or the <strong>authors' opt-in open access license for a particular article</strong></h2>
-                <p>More information:</p>
-                <ul>
-                <li><a href="/scholarly/mit-open-access/open-access-policy/">MIT faculty open access policy</a></li>
-                <li><a href="/scholarly/mit-open-access/opt-in-oa-license/"> MIT authors’ opt-in open access license</a></li>
-                </ul>
-               <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+                <h2>Opt out of the MIT open access policy</h2>
+                <p>This form can be used to request to opt-out of the MIT faculty open access policy or the authors' opt-in open access license for a particular article. To learn more about these policies, please read the <a href="/scholarly/mit-open-access/open-access-policy/">MIT faculty open access policy</a> and the <a href="/scholarly/mit-open-access/opt-in-oa-license/"> MIT authors’ opt-in open access license</a>.</p>
+
+               <p>Note: All fields are required unless noted as optional.</p>
                
                 <form action="scripts/php/process.php" method="post" name="optout" id="optout">
                       <input type="hidden" name="subject" value="Open access policy opt-out form">
@@ -49,52 +53,64 @@
                       <input type="hidden" name="fullname" value="<!--#echo var="displayname" -->">
                       <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
                       <input type="hidden" name="copy" value="true">
-                  <p><label>Your name:</label> <strong><!--#echo var="displayname" --></strong></p>
-                  <p><label>Your email address:</label> <strong><!--#echo var="eppn" --></strong></p>
-                  <div>
-                  <ul  class="list-unbulleted">
-                      <li><label for="facultyYes"><input type="radio" name="faculty" id="facultyYes" value="Professor " checked="checked">&nbsp;I am a member of the faculty.</label></li>
-                      <li><label for="facultyNo"><input type="radio" name="faculty" id="facultyNo" value="">&nbsp;I am a non-faculty author.</label></li>
-                      <li><label for="facultyProxy"><input type="radio" name="faculty" id="facultyProxy" value="Proxy">&nbsp;I am submitting this form on behalf an author.</label></li>
-                    </ul>
-                    <p>
-                      <label for="title">Title of article (expected or working title): <abbr class="required" title="required">*</abbr><br><input name="title" id="title" type="text" size="50" aria-required="true"></label>
-                      <input type="hidden" name="r_title" value="-Please provide the article title.">
-                    </p>
-                    <p>
-                      <label for="journal">Journal you expect to publish in: <abbr class="required" title="required">*</abbr><br><input name="journal" id="journal" type="text" size="50" aria-required="true"></label>
-                      <input type="hidden" name="r_journal" value="-Please enter the journal name.">
-                    </p>
-                    <p>
-                      <label for="coauthors">You acknowledge that the MIT co-authors whose email addresses you supply below would also like waivers for this publication:<br>
-                        <em>(please separate email addresses with commas)</em><br>
-                        <input name="coauthors" id="coauthors" type="text" size="50">
-                      </label><br>
-                      Authors included here will receive a copy of the waiver.
-                    </p>
-                    <p><label for="reason">Reason you are opting out:</label> <abbr class="required" title="required">*</abbr></p>
-                    <ul  class="list-unbulleted">
-                      <li><label for="whyPublisher"><input type="radio" name="why" id="whyPublisher" value="Publisher requirement" checked="checked">&nbsp;Publisher requirement</label></li>
-                      <li><label for="whyOther"><input type="radio" name="why" id="whyOther" value="Other">&nbsp;Other: please specify</label></li>
-                    </ul>
-                    <p id="whyReason">
-                      <textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea>
-                    </p>  
-                  </div>
+                      <fieldset>
+                        <legend>About you</legend>
+                     
+                        <p><label>Your name:</label> <strong><!--#echo var="displayname" --></strong></p>
+                        <p><label>Your email address:</label> <strong><!--#echo var="eppn" --></strong></p>
+                        <div>
+                        <ul  class="list-unbulleted">
+                            <li><label class="field-radio" for="facultyYes"><input type="radio" name="faculty" id="facultyYes" value="Professor" checked="checked"> I am a member of the faculty.</label></li>
+                            <li><label class="field-radio" for="facultyNo"><input type="radio" name="faculty" id="facultyNo" value=""> I am a non-faculty author.</label></li>
+                            <li><label class="field-radio" for="facultyProxy"><input type="radio" name="faculty" id="facultyProxy" value="Proxy"> I am submitting this form on behalf an author.</label></li>
+                          </ul>
+                      </fieldset>
+
+                      <fieldset>
+                        <legend>About the Article</legend>
+                        <p>
+                          <label class="field-label" for="title">Title of article (expected or working title): <br><input class="field field-input" name="title" id="title" type="text" size="50" aria-required="true"></label>
+                          <input type="hidden" name="r_title" value="-Please provide the article title.">
+                        </p>
+                        <p>
+                          <label class="field-label" for="journal">Journal you expect to publish in: <br><input class="field field-input" name="journal" id="journal" type="text" size="50" aria-required="true"></label>
+                          <input type="hidden" name="r_journal" value="-Please enter the journal name.">
+                        </p>
+                        <div class="field-wrap">
+                          <p>You acknowledge that the MIT co-authors whose email addresses you supply below would also like waivers for this publication. (Authors included below will receive a copy of the waiver.)</p>
+                          <label class="field-label" for="coauthors">Co-author email addresses (optional):</label>
+                            <input class="field field-input" name="coauthors" id="coauthors" type="text" size="50">
+                          <span class="tip">Please separate email addresses with commas </span>
+                          </p>
+                        </div>
+
+                        <div class="field-wrap">
+                          <p>Reason you are opting out:</p>
+                          <ul class="list-unbulleted">
+                            <li><label class="field-radio" for="whyPublisher"><input type="radio" name="why" id="whyPublisher" value="Publisher requirement" checked="checked">&nbsp;Publisher requirement</label></li>
+                            <li><label class="field-radio" for="whyOther"><input type="radio" name="why" id="whyOther" value="Other">&nbsp;Other: please specify</label></li>
+                          </ul>
+                          <p id="whyReason">
+                            <textarea name="reason" id="reason" cols="50" rows="3" aria-required="true"></textarea>
+                          </p>  
+                        </div>
+                    </fieldset>
+                    
                   <p id="submit">
                     <input class="btn button-primary" type="submit" value="Send">
                   </p>
                 </form>
                 <hr />
-                <p>If you have any questions about open access at MIT, please contact <a href="mailto:scholarlypub@mit.edu">scholarlypub@mit.edu</a> or visit <a href="https://libraries.mit.edu/scholarly/mit-open-access/">https://libraries.mit.edu/scholarly/mit-open-access/</a>
-              </p>
+
+                <p>If you have any questions about open access at MIT, please contact <a href="mailto:scholarlypub@mit.edu">scholarlypub@mit.edu</a> or visit <a href="/scholarly/mit-open-access/">Open Access Policies at MIT</a>.
+               </p>
               </div>
               <aside class="content-sup col1q-r" role="complementary">
 
                 <div class="bit">
                   <h3 class="title">Related</h3>
                   <ul>
-                   <li><a href="/scholarly/mit-open-access/faq-on-the-oa-policy/">Faculty Open Access Policy FAQ</a></li>
+                   <li><a href="/scholarly/mit-open-access/faq-on-the-oa-policy/">Faculty open access policy FAQ</a></li>
                 
                     <li><a href="http://dspace.mit.edu/handle/1721.1/49433">OA collection in DSpace@MIT</a></li>
                     <li>Contact: <a href="mailto:scholarlypub@mit.edu">scholarlypub@mit.edu</a></li>
