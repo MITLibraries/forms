@@ -35,8 +35,8 @@
   <h1>Share your thesis story</h1>
   <form id="thesisstory" name="thesisstory" action="/scripts/php/mail.php" method="post">
     <input type="hidden" name="subject" value="Share your thesis story">
-    <input type="hidden" name="recipient" value="francesb@mit.edu">
-    <input type="hidden" name="email" value="francesb@mit.edu">
+    <input type="hidden" name="recipient" value="mssimon@mit.edu">
+    <input type="hidden" name="email" value="mssimon@mit.edu">
     <a name="form" id="form"></a>
     <p>MIT Theses are openly available to all readers. Please share how this access affects or benefits you.</p>
     <p><label for="comments">Tell us your story <abbr class="required" title="required">*</abbr></label></p>
