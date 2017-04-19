@@ -10,6 +10,7 @@
   <title>Research Consultation Appointment: MIT Libraries</title>
 
   <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+    <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
 </head>
 
 <body class="">
@@ -183,7 +184,7 @@
 
   </div>
   <!-- close wrap-page -->    
-
+  <!--#include virtual="../includes/base_scripts.html" -->
 <!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
  <script type="text/javascript">
   <!--
@@ -193,15 +194,11 @@
     var timeout = setTimeout('cookie_functions.setDocumentValues("libForma",",","=")',3000);
     document.getElementById('eppn').value = "";
 
-    // GA enhancements
-    var strPath = $(location).attr('pathname');
-    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
-  });
+    });
   -->
   </script>
   <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
   <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
 
   <script language="JavaScript" type="text/javascript">
   <!-- 
