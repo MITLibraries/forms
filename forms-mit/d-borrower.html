@@ -36,7 +36,7 @@ $(document).ready(function() {
     var aboutDesignee = $('select#daffiliation option:selected').val();
     switch (aboutDesignee) {
       case 'non-mit':
-      $('p#did-shell').html("");
+     $('p#did-shell').html("<input name='did' type='hidden'  id='did' value='Not Applicable'>");
       break;
       default:
       $('p#did-shell').load('/forms-mit/d-borrower-ajax-did.html');
