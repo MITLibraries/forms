@@ -1,78 +1,109 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<title>Request Access to Your Account via Touchstone: Barton catalog: MIT Libraries</title>
-		<link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-		<link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-		<!--#include virtual="/includes/base_scripts.html" -->
-		<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
-		<script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
-		<script language="JavaScript" type="text/javascript">
-		<!--
-		$(document).ready(function() {
-			var strPath = $(location).attr('pathname');
-			$('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
-		});
-		//-->
-		</script>
-		<script type="text/javascript" src="../scripts/googleanalytics-async.js"></script>
-	</head>
-	<body>
-		<div id="container">
-			<!--#include virtual="/includes/header-semantic.html"-->
-
-			<!-- breadcrumb - TODO: make this semantic -->
-			<div class="breadcrumb">
-			<span class="semantic">You are located in:</span>
-			<ul>
-			  <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-			  <li><a href="/barton"><span class="semantic">in subsection </span>Barton catalog</a></li>
-			  <li><a href="/research-support/touchstone/"><span class="semantic">in subsection </span>Accessing Your account in Barton via Touchstone</a></li>
-			  <li><span class="semantic">on page </span>Request Touchstone Collaboration Account</li>
-			</ul>
-			</div>
-
-			<h1>Request Access to &quot;Your Account&quot; via a Touchstone Collaboration Account </h1>
-
-			<p class="special2"><strong>This form is only intended for users with borrowing privileges who do NOT have a Kerberos account.</strong> If you have a Kerberos account, you should be able to log in to <a href="http://libraries.mit.edu/barton-account">Your Account</a> using your Kerberos ID and password, or using MIT web certificates. </p>
-
-			<p>Fill out the following form and we'll get back to you by the end of the next business day at the latest. If you need access sooner, please visit or contact a <a href="http://libraries.mit.edu/hours">service desk</a> instead of using this form.</p>
-
-			<p>&nbsp;</p>
-		  <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
-			<form method="post" action="/scripts/php/mail.php" name="simple" id="simple">
-			    <input type="hidden" name="subject" value="Requesting Access to Your Account via Touchstone">
-			    <input type="hidden" name="recipient" value="youraccount-feedback@mit.edu">
-
-				<p>
-					<label for="fullname">Your Name <abbr class="required" title="required">*</abbr><br>
-					<input name="fullname" type="text" id="fullname" size="60" maxlength="75" aria-required="true"></label>
-					<input type="hidden" name="r_fullname" value="-Please enter your name.">
-				</p>
-
-				<p>
-					<label for="email">Your Email <abbr class="required" title="required">*</abbr><br>
-					<input id="email" type="text" maxlength="75" size="60" name="email" aria-required="true"></label>
-					<input type="hidden" value="-Please enter a valid email address." name="e_email">
-				</p>				
-
-				<p><label for="phone">Your Phone<br>
-
-				<input type="text" name="phone" id="phone"></label></p>
-
-				<p><label for="comment">Comment<br>
-
-				<textarea id="comment" name="comment" rows="10" cols="60"></textarea></label></p>
-
-				<p id="submit">
-
-					<input type="submit" value="Send">
-
-				</p>
-
-			</form>
-
-			<!--#include virtual="/includes/footer-semantic.html" -->
-		</div>
-</body>
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lte-ie9" lang="en"><![endif]-->
+<!--[if !(IE 8) | !(IE 9) ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Request Access to Your Account via Touchstone: Barton catalog: MIT Libraries</title>
+
+  <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+
+</head>
+
+<body class="">
+  <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
+
+  <div class="wrap-page">
+    
+<!--#include virtual="/mitlib-style/inc/header-site-slim.html" -->
+
+    <div class="wrap-outer-breadcrumb layout-band">
+      <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
+        <div class="breadcrumbs">
+          <a href="/" title="MIT Libraries">Home</a>  &raquo;  <a href="/barton">Barton catalog</a> &raquo; <a href="/research-support/touchstone/">Accessing Your account in Barton via Touchstone</a> &raquo; Request Touchstone Collaboration Account
+
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap-outer-content layout-band">
+      <div class="wrap-content layout-3q1q">
+        <main id="content-main" class="content-main" role="main">
+          <div class="area-content entry-content">
+            <div class="layout-3q1q layout-band">
+              <div class="col3q">
+
+          <h2>Request Access to &quot;Your Account&quot; via a Touchstone Collaboration Account</h2>
+
+      <p class="special2"><strong>This form is only intended for users with borrowing privileges who do NOT have a Kerberos account.</strong> If you have a Kerberos account, you should be able to log in to <a href="http://libraries.mit.edu/barton-account">Your Account</a> using your Kerberos ID and password, or using MIT web certificates. </p>
+
+      <p>Fill out the following form and we'll get back to you by the end of the next business day at the latest. If you need access sooner, please visit or contact a <a href="http://libraries.mit.edu/hours">service desk</a> instead of using this form.</p>
+ 
+       <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+        <form method="post" action="/scripts/php/process.php" name="simple" id="simple">
+          <input type="hidden" name="subject" value="Requesting Access to Your Account via Touchstone">
+          <input type="hidden" name="recipient" value="youraccount-feedback@mit.edu">
+
+        <p>
+          <label for="fullname">Your Name <abbr class="required" title="required">*</abbr><br>
+          <input name="fullname" type="text" id="fullname" size="60" maxlength="75" aria-required="true"></label>
+          <input type="hidden" name="r_fullname" value="-Please enter your name.">
+        </p>
+
+        <p>
+          <label for="email">Your Email <abbr class="required" title="required">*</abbr><br>
+          <input id="email" type="text" maxlength="75" size="60" name="email" aria-required="true"></label>
+          <input type="hidden" value="-Please enter a valid email address." name="e_email">
+        </p>        
+
+        <p><label for="phone">Your Phone<br>
+
+        <input type="text" name="phone" id="phone"></label></p>
+
+        <p><label for="comment">Comment<br>
+
+        <textarea id="comment" name="comment" rows="10" cols="60"></textarea></label></p>
+
+        <p id="submit">
+
+          <input type="submit" value="Send">
+
+        </p>
+
+      </form>
+              </div>
+              <aside class="content-sup col1q-r" role="complementary">
+
+              </aside>
+            </div>
+          </div>
+        </main>
+        <!-- end .content-main -->   
+      </div>
+    </div>
+
+<!--#include virtual="/mitlib-style/inc/footer-site.html" -->
+
+  </div>
+  <!-- close wrap-page -->    
+
+<!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
+
+ <!--#include virtual="/includes/base_scripts.html" -->
+ <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+
+  <script language="JavaScript" type="text/javascript">
+  <!-- 
+  $(document).ready(function() {
+    /** Add any load time jquery actions here */
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input class="btn button-primary" type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+  //-->
+  </script>
+
+</body>
 </html>

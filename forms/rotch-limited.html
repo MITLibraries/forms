@@ -1,9 +1,15 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lte-ie9" lang="en"><![endif]-->
+<!--[if !(IE 8) | !(IE 9) ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Rotch Limited Access Request: MIT Libraries</title>
-  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
+
+  <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
   <!--#include virtual="../includes/base_scripts.html" -->
   <script language="JavaScript" type="text/javascript">
   <!--
@@ -100,38 +106,38 @@ $(document).ready(function() {
     cookie_functions.setDocumentValues("libForma", ",", "=");
     }
   var strPath = $(location).attr('pathname');
-  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  $('#submit').html('<input type="button" class="btn button-primary" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
 
 });
   //-->
   </script>
- <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
- <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+
 </head>
 
-<body>
-  <div id="container">
-  <!--#include virtual="/includes/header-semantic.html"-->
-      <!-- breadcrumb - TODO: make this semantic -->
-      <div class="breadcrumb">
-      <span class="semantic">You are located in:</span>
-      <ul>
-        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-        <li><a href="/locations"><span class="semantic">in subsection </span>Locations</a></li>
-        <li><a href="/lsa"><span class="semantic">in subsection </span>Library Storage Annex</a></li>
-        <li><span class="semantic">on page </span>Annex Request Form</li>
-      </ul>
+<body class="">
+  <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
+
+  <div class="wrap-page">
+    
+<!--#include virtual="/mitlib-style/inc/header-site-slim.html" -->
+
+    <div class="wrap-outer-breadcrumb layout-band">
+      <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
+        <div class="breadcrumbs">
+          <a href="/" title="MIT Libraries">Home</a>  &raquo; <a href="/locations">Locations</a> &raquo; 
+          <a href="/lsa">Library Storage Annex</a>  &raquo; Annex Request Form
+        </div>
       </div>
+    </div>
 
-        <h1>Annex Request Form</h1>
-
-             <!--<table width="98%" border="0" cellpadding="5" cellspacing="0" bgcolor="#FFFFCC">
-                <tr>
-                  <td><p><strong>NOTE:</strong> From May 2-16, 2012, due to a combination of a significant spamming attack on our forms and some overzealous spam filtering by the MIT email system, some messages sent using this form were not properly submitted. </p>
-                      <p>If you submitted a request in that time period and did not receive an automated response, it&rsquo;s possible it did not go through.  Please resubmit your request using this form (<em>the issue causing the problem has been resolved</em>).  We apologize for any inconvenience this may have caused.</p></td>
-                </tr>
-              </table>-->
-
+    <div class="wrap-outer-content layout-band">
+      <div class="wrap-content layout-3q1q">
+        <main id="content-main" class="content-main" role="main">
+          <div class="area-content entry-content">
+            <div class="layout-3q1q layout-band">
+              <div class="col3q">
+              <h2>Annex Request Form</h2>
+             
               <p>The Library Storage Annex houses many of the lesser-used materials in the MIT Libraries. Use the form on this page to have Annex-owned material delivered to any MIT Library Circulation Desk.</p>
              
 
@@ -307,7 +313,28 @@ $(document).ready(function() {
                 <input type="submit" value="Send">
               </p>
             </form>
-    <!--#include virtual="/includes/footer-semantic.html" -->
+             </div>
+              <aside class="content-sup col1q-r" role="complementary">
+
+
+              </aside>
+            </div>
+          </div>
+        </main>
+        <!-- end .content-main -->   
+      </div>
+    </div>
+
+<!--#include virtual="/mitlib-style/inc/footer-site.html" -->
+
   </div>
+  <!-- close wrap-page -->    
+
+<!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
+
+  <!--#include virtual="/includes/base_scripts.html" -->
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+ 
 </body>
 </html>
