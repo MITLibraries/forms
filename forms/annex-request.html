@@ -1,624 +1,612 @@
-<!doctype html>
-
-<html lang="en">
-
-<head>
-
-  <title>Annex Request: Library Storage Annex: MIT Libraries</title>
-
-  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-
-  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-
-  <!--#include virtual="../includes/base_scripts.html" -->
-
-  <script language="JavaScript" type="text/javascript">
-
-  <!--
-
-  var never = new Date();
-
-  never.setTime(never.getTime() + 2000*24*60*60*1000);
-
-  // name is a string of the name of your cookie
-
-  // value is the value corresponding to name
-
-
-
-  function SetCookie(name, value) {
-
-    var expString = "; expires=" + never.toGMTString();
-
-    document.cookie = name + "=" + escape(value) + expString;
-
-  }
-
-
-
-  // returns value of cookie or null if cookie does not exist
-
-  function GetCookie(name) {
-
-    var result = null;
-
-    var myCookie = " " + document.cookie + ";";
-
-    var searchName = " " + name + "=";
-
-    var startOfCookie = myCookie.indexOf(searchName);
-
-    var endOfCookie;
-
-
-
-    if (startOfCookie != -1) {
-
-      startOfCookie += searchName.length; // skip past name of cookie
-
-      endOfCookie = myCookie.indexOf(";", startOfCookie);
-
-      result = unescape(myCookie.substring(startOfCookie, endOfCookie));
-
-    }
-
-
-
-    return result;
-
-  }
-
-
-
-  use_cookies = "unsure";
-
-
-
-  function saveValue(element) {
-
-    if (document.images && use_cookies == "unsure")
-
-      use_cookies = (confirm("Click 'OK' if you would like to store your personal information "
-
-       +"on this computer for the next time you use this form, or click 'Cancel' if you don't "
-
-       +"want the information stored (a good idea if you are using a shared computer).") ? "yes":"no");
-
-
-
-    if (document.images && use_cookies == "yes") {
-
-      if ((element.type == "text")
-
-        || (element.type == "password")
-
-        || (element.type == "textarea")
-
-        || (element.type == "radio")) {
-
-        val = element.value;
-
-    } else if (element.type.indexOf("select") != -1) {
-
-      val = "";
-
-      for(k=0;k<element.length;k++)
-
-        if (element.options[k].selected)
-
-          val += k+" ";
-
-      } else if (element.type == "checkbox") {
-
-        val = element.checked;
-
-      }
-
-      SetCookie("memory_"+element.form.name+"_"+element.name,val);
-
-    }
-
-  }
-
-
-
-  function storedValues() {
-
-    if (document.images) { // only do it in JavaScript 1.1 browsers
-
-      for (i=0;i<document.forms.length;i++) {
-
-        for (j=0;j<document.forms[i].elements.length; j++) {
-
-          cookie_name = "memory_"+document.forms[i].name+"_"
-
-          +document.forms[i].elements[j].name;
-
-          val = GetCookie(cookie_name);
-
-          if (val) {
-
-            if ((document.forms[i].elements[j].type == "text")
-
-              || (document.forms[i].elements[j].type == "password")
-
-              || (document.forms[i].elements[j].type == "textarea")) {
-
-              document.forms[i].elements[j].value = val;
-
-          } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
-
-            document.forms[i].elements[j].selectedIndex = -1;
-
-            while (((pos = val.indexOf(" ")) != -1) && (val.length > 1)) {
-
-              sel = parseInt(val.substring(0,pos));
-
-              val = val.substring(pos+1,val.length);
-
-              if (sel < document.forms[i].elements[j].length)
-
-                document.forms[i].elements[j].options[sel].selected = true;
-
-            }
-
-          } else if (document.forms[i].elements[j].type == "checkbox") {
-
-            document.forms[i].elements[j].checked = val;
-
-          } else if (document.forms[i].elements[j].type == "radio") {
-
-            if (document.forms[i].elements[j].value == val)
-
-              document.forms[i].elements[j].checked = true;
-
-          }
-
-        }
-
-      }
-
-    }
-
-  }
-
-}
-
-
-
-window.onload = storedValues;
-
-
-
-/** Add any load time jquery actions here */
-
-$(document).ready(function() {
-
-  if (cookie_functions.readCookie("libForma") != null) {
-
-    cookie_functions.setDocumentValues("libForma", ",", "=");
-
-    }
-
-  var strPath = $(location).attr('pathname');
-
-  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
-
-
-
-});
-
-  //-->
-
-  </script>
-
- <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
-
- <script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-
-</head>
-
-
-
-<body>
-
-  <div id="container">
-
-  <!--#include virtual="/includes/header-semantic.html"-->
-
-      <!-- breadcrumb - TODO: make this semantic -->
-
-      <div class="breadcrumb">
-
-      <span class="semantic">You are located in:</span>
-
-      <ul>
-
-        <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-
-        <li><a href="/locations"><span class="semantic">in subsection </span>Locations</a></li>
-
-        <li><a href="/lsa"><span class="semantic">in subsection </span>Library Storage Annex</a></li>
-
-        <li><span class="semantic">on page </span>Annex Request Form</li>
-
-      </ul>
-
-      </div>
-
-
-
-        <h1>Annex Request Form</h1>
-
-
-
-             <!--<table width="98%" border="0" cellpadding="5" cellspacing="0" bgcolor="#FFFFCC">
-
-                <tr>
-
-                  <td><p><strong>NOTE:</strong> From May 2-16, 2012, due to a combination of a significant spamming attack on our forms and some overzealous spam filtering by the MIT email system, some messages sent using this form were not properly submitted. </p>
-
-                      <p>If you submitted a request in that time period and did not receive an automated response, it&rsquo;s possible it did not go through.  Please resubmit your request using this form (<em>the issue causing the problem has been resolved</em>).  We apologize for any inconvenience this may have caused.</p></td>
-
-                </tr>
-
-              </table>-->
-
-
-
-              <p>The Library Storage Annex houses many of the lesser-used materials in the MIT Libraries. Use the form on this page to have Annex-owned material delivered to any MIT Library Circulation Desk.</p>
-              
-
-
-
-              <ul>
-
-                <li>
-
-                  <p>Please limit your request to <strong>6 volumes per person per day.</strong> If you need more than 6 volumes you may arrange to use the material at the Annex by calling 617.253.7040.</p>
-
-                </li>
-
-
-
-                <li>
-
-                  <p>Materials housed in the Annex ("Stacks" or "Journal") are normally delivered within 24 hours or less. Most requests made before noon will be available after 3 pm the same day. Requests made after noon will be available after 3 pm the next day (Monday - Friday only).</p>
-
-                </li>
-
-
-
-                <li>
-
-                  <p>Materials housed in the Off Campus Collection may take up to 2 working days for delivery.</p>
-
-                </li>
-
-
-
-                <li>If you wish, you may call the destination library to verify that your item has arrived.</li>
-
-              </ul>
-
-
-
-    <p>Please fill out this form as completely as possible. <strong>Incomplete citations may lead to delays</strong> in filling your request because of the time needed for staff to search for the complete information. Thank you!</p>
-
-              <!--#include virtual="../includes/touchstone_login.html" -->
-
-
-
-              <form action="/scripts/php/mail.php" method="post" name="lsa" id="lsa">
-
-                <input type="hidden" name="subject" value="Annex Request Form">
-
-                <input type="hidden" name="recipient" value="annexreq@mit.edu">
-
-                <input type="hidden" name="copy" value="true">
-
-               <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
-
-               <fieldset name="personal">
-
-                <legend><strong>Personal information</strong></legend>
-
-
-
-                <p>Please tell us how to contact you in case we need to follow up with you.</p>
-
-
-
-                <p><label for="firstname">Your first name</label><br>
-
-                  <input name="firstname" type="text" id="firstname" size="35" onChange="saveValue(this)">
-
-                </p>
-
-
-
-                <p><label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
-
-                  <input name="lastname" type="text" id="lastname" size="35" onChange="saveValue(this)" aria-required="true">
-
-                  <input type="hidden" name="r_lastname" value="-Please enter your last name.">
-
-                </p>
-
-
-
-                <p><label for="email">Your email <abbr class="required" title="required">*</abbr></label><br>
-
-                  <input name="email" type="text" id="email" size="35" onChange="saveValue(this)" aria-required="true">
-
-                  <input type="hidden" value="-Please enter a valid email address." name="e_email">
-
-                </p>
-
-
-
-                <p><label for="id">Your MIT ID <em>(required for MIT community)</em></label><br>
-
-                  <input name="id" type="text" id="id" size="35" onChange="saveValue(this)">
-
-                </p>
-
-
-
-                <p><label for="status">Your MIT status <abbr class="required" title="required">*</abbr></label><br>
-
-                  <select name="status" id="status" onChange="saveValue(this)" aria-required="true">
-
-                    <option value="">
-
-                      -- choose status --
-
-                    </option>
-
-
-
-                    <option value="undergrad">
-
-                      MIT undergrad student
-
-                    </option>
-
-
-
-                    <option value="grad">
-
-                      MIT grad student
-
-                    </option>
-
-
-
-                    <option value="faculty">
-
-                      MIT faculty
-
-                    </option>
-
-
-
-                    <option value="research staff">
-
-                      MIT research staff
-
-                    </option>
-
-
-
-                    <option value="staff">
-
-                      MIT staff
-
-                    </option>
-
-
-
-                    <option value="MIT other">
-
-                      MIT other
-
-                    </option>
-
-
-
-                    <option value="non-MIT">
-
-                      non-MIT
-
-                    </option>
-
-                  </select>
-
-                  <input type="hidden" name="r_status" value="-Please enter your MIT status.">
-
-                </p>
-
-
-
-                <p><label for="address">Your mailing address</label><br>
-
-                    <textarea name="address" cols="40" rows="5" id="address"></textarea> 
-
-                </p>
-
-
-
-                <p><label for="phone">Your phone number</label><br>
-
-                  <input name="phone" type="text" id="phone" size="35" onChange="saveValue(this)">
-
-                </p>
-
-
-
-              </fieldset>
-
-
-
-              <fieldset name="request">
-
-                <legend><strong>Your request</strong></legend>
-
-
-
-                <p><label for="library">Where would you like to pick up these materials? <abbr class="required" title="required">*</abbr></label><br>
-
-                  <select name="library" id="library" aria-required="true">
-
-                    <option value=""> -- Choose a library -- </option>
-
-
-
-                    <option value="Barker">
-
-                      Barker Engineering
-
-                    </option>
-
-
-
-                    <option value="Dewey">
-
-                      Dewey
-
-                    </option>
-
-
-
-                    <option value="Hayden">
-
-                      Hayden (Humanities &amp; Science)
-
-                    </option>
-
-
-
-                    <option value="Music">
-
-                      Lewis Music
-
-                    </option>
-
-
-
-                    <option value="Rotch">
-
-                      Rotch
-
-                    </option>
-
-
-
-                    <option value="Annex">
-
-                      Library Storage Annex
-
-                    </option>
-
-                  </select>
-
-                  <input type="hidden" name="r_library" value="-Please enter your preferred pickup library.">
-
-                </p>
-
-
-
-                <p><label for="title">Book or journal title <abbr class="required" title="required">*</abbr></label><br>
-
-                  <input name="title" type="text" id="title" size="35" onChange="saveValue(this)" aria-required="true">
-
-                  <input type="hidden" name="r_title" value="-Please enter your book or journal title.">
-
-                </p>
-
-
-
-                <p><label for="author">Author <br></label> <input type="text" name="author" id="author" size="35"></p>
-
-
-
-                <fieldset name="citation">
-
-                  <legend>Citation</legend>
-
-
-
-                  <p><label for="callnumb">Call number <abbr class="required" title="required">*</abbr><br>
-
-                    <em>(If item has no call number, fill in "n/a")</em></label><br>
-
-                    <input type="text" name="callnumb" id="callnumb" size="35" aria-required="true">
-
-                    <input type="hidden" name="r_callnumb" value="-Please enter your item call number.">
-
-                  </p>
-
-
-
-                  <p><label for="volume">Volume <abbr class="required" title="required">*</abbr></label><br>
-
-                    <input type="text" name="volume" id="volume" size="35" aria-required="true">
-
-                    <input type="hidden" name="r_volume" value="-Please enter your item volume.">
-
-                  </p>
-
-
-
-                  <p><label for="issue">Issue <abbr class="required" title="required">*</abbr></label><br>
-
-                    <input type="text" name="issue" id="issue" size="35" aria-required="true">
-
-                    <input type="hidden" name="r_issue" value="-Please enter your item issue.">
-
-                  </p>
-
-
-
-                  <p><label for="date">Date <abbr class="required" title="required">*</abbr></label><br>
-
-                    <input type="text" name="date" id="date" size="35" aria-required="true">
-
-                    <input type="hidden" name="r_date" value="-Please enter your item date.">
-
-                  </p>
-
-
-
-                  <p><label for="pages">Pages</label><br>
-
-                    <input type="text" name="pages" id="pages" size="35">
-
-                  </p>
-
-                </fieldset>
-
-
-
-                <p><label for="notes">Is there other information we may need to respond to your request?</label><br>
-
-                  <textarea name="notes" cols="35" rows="8" id="notes"></textarea>
-
-                </p>
-
-              </fieldset>
-
-              <p id="submit">
-
-                <input type="submit" value="Send">
-
-              </p>
-
-            </form>
-
-    <!--#include virtual="/includes/footer-semantic.html" -->
-
-  </div>
-
-</body>
-
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lte-ie9" lang="en"><![endif]-->
+<!--[if !(IE 8) | !(IE 9) ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Annex Request: Library Storage Annex: MIT Libraries</title>
+
+  <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+
+
+</head>
+
+<body class="">
+  <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
+
+  <div class="wrap-page">
+    
+<!--#include virtual="/mitlib-style/inc/header-site-slim.html" -->
+
+    <div class="wrap-outer-breadcrumb layout-band">
+      <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
+        <div class="breadcrumbs">
+          <a href="/" title="MIT Libraries">Home</a>  &raquo;  <a href="/locations">Locations</a> &raquo; <a href="lsa">Library Storage Annex</a>  &raquo; Annex Request Form
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap-outer-content layout-band">
+      <div class="wrap-content layout-3q1q">
+        <main id="content-main" class="content-main" role="main">
+          <div class="area-content entry-content">
+            <div class="layout-3q1q layout-band">
+              <div class="col3q">
+
+
+        <h1>Annex Request Form</h1>
+
+
+              <p>The Library Storage Annex houses many of the lesser-used materials in the MIT Libraries. Use the form on this page to have Annex-owned material delivered to any MIT Library Circulation Desk.</p>
+       
+              <ul>
+
+                <li>
+
+                  <p>Please limit your request to <strong>6 volumes per person per day.</strong> If you need more than 6 volumes you may arrange to use the material at the Annex by calling 617.253.7040.</p>
+
+                </li>
+
+
+
+                <li>
+
+                  <p>Materials housed in the Annex ("Stacks" or "Journal") are normally delivered within 24 hours or less. Most requests made before noon will be available after 3 pm the same day. Requests made after noon will be available after 3 pm the next day (Monday - Friday only).</p>
+
+                </li>
+
+
+
+                <li>
+
+                  <p>Materials housed in the Off Campus Collection may take up to 2 working days for delivery.</p>
+
+                </li>
+
+
+
+                <li>If you wish, you may call the destination library to verify that your item has arrived.</li>
+
+              </ul>
+
+
+
+    <p>Please fill out this form as completely as possible. <strong>Incomplete citations may lead to delays</strong> in filling your request because of the time needed for staff to search for the complete information. Thank you!</p>
+
+              <!--#include virtual="../includes/touchstone_login.html" -->
+
+
+
+              <form action="/scripts/php/process.php" method="post" name="lsa" id="lsa">
+
+                <input type="hidden" name="subject" value="Annex Request Form">
+
+                <input type="hidden" name="recipient" value="annexreq@mit.edu">
+
+                <input type="hidden" name="copy" value="true">
+
+               <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+
+               <fieldset name="personal">
+
+                <legend><strong>Personal information</strong></legend>
+
+
+
+                <p>Please tell us how to contact you in case we need to follow up with you.</p>
+
+
+
+                <p><label for="firstname">Your first name</label><br>
+
+                  <input name="firstname" type="text" id="firstname" size="35" onChange="saveValue(this)">
+
+                </p>
+
+
+
+                <p><label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
+
+                  <input name="lastname" type="text" id="lastname" size="35" onChange="saveValue(this)" aria-required="true">
+
+                  <input type="hidden" name="r_lastname" value="-Please enter your last name.">
+
+                </p>
+
+
+
+                <p><label for="email">Your email <abbr class="required" title="required">*</abbr></label><br>
+
+                  <input name="email" type="text" id="email" size="35" onChange="saveValue(this)" aria-required="true">
+
+                  <input type="hidden" value="-Please enter a valid email address." name="e_email">
+
+                </p>
+
+
+
+                <p><label for="id">Your MIT ID <em>(required for MIT community)</em></label><br>
+
+                  <input name="id" type="text" id="id" size="35" onChange="saveValue(this)">
+
+                </p>
+
+
+
+                <p><label for="status">Your MIT status <abbr class="required" title="required">*</abbr></label><br>
+
+                  <select name="status" id="status" onChange="saveValue(this)" aria-required="true">
+
+                    <option value="">
+
+                      -- choose status --
+
+                    </option>
+
+
+
+                    <option value="undergrad">
+
+                      MIT undergrad student
+
+                    </option>
+
+
+
+                    <option value="grad">
+
+                      MIT grad student
+
+                    </option>
+
+
+
+                    <option value="faculty">
+
+                      MIT faculty
+
+                    </option>
+
+
+
+                    <option value="research staff">
+
+                      MIT research staff
+
+                    </option>
+
+
+
+                    <option value="staff">
+
+                      MIT staff
+
+                    </option>
+
+
+
+                    <option value="MIT other">
+
+                      MIT other
+
+                    </option>
+
+
+
+                    <option value="non-MIT">
+
+                      non-MIT
+
+                    </option>
+
+                  </select>
+
+                  <input type="hidden" name="r_status" value="-Please enter your MIT status.">
+
+                </p>
+
+
+
+                <p><label for="address">Your mailing address</label><br>
+
+                    <textarea name="address" cols="40" rows="5" id="address"></textarea> 
+
+                </p>
+
+
+
+                <p><label for="phone">Your phone number</label><br>
+
+                  <input name="phone" type="text" id="phone" size="35" onChange="saveValue(this)">
+
+                </p>
+
+
+
+              </fieldset>
+
+
+
+              <fieldset name="request">
+
+                <legend><strong>Your request</strong></legend>
+
+
+
+                <p><label for="library">Where would you like to pick up these materials? <abbr class="required" title="required">*</abbr></label><br>
+
+                  <select name="library" id="library" aria-required="true">
+
+                    <option value=""> -- Choose a library -- </option>
+
+
+
+                    <option value="Barker">
+
+                      Barker Engineering
+
+                    </option>
+
+
+
+                    <option value="Dewey">
+
+                      Dewey
+
+                    </option>
+
+
+
+                    <option value="Hayden">
+
+                      Hayden (Humanities &amp; Science)
+
+                    </option>
+
+
+
+                    <option value="Music">
+
+                      Lewis Music
+
+                    </option>
+
+
+
+                    <option value="Rotch">
+
+                      Rotch
+
+                    </option>
+
+
+
+                    <option value="Annex">
+
+                      Library Storage Annex
+
+                    </option>
+
+                  </select>
+
+                  <input type="hidden" name="r_library" value="-Please enter your preferred pickup library.">
+
+                </p>
+
+
+
+                <p><label for="title">Book or journal title <abbr class="required" title="required">*</abbr></label><br>
+
+                  <input name="title" type="text" id="title" size="35" onChange="saveValue(this)" aria-required="true">
+
+                  <input type="hidden" name="r_title" value="-Please enter your book or journal title.">
+
+                </p>
+
+
+
+                <p><label for="author">Author <br></label> <input type="text" name="author" id="author" size="35"></p>
+
+
+
+                <fieldset name="citation">
+
+                  <legend>Citation</legend>
+
+
+
+                  <p><label for="callnumb">Call number <abbr class="required" title="required">*</abbr><br>
+
+                    <em>(If item has no call number, fill in "n/a")</em></label><br>
+
+                    <input type="text" name="callnumb" id="callnumb" size="35" aria-required="true">
+
+                    <input type="hidden" name="r_callnumb" value="-Please enter your item call number.">
+
+                  </p>
+
+
+
+                  <p><label for="volume">Volume <abbr class="required" title="required">*</abbr></label><br>
+
+                    <input type="text" name="volume" id="volume" size="35" aria-required="true">
+
+                    <input type="hidden" name="r_volume" value="-Please enter your item volume.">
+
+                  </p>
+
+
+
+                  <p><label for="issue">Issue <abbr class="required" title="required">*</abbr></label><br>
+
+                    <input type="text" name="issue" id="issue" size="35" aria-required="true">
+
+                    <input type="hidden" name="r_issue" value="-Please enter your item issue.">
+
+                  </p>
+
+
+
+                  <p><label for="date">Date <abbr class="required" title="required">*</abbr></label><br>
+
+                    <input type="text" name="date" id="date" size="35" aria-required="true">
+
+                    <input type="hidden" name="r_date" value="-Please enter your item date.">
+
+                  </p>
+
+
+
+                  <p><label for="pages">Pages</label><br>
+
+                    <input type="text" name="pages" id="pages" size="35">
+
+                  </p>
+
+                </fieldset>
+
+
+
+                <p><label for="notes">Is there other information we may need to respond to your request?</label><br>
+
+                  <textarea name="notes" cols="35" rows="8" id="notes"></textarea>
+
+                </p>
+
+              </fieldset>
+
+              <p id="submit">
+
+                <input type="submit" value="Send" class="button button-primary">
+
+              </p>
+
+                </form>
+             </div>
+              <aside class="content-sup col1q-r" role="complementary">
+
+
+              </aside>
+            </div>
+          </div>
+        </main>
+        <!-- end .content-main -->   
+      </div>
+    </div>
+
+<!--#include virtual="/mitlib-style/inc/footer-site.html" -->
+
+  </div>
+  <!-- close wrap-page -->    
+
+<!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
+
+<!--#include virtual="../includes/base_scripts.html" -->
+
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+
+  <script language="JavaScript" type="text/javascript">
+
+  <!--
+
+  var never = new Date();
+
+  never.setTime(never.getTime() + 2000*24*60*60*1000);
+
+  // name is a string of the name of your cookie
+
+  // value is the value corresponding to name
+
+
+
+  function SetCookie(name, value) {
+
+    var expString = "; expires=" + never.toGMTString();
+
+    document.cookie = name + "=" + escape(value) + expString;
+
+  }
+
+
+
+  // returns value of cookie or null if cookie does not exist
+
+  function GetCookie(name) {
+
+    var result = null;
+
+    var myCookie = " " + document.cookie + ";";
+
+    var searchName = " " + name + "=";
+
+    var startOfCookie = myCookie.indexOf(searchName);
+
+    var endOfCookie;
+
+
+
+    if (startOfCookie != -1) {
+
+      startOfCookie += searchName.length; // skip past name of cookie
+
+      endOfCookie = myCookie.indexOf(";", startOfCookie);
+
+      result = unescape(myCookie.substring(startOfCookie, endOfCookie));
+
+    }
+
+
+
+    return result;
+
+  }
+
+
+
+  use_cookies = "unsure";
+
+
+
+  function saveValue(element) {
+
+    if (document.images && use_cookies == "unsure")
+
+      use_cookies = (confirm("Click 'OK' if you would like to store your personal information "
+
+       +"on this computer for the next time you use this form, or click 'Cancel' if you don't "
+
+       +"want the information stored (a good idea if you are using a shared computer).") ? "yes":"no");
+
+
+
+    if (document.images && use_cookies == "yes") {
+
+      if ((element.type == "text")
+
+        || (element.type == "password")
+
+        || (element.type == "textarea")
+
+        || (element.type == "radio")) {
+
+        val = element.value;
+
+    } else if (element.type.indexOf("select") != -1) {
+
+      val = "";
+
+      for(k=0;k<element.length;k++)
+
+        if (element.options[k].selected)
+
+          val += k+" ";
+
+      } else if (element.type == "checkbox") {
+
+        val = element.checked;
+
+      }
+
+      SetCookie("memory_"+element.form.name+"_"+element.name,val);
+
+    }
+
+  }
+
+
+
+  function storedValues() {
+
+    if (document.images) { // only do it in JavaScript 1.1 browsers
+
+      for (i=0;i<document.forms.length;i++) {
+
+        for (j=0;j<document.forms[i].elements.length; j++) {
+
+          cookie_name = "memory_"+document.forms[i].name+"_"
+
+          +document.forms[i].elements[j].name;
+
+          val = GetCookie(cookie_name);
+
+          if (val) {
+
+            if ((document.forms[i].elements[j].type == "text")
+
+              || (document.forms[i].elements[j].type == "password")
+
+              || (document.forms[i].elements[j].type == "textarea")) {
+
+              document.forms[i].elements[j].value = val;
+
+          } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
+
+            document.forms[i].elements[j].selectedIndex = -1;
+
+            while (((pos = val.indexOf(" ")) != -1) && (val.length > 1)) {
+
+              sel = parseInt(val.substring(0,pos));
+
+              val = val.substring(pos+1,val.length);
+
+              if (sel < document.forms[i].elements[j].length)
+
+                document.forms[i].elements[j].options[sel].selected = true;
+
+            }
+
+          } else if (document.forms[i].elements[j].type == "checkbox") {
+
+            document.forms[i].elements[j].checked = val;
+
+          } else if (document.forms[i].elements[j].type == "radio") {
+
+            if (document.forms[i].elements[j].value == val)
+
+              document.forms[i].elements[j].checked = true;
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+window.onload = storedValues;
+
+
+
+/** Add any load time jquery actions here */
+
+$(document).ready(function() {
+
+  if (cookie_functions.readCookie("libForma") != null) {
+
+    cookie_functions.setDocumentValues("libForma", ",", "=");
+
+    }
+
+  var strPath = $(location).attr('pathname');
+
+  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+
+
+
+});
+
+  //-->
+
+  </script>
+
+</body>
 </html>

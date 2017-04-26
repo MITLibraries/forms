@@ -1,10 +1,100 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lte-ie9" lang="en"><![endif]-->
+<!--[if !(IE 8) | !(IE 9) ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Fine Appeal: MIT Libraries</title>
-  <link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-  <link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-  <!--#include virtual="/includes/base_scripts.html" -->
+
+  <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+
+</head>
+
+<body class="">
+  <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
+
+  <div class="wrap-page">
+    
+<!--#include virtual="/mitlib-style/inc/header-site-slim.html" -->
+
+    <div class="wrap-outer-breadcrumb layout-band">
+      <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
+        <div class="breadcrumbs">
+          <a href="/" title="MIT Libraries">Home</a>  &raquo;  <a href="/circ">Circulation FAQ</a> &raquo; Fine Appeal Form
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap-outer-content layout-band">
+      <div class="wrap-content layout-3q1q">
+        <main id="content-main" class="content-main" role="main">
+          <div class="area-content entry-content">
+            <div class="layout-3q1q layout-band">
+              <div class="col3q">
+                 <h2>Fine Appeal</h2>
+                  <p>Fill out the form below if you believe you were charged a fine in error or there was a special circumstance that prevented you from returning the material on time. Please review the Libraries <a href="../circ">circulation policies</a> and <a href="http://libguides.mit.edu/fines">fine information</a> before submitting an appeal. Being unfamiliar with the Libraries' policies is not considered basis for an appeal. </p>
+                  <!--#include virtual="../includes/touchstone_login.html" -->
+                  <form action="scripts/php/process.php" method="post" name="finedispute" id="finedispute">
+                    <input type="hidden" name="subject" value="Fine Appeal">
+                    <input type="hidden" name="recipient" value="circulation@mit.edu">
+                    <p>Provide all of the information in the form below. Libraries' staff will investigate your appeal and respond within a week.</p>
+                    <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+                    <p>
+                      <label for="fullname">Your name <abbr class="required" title="required">*</abbr></label><br>
+                      <input type="text" name="fullname" id="fullname">
+                      <input type="hidden" name="r_fullname" value="-Please enter your name.">
+                      <!-- TODO: correct any mail referring the old "name" which was "name" -->
+                    </p>
+                    <p>
+                      <label for="email">Your email address <abbr class="required" title="required">*</abbr></label><br>
+                      <input type="text" name="email" id="email">
+                      <input type="hidden" value="-Please enter a valid email address." name="e_email">
+                    </p>
+                    <p>
+                      <label for="id">Your MIT ID number</label><br>
+                      <input type="text" name="id" id="id">
+                    </p>
+                    <p>
+                      <label for="phone">Your phone number</label>
+                      <br>
+                      <input name="phone" type="text" id="phone" size="35">
+                    </p>
+                    <p>
+                      <label for="titles">Specific title(s) of fined or returned material</label><br>
+                      <textarea name="titles" cols="35" rows="4" id="titles"></textarea>
+                    </p>
+                    <p>
+                      <label for="reason">Please provide applicable information - call number(s), fine amount, date and place where the material was returned and reason for appeal</label><br>
+                      <textarea name="reason" cols="60" rows="10" id="reason"></textarea>
+                    </p>
+                    <p id="submit">
+                      <input type="submit" value="Send" class="button button-primary">
+                    </p>
+                </form>
+              </div>
+              <aside class="content-sup col1q-r" role="complementary">
+
+
+              </aside>
+            </div>
+          </div>
+        </main>
+        <!-- end .content-main -->   
+      </div>
+    </div>
+
+<!--#include virtual="/mitlib-style/inc/footer-site.html" -->
+
+  </div>
+  <!-- close wrap-page -->    
+
+<!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
+<!--#include virtual="/includes/base_scripts.html" -->
+ 
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
   <script language="JavaScript" type="text/javascript">
   <!--
   /** Add any load time jquery actions here */
@@ -17,71 +107,6 @@
  });
 //-->
 </script>
-<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
-<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-</head>
-
-<body>
-  <div id="container">
-   <!--#include virtual="/includes/header-semantic.html"-->
-   <!-- breadcrumb - TODO: make this semantic -->
-   <div class="breadcrumb">
-    <span class="semantic">You are located in:</span>
-    <ul>
-      <li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-      <li><a href="/circ"><span class="semantic">in subsection </span>Circulation FAQ</a></li>
-      <li><span class="semantic">on page </span>Fine Appeal Form</li>
-    </ul>
-  </div>
-  <h1>Fine Appeal</h1>
-  <p>Fill out the form below if you believe you were charged a fine in error or there was a special circumstance that prevented you from returning the material on time. Please review the Libraries <a href="../circ">circulation policies</a> and <a href="http://libguides.mit.edu/fines">fine information</a> before submitting an appeal. Being unfamiliar with the Libraries' policies is not considered basis for an appeal. </p>
-  <!--#include virtual="../includes/touchstone_login.html" -->
-  <form action="scripts/php/mail.php" method="post" name="finedispute" id="finedispute">
-    <input type="hidden" name="subject" value="Fine Appeal">
-    <input type="hidden" name="recipient" value="circulation@mit.edu">
-   <!-- <table width="98%" border="0" cellpadding="5" cellspacing="0" bgcolor="#FFFFCC">
-      <tr>
-        <td><p><strong>NOTE:</strong> From May 2-16, 2012, due to a combination of a significant spamming attack on our forms and some overzealous spam filtering by the MIT email system, some messages sent using this form were not properly submitted. </p>
-            <p>If you submitted a request in that time period and did not receive an automated response, it&rsquo;s possible it did not go through.  Please resubmit your request using this form (<em>the issue causing the problem has been resolved</em>).  We apologize for any inconvenience this may have caused.</p></td>
-      </tr>
-    </table>-->
-    <p>Provide all of the information in the form below. Libraries' staff will investigate your appeal and respond within a week.</p>
-    <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
-    <p>
-      <label for="fullname">Your name <abbr class="required" title="required">*</abbr></label><br>
-      <input type="text" name="fullname" id="fullname">
-      <input type="hidden" name="r_fullname" value="-Please enter your name.">
-      <!-- TODO: correct any mail referring the old "name" which was "name" -->
-    </p>
-    <p>
-      <label for="email">Your email address <abbr class="required" title="required">*</abbr></label><br>
-      <input type="text" name="email" id="email">
-      <input type="hidden" value="-Please enter a valid email address." name="e_email">
-    </p>
-    <p>
-      <label for="id">Your MIT ID number</label><br>
-      <input type="text" name="id" id="id">
-    </p>
-    <p>
-      <label for="phone">Your phone number</label>
-      <br>
-      <input name="phone" type="text" id="phone" size="35">
-    </p>
-    <p>
-      <label for="titles">Specific title(s) of fined or returned material</label><br>
-      <textarea name="titles" cols="35" rows="4" id="titles"></textarea>
-    </p>
-    <p>
-      <label for="reason">Please provide applicable information - call number(s), fine amount, date and place where the material was returned and reason for appeal</label><br>
-      <textarea name="reason" cols="60" rows="10" id="reason"></textarea>
-    </p>
-    <p id="submit">
-      <input type="submit" value="Send">
-    </p>
-  </form>
-  <!--#include virtual="/includes/footer-semantic.html" -->
-</div>
-
 
 </body>
 </html>

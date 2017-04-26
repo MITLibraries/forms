@@ -1,118 +1,153 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lte-ie9" lang="en"><![endif]-->
+<!--[if !(IE 8) | !(IE 9) ]><!-->
+<html lang="en-US" class="no-js">
+<!--<![endif]-->
 <head>
-	<title>Ask the Archives! Institute Archives &amp; Special Collections: MIT Libraries</title>
-	<link href="/css/header-semantic.css" rel="stylesheet" type="text/css">
-	<link href="/css/wp-libraries.css" rel="stylesheet" type="text/css">
-	<!--#include virtual="/includes/base_scripts_nologin.html" -->
-	<script language="JavaScript" type="text/javascript">
-	<!--
-	/** Add any load time jquery actions here */
-	$(document).ready(function() {
-		var strPath = $(location).attr('pathname');
-		$('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
-	});
-//-->
-</script>
-<script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
-<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ask the Archives! Institute Archives &amp; Special Collections: MIT Libraries</title>
+
+  <!--#include virtual="/mitlib-style/inc/assets-site-head.html" -->
+  <!--#include virtual="../includes/base_scripts.html" -->
+  <script type="text/javascript" src="/scripts/jquery-1.6.1.min.js"></script>
+
+  <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
+
 </head>
 
-<body>
-	<div id="container">
-		<!--#include virtual="/includes/header-semantic.html"-->
-		<div id="sidebar">
-			<p><a href="/archives/research/">Research Help</a></p>
-			<p><a href="/archives/research/#collections">The collections</a></p>
-			<p><a href="/archives/research/#bibliographies">Bibiographies and subject guides</a></p>
-			<p><a href="/archives/research/genealogical-research.html">Genealogical research</a></p>
-			<p><a href="/archives/research/#policies">Policies</a></p>
-		</div>
-		<div id="content">
-			<!-- breadcrumb - TODO: make this semantic -->
-			<div class="breadcrumb">
-				<span class="semantic">You are located in:</span>
-				<ul>
-					<li><a href="/"><span class="semantic"></span>MIT Libraries</a></li>
-					<li><a href="/archives"><span class="semantic">in subsection </span>Archives</a></li>
-					<li><span class="semantic">on page </span>Ask the Archives!</li>
-				</ul>
-			</div>
+<body class="">
+  <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
 
+  <div class="wrap-page">
+    
+<!--#include virtual="/mitlib-style/inc/header-site-slim.html" -->
 
-			<h1>Ask the Archives! - Non-MIT Community</h1>
-			<p>Use this form </p>
-			<ul>
-				<li>to request information about our collections and their use or about our policies, or </li>
-				<li>to ask a brief question,  or </li>
-				<li>to schedule a visit.</li>
-			</ul>
-			<p><em>Please note:</em></p>
-			<ul>
-				<li>Our first priority is to  respond to inquiries from members of the MIT community.</li>
-				<li>Other inquiries are answered as we can in the order in which we receive them.</li>
-				<li><a href="/archives/research/ask-plus.html">Other things you need to know before completing this form</a></li>
-			</ul>
-			<p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
-			<form method="post" action="scripts/php/mail.php" name="archnonmit" id="archnonmit">
-			    <input type="hidden" name="recipient" value="mithistory@mit.edu">
+    <div class="wrap-outer-breadcrumb layout-band">
+      <div class="wrap-breadcrumb" role="navigation" aria-label="breadcrumbs">
+        <div class="breadcrumbs">
+          <a href="/" title="MIT Libraries">Home</a>  &raquo;  <a href="/archives">Archives</a> &raquo; Ask the Archives!
+        </div>
+      </div>
+    </div>
 
-				<p>
-					<label for="firstname">Your first name <abbr class="required" title="required">*</abbr></label><br>
-					<input name="firstname" type="text" id="firstname" size="40" maxlength="100"> 
-					<input name="r_firstname" type="hidden" value="-Please enter your first name.">
-				</p>
-				<p>
-					<label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
-					<input name="lastname" type="text" id="lastname" size="40" maxlength="100">
-					<input name="r_lastname" type="hidden" value="-Please enter your last name."> 
-				</p>
-				<p>
-					<label for="email">Your email <abbr class="required" title="required">*</abbr></label><br>
-					<input name="email" type="text" id="email" size="40" maxlength="100"> 
-					<input type="hidden" value="-Please enter a valid email address." name="e_email">
-				</p>
-				<p>
-					<label for="address">Your mailing address <abbr class="required" title="required">*</abbr></label><br>
-					<textarea name="address" cols="40" rows="5" id="address"></textarea> 
-					<input name="r_address" type="hidden" id="r_address" value="-Please enter your mailing address.">
-				</p>
-				<p>
-					<label for="phone">Your daytime phone number</label><br> 
-					<input name="phone" type="text" id="phone" size="40" maxlength="100"> 
-				</p>
-				<p>
-					<label for="status">Your status <abbr class="required" title="required">*</abbr></label><br>
-					<select name="status" size="1" id="status">
-						<option value="" selected>-- select one --</option>
-						<option value="non-MIT-academic">Non-MIT academic</option>
-						<option value="non-MIT-business">Non-MIT business</option>
-						<option value="non-MIT-gov">Non-MIT government</option>
-						<option value="other">Other</option>
-					</select>
-					<input name="r_status" type="hidden" value="-Please enter your status.">
-				</p>
-				<p>
-					<label for="subject">Subject of your inquiry <abbr class="required" title="required">*</abbr></label><br>
-					<input name="subject" type="text" id="subject" size="40">	
-					<input type="hidden" name="r_subject" id="r_subject" value="-Please enter the subject of your question.">
-				</p>
-				<p>
-					<label for="query">What is your question? Please be as specific as possible. <abbr class="required" title="required">*</abbr></label><br>
-					<textarea name="query" cols="50" rows="10" id="query"></textarea>
-					<input type="hidden" name="r_query" value="-Please enter your question."> 
-				</p>
-				<p>
-					<label for="otherinfo">Please give us as much detail as possible about your research to help us identify pertinent collections and other sources for you.</label><br> 
-					<textarea name="otherinfo" cols="50" rows="5" id="otherinfo"></textarea> 
-				</p>
-				<p id="submit">
-					<input type="submit" value="Send">
-				</p>
-			</form>
+    <div class="wrap-outer-content layout-band">
+      <div class="wrap-content layout-3q1q">
+        <main id="content-main" class="content-main" role="main">
+          <div class="area-content entry-content">
+            <div class="layout-3q1q layout-band">
+              <div class="col3q">
+                <h2>Ask the Archives! - Non-MIT Community</h2>
+                <p>Use this form:</p>
+                <ul>
+                  <li>to request information about our collections and their use or about our policies, or </li>
+                  <li>to ask a brief question,  or </li>
+                  <li>to schedule a visit.</li>
+                </ul>
+                <p><em>Please note:</em></p>
+                <ul>
+                  <li>Our first priority is to  respond to inquiries from members of the MIT community.</li>
+                  <li>Other inquiries are answered as we can in the order in which we receive them.</li>
+                  <li><a href="/archives/research/ask-plus.html">Other things you need to know before completing this form</a></li>
+                </ul>
+                <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+                <form method="post" action="scripts/php/process.php" name="archnonmit" id="archnonmit">
+                    <input type="hidden" name="recipient" value="mithistory@mit.edu">
 
-		</div>
-		<!--#include virtual="/includes/footer-semantic.html" -->
-	</div>
+                  <p>
+                    <label for="firstname">Your first name <abbr class="required" title="required">*</abbr></label><br>
+                    <input name="firstname" type="text" id="firstname" size="40" maxlength="100"> 
+                    <input name="r_firstname" type="hidden" value="-Please enter your first name.">
+                  </p>
+                  <p>
+                    <label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
+                    <input name="lastname" type="text" id="lastname" size="40" maxlength="100">
+                    <input name="r_lastname" type="hidden" value="-Please enter your last name."> 
+                  </p>
+                  <p>
+                    <label for="email">Your email <abbr class="required" title="required">*</abbr></label><br>
+                    <input name="email" type="text" id="email" size="40" maxlength="100"> 
+                    <input type="hidden" value="-Please enter a valid email address." name="e_email">
+                  </p>
+                  <p>
+                    <label for="address">Your mailing address <abbr class="required" title="required">*</abbr></label><br>
+                    <textarea name="address" cols="40" rows="5" id="address"></textarea> 
+                    <input name="r_address" type="hidden" id="r_address" value="-Please enter your mailing address.">
+                  </p>
+                  <p>
+                    <label for="phone">Your daytime phone number</label><br> 
+                    <input name="phone" type="text" id="phone" size="40" maxlength="100"> 
+                  </p>
+                  <p>
+                    <label for="status">Your status <abbr class="required" title="required">*</abbr></label><br>
+                    <select name="status" size="1" id="status">
+                      <option value="" selected>-- select one --</option>
+                      <option value="non-MIT-academic">Non-MIT academic</option>
+                      <option value="non-MIT-business">Non-MIT business</option>
+                      <option value="non-MIT-gov">Non-MIT government</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <input name="r_status" type="hidden" value="-Please enter your status.">
+                  </p>
+                  <p>
+                    <label for="subject">Subject of your inquiry <abbr class="required" title="required">*</abbr></label><br>
+                    <input name="subject" type="text" id="subject" size="40"> 
+                    <input type="hidden" name="r_subject" id="r_subject" value="-Please enter the subject of your question.">
+                  </p>
+                  <p>
+                    <label for="query">What is your question? Please be as specific as possible. <abbr class="required" title="required">*</abbr></label><br>
+                    <textarea name="query" cols="50" rows="10" id="query"></textarea>
+                    <input type="hidden" name="r_query" value="-Please enter your question."> 
+                  </p>
+                  <p>
+                    <label for="otherinfo">Please give us as much detail as possible about your research to help us identify pertinent collections and other sources for you.</label><br> 
+                    <textarea name="otherinfo" cols="50" rows="5" id="otherinfo"></textarea> 
+                  </p>
+                  <p id="submit">
+                    <input type="submit" value="Send" class="button button-primary">
+                  </p>
+                </form>
+            
+              </div>
+              <aside class="content-sup col1q-r" role="complementary">
+
+                <div class="bit">
+                  <h3 class="title">Related</h3>
+                      <p><a href="/archives/research/">Research Help</a></p>
+                      <p><a href="/archives/research/#collections">The collections</a></p>
+                      <p><a href="/archives/research/#bibliographies">Bibiographies and subject guides</a></p>
+                      <p><a href="/archives/research/genealogical-research.html">Genealogical research</a></p>
+                      <p><a href="/archives/research/#policies">Policies</a></p>
+
+                </div>
+
+              </aside>
+            </div>
+          </div>
+        </main>
+        <!-- end .content-main -->   
+      </div>
+    </div>
+
+<!--#include virtual="/mitlib-style/inc/footer-site.html" -->
+
+  </div>
+  <!-- close wrap-page -->    
+
+<!--#include virtual="/mitlib-style/inc/scripts-site-foot.html" -->
+
+<script language="JavaScript" type="text/javascript">
+  <!--
+  /** Add any load time jquery actions here */
+  $(document).ready(function() {
+    var strPath = $(location).attr('pathname');
+    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  });
+//-->
+</script>
+
+ 
+
 </body>
 </html>
