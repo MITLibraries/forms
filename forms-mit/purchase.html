@@ -465,11 +465,12 @@ function setSubject() {
     var title = $('#title').val().substring(0,20);
     var priority; 
     $("input[name='priority']").each(function() {
-       if ($(this).attr('checked', true))
+       if ($(this).is(':checked')) {
           priority = $(this).val().substring(0, 1); 
+          }
     });
     subject = subject + ': ' + priority + ' - ' + title;
-  $('#subject').val(subject);
+    $('#subject').val(subject);
 }
 -->
 
