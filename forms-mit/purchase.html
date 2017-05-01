@@ -51,7 +51,7 @@
 
                     <input type="hidden" name="recipient" value="suggestedpurchase@mit.edu">
 
-                    <input type="hidden" name="subject" value="Suggested Purchase">
+                    <input type="hidden" name="subject" id="subject" value="Suggested Purchase">
 
                     <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
 
@@ -452,17 +452,25 @@ $(document).ready(function() {
   document.getElementById('eppn').value = "";
 
 
-
-
-
   // GA enhancements
 
   var strPath = $(location).attr('pathname');
 
-  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  $('#submit').html('<input type="button" id="submit_button" class="btn button-primary" value="Send" onClick="setSubject();check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
 
 });
 
+function setSubject() { 
+    var subject = "Suggested Purchase"; 
+    var title = $('#title').val().substring(0,20);
+    var priority; 
+    $("input[name='priority']").each(function() {
+       if ($(this).attr('checked', true))
+          priority = $(this).val().substring(0, 1); 
+    });
+    subject = subject + ': ' + priority + ' - ' + title;
+  $('#subject').val(subject);
+}
 -->
 
 </script>

@@ -82,7 +82,7 @@
 
               <form action="/scripts/php/process.php" method="post" name="lsa" id="lsa">
 
-                <input type="hidden" name="subject" value="Annex Request Form">
+                <input type="hidden" name="subject" id="subject" value="Annex Request Form">
 
                 <input type="hidden" name="recipient" value="annexreq@mit.edu">
 
@@ -598,12 +598,19 @@ $(document).ready(function() {
 
   var strPath = $(location).attr('pathname');
 
-  $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+  $('#submit').html('<input type="button"  class="button button-primary" value="Send" onClick="setSubject();check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
 
 
 
 });
-
+function setSubject() { 
+    var subject = "Annex Request Form"; 
+    var library = $('#library').val();
+    var lastname = $('#lastname').val();
+    var title = $('#title').val();
+    subject = library + ', ' + lastname + ', ' + title;
+    $('#subject').val(subject);
+}
   //-->
 
   </script>
