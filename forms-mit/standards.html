@@ -79,7 +79,7 @@
     </div>
   <form action="/scripts/php/process.php" method="post" name="standards" id="standards">
     <input type="hidden" name="recipient" value="lib-standards@mit.edu">
-    <input type="hidden" name="subject" value="Standards Request">
+    <input type="hidden" name="subject" id="subject" value="Standards Request">
     <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
     <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
     <fieldset>
@@ -204,8 +204,15 @@
 
     // GA enhancements
     var strPath = $(location).attr('pathname');
-    $('#submit').html('<input type="button" value="Send" onClick="check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
+    $('#submit').html('<input type="button" value="Send" onClick="setSubject();check(form,form.elements.length);_gaq.push([\'_trackEvent\', \'Form\', \''+strPath+'\', \'Submit\']);">');
   });
+
+function setSubject() { 
+    var subject = "Standards Request"; 
+    var number = $('#number').val();
+    subject = subject + ' ' + number ;
+    $('#subject').val(subject);
+}
   -->
   </script>
   <script type="text/javascript" src="/scripts/form-validator-2.0b.js"></script>
