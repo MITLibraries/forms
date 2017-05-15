@@ -39,6 +39,7 @@
             <div class="layout-3q1q layout-band">
               <div class="col3q">
                 <h2>Ask the Archives! - Non-MIT Community</h2>
+                <p>Staff members will respond to inquiries Monday through Friday between 9:00 AM and 5:00 PM. Please indicate if your request is time sensitive.</p>
                 <p>Use this form:</p>
                 <ul>
                   <li>to request information about our collections and their use or about our policies, or </li>
@@ -50,37 +51,37 @@
                   <li>Our first priority is to  respond to inquiries from members of the MIT community.</li>
                   <li>Other inquiries are answered as we can in the order in which we receive them.</li>
                   <li><a href="/archives/research/ask-plus.html">Other things you need to know before completing this form</a></li>
+                  <li>All fields are required unless noted as optional.</li>
                 </ul>
-                <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
                 <form method="post" action="scripts/php/process.php" name="archnonmit" id="archnonmit">
                     <input type="hidden" name="recipient" value="mithistory@mit.edu">
 
                   <p>
-                    <label for="firstname">Your first name <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="firstname">Your first name</label><br>
                     <input name="firstname" type="text" id="firstname" size="40" maxlength="100"> 
                     <input name="r_firstname" type="hidden" value="-Please enter your first name.">
                   </p>
                   <p>
-                    <label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="lastname">Your last name</label><br>
                     <input name="lastname" type="text" id="lastname" size="40" maxlength="100">
                     <input name="r_lastname" type="hidden" value="-Please enter your last name."> 
                   </p>
                   <p>
-                    <label for="email">Your email <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="email">Your email address</label><br>
                     <input name="email" type="text" id="email" size="40" maxlength="100"> 
                     <input type="hidden" value="-Please enter a valid email address." name="e_email">
                   </p>
                   <p>
-                    <label for="address">Your mailing address <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="address">Your mailing address</label><br>
                     <textarea name="address" cols="40" rows="5" id="address"></textarea> 
                     <input name="r_address" type="hidden" id="r_address" value="-Please enter your mailing address.">
                   </p>
                   <p>
-                    <label for="phone">Your daytime phone number</label><br> 
+                    <label for="phone">Your daytime phone number (optional)</label><br> 
                     <input name="phone" type="text" id="phone" size="40" maxlength="100"> 
                   </p>
                   <p>
-                    <label for="status">Your status <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="status">Your status</label><br>
                     <select name="status" size="1" id="status">
                       <option value="" selected>-- select one --</option>
                       <option value="non-MIT-academic">Non-MIT academic</option>
@@ -91,12 +92,13 @@
                     <input name="r_status" type="hidden" value="-Please enter your status.">
                   </p>
                   <p>
-                    <label for="subject">Subject of your inquiry <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="subject">Subject of your inquiry</label><br>
                     <input name="subject" type="text" id="subject" size="40"> 
                     <input type="hidden" name="r_subject" id="r_subject" value="-Please enter the subject of your question.">
                   </p>
                   <p>
-                    <label for="query">What is your question? Please be as specific as possible. <abbr class="required" title="required">*</abbr></label><br>
+                    <label for="query">What is your question? <br />
+                    <em>Please be as specific as possible.</em></label><br>
                     <textarea name="query" cols="50" rows="10" id="query"></textarea>
                     <input type="hidden" name="r_query" value="-Please enter your question."> 
                   </p>
