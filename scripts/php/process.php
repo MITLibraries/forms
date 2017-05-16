@@ -169,6 +169,7 @@ class FormProcessor {
       $this->messageText = preg_replace("/\[>optOutHello<\]/U", $this->buildOptOutHello(), $this->messageText);
       $this->messageText = preg_replace("/\[>optOutRequestor<\]/U", $this->buildOptOutRequestor(), $this->messageText);
       $this->messageText = preg_replace("/\[>optOutCoauthorLabel<\]/U", $this->buildOptOutCoauthorLabel(), $this->messageText);
+     $this->messageText = preg_replace("/\[>optOutDateTimeStamp<\]/U", $this->buildOptOutDateTimeString(), $this->messageText);
     }
 
     echo $this->messageText;
@@ -211,6 +212,12 @@ class FormProcessor {
     return $requestor;
   }
 
+  private function buildOptOutDateTimeString () {
+   
+    $label  = date("m/d/Y") . " at " . date("h:ia");
+
+    return $label;
+  }
   private function cleanse ($str) {
     return trim(str_replace(array("\r","\n"),"",$str));
   }
