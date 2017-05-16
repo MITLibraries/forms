@@ -52,48 +52,48 @@
             <div class="layout-3q1q layout-band">
               <div class="col3q">
   <h2><a name="content"></a>Ask the Archives! - MIT Community</h2>
-      <p>Staff members will respond to non-emergency inquiries Monday through Thursday, when the reading room is open.</p>
+      <p>Staff members will respond to inquiries Monday through Friday between 9:00 AM and 5:00 PM. Please indicate if your request is time sensitive.</p>
       <p><strong>Please note: </strong></p>
       <ul>
         <li>
-          <p><span class="alert error">Time-sensitive requests will receive our attention five days a week.</font></span> We will check &quot;Ask the Archives&quot; daily, but please feel free to contact us via telephone (3-5690) or fax (8-7305) with urgent requests.</p>
+          <p> We will check "Ask the Archives" daily, but please feel free to contact us via telephone (617-253-5136) with urgent requests.</p>
         </li>
         <li>
           <p>Inquiries from the MIT community are given highest priority.<br></p>
         </li>
       </ul>
-      <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+      <p>All fields are required unless noted as optional.</p>
 
-                <form action="scripts/php/process.php" method="post" name="optin" id="optin">
-                  <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
-                 <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
-                  <input type="hidden" name="recipient" value="mithistory@mit.edu">
+      <form action="scripts/php/process.php" method="post" name="optin" id="optin">
+        <input type="hidden" name="email" value="<!--#echo var="eppn" -->">
+       <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
+        <input type="hidden" name="recipient" value="mithistory@mit.edu">
         <p>
-          <label for="firstname">Your first name <abbr class="required" title="required">*</abbr></label><br>
+          <label for="firstname">Your first name</label><br>
           <input name="firstname" type="text" id="firstname" size="40" maxlength="100"> 
           <input type="hidden" name="r_firstname" value="-Please enter your first name.">
         </p>
         <p>
-          <label for="lastname">Your last name <abbr class="required" title="required">*</abbr></label><br>
+          <label for="lastname">Your last name</label><br>
           <input name="lastname" type="text" id="lastname" size="40" maxlength="100">
           <input type="hidden" name="r_lastname" value="-Please enter your last name."> 
         </p>
         <p>
-          <label for="email">Your email address <abbr class="required" title="required">*</abbr></label><br>
+          <label for="email">Your email address</label><br>
           <input name="email" type="text" id="email" size="40" maxlength="100"> 
           <input name="e_email" type="hidden" value="-Please enter a valid email address.">
         </p>
         <p>
-          <label for="address">Your mailing address <abbr class="required" title="required">*</abbr></label><br>
+          <label for="address">Your mailing address</label><br>
           <textarea name="address" cols="40" rows="5" id="address"></textarea> 
           <input name="r_address" type="hidden" id="r_address" value="-Please enter your mailing address.">
         </p>
         <p>
-          <label for="phone">Your daytime phone number</label><br>
+          <label for="phone">Your daytime phone number (optional)</label><br>
           <input name="phone" type="text" id="phone" size="40" maxlength="100"> 
         </p>
         <p>
-          <label for="status">Your MIT status <abbr class="required" title="required">*</abbr></label><br>
+          <label for="status">Your MIT status</label><br>
           <select name="status" id="status">
             <option value="" selected>-- select one --</option>
             <option value="undergrad">MIT undergraduate</option>
@@ -105,16 +105,16 @@
           <input type="hidden" name="r_status" value="-Please enter your MIT status.">
         </p>
         <p>
-          <label for="alum">(for MIT alumni/ae only) Your year and degree</label><br> 
+          <label for="alum">For MIT alumni/ae only: Your year and degree (optional)</label><br> 
           <input name="alum" type="text" id="alum" size="40" maxlength="100"> 
         </p>
         <p>
-          <label for="subject">Subject of your inquiry <abbr class="required" title="required">*</abbr></label><br>
+          <label for="subject">Subject of your inquiry</label><br>
           <input name="subject" type="text" id="subject" value="" size="40">  
           <input type="hidden" name="r_subject" id="r_subject" value="-Please enter the subject of your question.">
         </p>
         <p>
-          <label for="query">What is your question? <abbr class="required" title="required">*</abbr><br>
+          <label for="query">What is your question?<br>
             <em>Please be as specific as possible.</em><br>
           </label>
           <textarea name="query" cols="50" rows="10" id="query"></textarea>

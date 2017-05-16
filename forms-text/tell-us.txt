@@ -1,10 +1,4 @@
-Thank you for sharing your thoughts.  Your ideas are appreciated.
-
-
-
-
-
-
+Your Tell Us submission is below.
 
 Name: [>fullname<]
 
@@ -13,27 +7,12 @@ MIT affiliation: [>status<]
 email: [>email<]
 
 
-
 Your thoughts:
-
-
 
 [>suggestion<]
 
 
 
-
-
-
-
 _____
 
-
-
-
-
-
-
-Note: This message was sent using a WWW form.  The address [>email<] was
-
-typed manually, and may easily be incorrect.
+Note: The address [>email<] was typed manually, and may easily be incorrect.

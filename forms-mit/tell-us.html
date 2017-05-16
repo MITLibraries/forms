@@ -37,21 +37,20 @@
               <div class="col3q">
 
                 <h2>Tell Us</h2>
-                <p>Please let us know your thoughts for improving our services. We'd also appreciate hearing what you like about our current services. If you would like to suggest a purchase for our collections, please use the <a href="http://libraries.mit.edu/suggest-purchase">Suggested Purchase</a> form.</p>
-                <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+                <p>Please let us know your thoughts for improving our services. We'd also appreciate hearing what you like about our current services. If you would like to suggest a purchase for our collections, please use the <a href="/suggest-purchase">Suggested Purchase</a> form.</p>
                 <form action="/scripts/php/process.php" method="post" name="tellus">
                   <input type="hidden" name="recipient" value="libraries-tellus@mit.edu">
-                  <input type="hidden" name="subject" value="Tell Us!">
+                  <input type="hidden" name="subject" value="Tell Us">
                   <input type="hidden" id="eppn" value="<!--#echo var="eppn" -->">
                   <p>
-                    <label for="suggestion">Your suggestion <abbr class="required" title="required">*</abbr><br>
+                    <label for="suggestion">Your suggestion<br>
                       <textarea name="suggestion" cols="50" rows="10" id="suggestion" aria-required="true"></textarea>
                     </label>
                     <input type="hidden" name="r_suggestion" value="-Please tell us your thoughts.">
                   </p>
                   <p></p>
                   <fieldset>
-                    <legend>Personal Information</legend>
+                    <legend>Personal Information (optional)</legend>
                     <p>
                       <label for="email">Your email address<br>
                         <input name="email" type="text" id="email" size="35" onChange="saveValue(this)">
