@@ -169,9 +169,12 @@ class FormProcessor {
       $this->messageText = preg_replace("/\[>optOutHello<\]/U", $this->buildOptOutHello(), $this->messageText);
       $this->messageText = preg_replace("/\[>optOutRequestor<\]/U", $this->buildOptOutRequestor(), $this->messageText);
       $this->messageText = preg_replace("/\[>optOutCoauthorLabel<\]/U", $this->buildOptOutCoauthorLabel(), $this->messageText);
-     $this->messageText = preg_replace("/\[>optOutDateTimeStamp<\]/U", $this->buildOptOutDateTimeString(), $this->messageText);
+     $this->messageText = preg_replace("/\[>optOutDateTimeStamp<\]/U", $this->buildOptDateTimeString(), $this->messageText);
     }
-
+    // opt in form needs datetime string
+    if (strpos($this->template, 'opt-in') !== FALSE) {
+     $this->messageText = preg_replace("/\[>optInDateTimeStamp<\]/U", $this->buildOptDateTimeString(), $this->messageText);
+    }
     echo $this->messageText;
   }
 
@@ -212,7 +215,7 @@ class FormProcessor {
     return $requestor;
   }
 
-  private function buildOptOutDateTimeString () {
+  private function buildOptDateTimeString () {
    
     $label  = date("m/d/Y") . " at " . date("h:ia");
 
