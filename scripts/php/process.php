@@ -24,7 +24,7 @@ class FormProcessor {
   private $subject = "Web Form Submission";
   private $from = "mjbernha@mit.edu";
   private $fromname = "Website Visitor";
-  private $recipient = "hattie@mit.edu";
+  private $recipient = "mjbernha@mit.edu";
   private $coauthors = "";
   private $cohort = Array();
   private $warehouse = '';
@@ -145,7 +145,7 @@ class FormProcessor {
         // to whom is the form being sent?
         case 'recipient':
           $value = $this->cleanse($value);
-    //      $this->recipient = filter_var($value,FILTER_SANITIZE_EMAIL);
+         $this->recipient = filter_var($value,FILTER_SANITIZE_EMAIL);
           break;
 
         // subject line
