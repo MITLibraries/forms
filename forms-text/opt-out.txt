@@ -1,5 +1,5 @@
 
-This MIT Authors' Opt-Out Open Access License was signed on: [>optOutDateTimeStamp<].
+This MIT Authors' Opt-Out Open Access License was signed on: [>DateTimeStamp<].
 
 [>optOutHello<]
 

@@ -24,7 +24,7 @@ class FormProcessor {
   private $subject = "Web Form Submission";
   private $from = "mjbernha@mit.edu";
   private $fromname = "Website Visitor";
-  private $recipient = "mjbernha@mit.edu";
+  private $recipient = "hattie@mit.edu";
   private $coauthors = "";
   private $cohort = Array();
   private $warehouse = '';
@@ -145,7 +145,7 @@ class FormProcessor {
         // to whom is the form being sent?
         case 'recipient':
           $value = $this->cleanse($value);
-          $this->recipient = filter_var($value,FILTER_SANITIZE_EMAIL);
+    //      $this->recipient = filter_var($value,FILTER_SANITIZE_EMAIL);
           break;
 
         // subject line
@@ -162,19 +162,17 @@ class FormProcessor {
 
       // drop value into message text
       $this->messageText = preg_replace("/\[>" . $key . "<\]/U", $value, $this->messageText);
+
     }
+    // if datetimestamp in message, replace with formatted string 
+      $this->messageText = preg_replace("/\[>DateTimeStamp<\]/U", $this->buildDateTimeString(), $this->messageText);
 
     // opt out form needs some special handholding on the salutation line
     if (strpos($this->template, 'opt-out') !== FALSE) {
       $this->messageText = preg_replace("/\[>optOutHello<\]/U", $this->buildOptOutHello(), $this->messageText);
       $this->messageText = preg_replace("/\[>optOutRequestor<\]/U", $this->buildOptOutRequestor(), $this->messageText);
       $this->messageText = preg_replace("/\[>optOutCoauthorLabel<\]/U", $this->buildOptOutCoauthorLabel(), $this->messageText);
-     $this->messageText = preg_replace("/\[>optOutDateTimeStamp<\]/U", $this->buildOptDateTimeString(), $this->messageText);
-    }
-    // opt in form needs datetime string
-    if (strpos($this->template, 'opt-in') !== FALSE) {
-     $this->messageText = preg_replace("/\[>optInDateTimeStamp<\]/U", $this->buildOptDateTimeString(), $this->messageText);
-    }
+     }
     echo $this->messageText;
   }
 
@@ -215,7 +213,7 @@ class FormProcessor {
     return $requestor;
   }
 
-  private function buildOptDateTimeString () {
+  private function buildDateTimeString () {
    
     $label  = date("m/d/Y") . " at " . date("h:ia");
 

@@ -1,4 +1,4 @@
-This MIT Authors' Opt-In Open Access License was signed on: [>optInDateTimeStamp<].
+This MIT Authors' Opt-In Open Access License was signed on: [>DateTimeStamp<].
 
 Thank you for signing the MIT Authors' Opt-in Open Access License. Below is the full text of the license. Please save this email for your records.
 
