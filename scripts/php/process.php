@@ -196,7 +196,7 @@ class FormProcessor {
     if ($this->optOutRole == "Proxy") {
       $hello .= $this->optOutSubmitter . ", acting as a proxy for " . $this->optOutCoauthors;
     } else {
-      $hello .= $this->optOutRole . $this->optOutSubmitter . ", " . $this->optOutCoauthors;
+      $hello .= $this->optOutRole . " " . $this->optOutSubmitter . ", " . $this->optOutCoauthors;
     }
 
     return $hello;
