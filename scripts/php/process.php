@@ -119,7 +119,24 @@ class FormProcessor {
         // what is the submitter's email address? Who submitted the form?
         case 'email':
           $value = $this->cleanse($value);
-          $this->from = filter_var($value,FILTER_SANITIZE_EMAIL);
+          if($this->validateEmail($value)){
+             $this->from = filter_var($value,FILTER_SANITIZE_EMAIL);
+          } else {
+            if($_POST['recipient']=='libraries-tellus@mit.edu'){
+              // Form came from Tell Us, which allows anonymous submissions
+              $this->log->write('[Form] Email - Sender address verification failed, using stand-in address for Tell Us');
+              $this->log->write("Anonymous submission, using stand-in email address");
+              $strFrom = "tellus-lib@mit.edu";
+            } else {
+              // Flag as invalid
+              $this->log->write('[Form] Email - Sender address verification failed, rejecting submission');
+              $this->log->write("[Form] Email validation failed");
+              // $valid = FALSE;
+            }
+          }
+
+
+         
           break;
 
         // faculty / role
@@ -145,7 +162,7 @@ class FormProcessor {
         // to whom is the form being sent?
         case 'recipient':
           $value = $this->cleanse($value);
-         $this->recipient = filter_var($value,FILTER_SANITIZE_EMAIL);
+          $this->recipient = filter_var($value,FILTER_SANITIZE_EMAIL);
           break;
 
         // subject line
@@ -379,6 +396,78 @@ class FormProcessor {
   private function templateExists ($file) {
     return (file_exists($file)) ? TRUE : FALSE;
   }
+
+/**
+* validateEmail performs two checks:
+* 1 - consults isemail.info lookup service to verify syntax
+*     (the rules for email syntax are surprisingly arcane, not easily summed up in a short regex)
+*     about the service: http://isemail.info/about
+*
+* 2 - attempts to look up DNS for specified remote server to verify that it exists
+*     technique from http://www.linuxjournal.com/article/9585?page=0,3
+* 
+* A planned third part will attempt to verify the local part, depending on the responsiveness of 
+* the remote mailserver.
+* Ref: http://www.endseven.net/php-check-if-an-email-address-exists
+*
+* Returns TRUE/FALSE
+*/
+private function validateEmail($addr) {
+  // Set result to false (guilty until proven innocent)
+   $this->log->write('[Form] Email - validation begun');
+  $result = FALSE;
+
+  $boolDebug = FALSE;
+
+  // Part 1: Consult isemail.info via curl
+  // 0 = invalid format
+  // 1 = valid format
+
+  /*
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, "http://isemail.info/valid/".$addr);
+  // curl_setopt($ch, CURLOPT_URL, "http://www.asdasdljaskdhf.org/".$addr);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $out = curl_exec($ch);
+  $log->write("FORM: Email - check result: ".$out);
+  curl_close($ch);
+  */
+
+  // This uses a local copy of is_email() to verify emails, rather than the remote service
+  $out = is_email($addr);
+
+  // Part 2: DNS lookup (provided first part passed)
+  if($out==1) {
+    $this->log->write('[Form] Email validation 1 of 2');
+    // isolate the domain ("remote part")
+    // adapted from http://www.linuxjournal.com/article/9585?page=0,3
+    $domain = substr($addr,strrpos($addr, "@")+1);
+
+    // If domain checks out, set result to true
+    if (checkdnsrr($domain,"MX") || checkdnsrr($domain,"A")) {
+
+      $this->log->write('[Form] Email validation 2 of 2');
+
+      $result = TRUE;
+
+      // A planned third component is to contact the MX server in the email address and 
+      // confirm that the address is valid. Not all servers will respond, but some will
+
+    } else {
+
+      $this->log->write('[FORM] Email validation failed step 2');
+
+    }
+
+  } else {
+    $this->log->write('[FORM] Email validation failed step 1');
+  }
+
+  // Part 3: coming (either here or inside previous block)
+
+  return $result;
+}
+
 
 }
 
