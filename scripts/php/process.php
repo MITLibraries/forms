@@ -126,7 +126,7 @@ class FormProcessor {
               // Form came from Tell Us, which allows anonymous submissions
               $this->log->write('[Form] Email - Sender address verification failed, using stand-in address for Tell Us');
               $this->log->write("Anonymous submission, using stand-in email address");
-              $strFrom = "tellus-lib@mit.edu";
+              $this->from = "tellus-lib@mit.edu";
             } else {
               // Flag as invalid
               $this->log->write('[Form] Email - Sender address verification failed, rejecting submission');
