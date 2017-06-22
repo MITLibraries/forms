@@ -235,6 +235,8 @@ function e_check(form,x,fieldname,i)
 		else
 			msg_addition = form.elements[i].value;
 	}
+	// Set message to blank to turn off email validation, function is too restrictive 
+	msg_addition = ""
 	return(msg_addition)
 }   
 
