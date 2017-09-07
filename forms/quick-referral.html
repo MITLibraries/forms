@@ -36,19 +36,20 @@
             <div class="layout-3q1q layout-band">
               <div class="col3q">
              <h2>Quick Referrals Form</h2>
+             <p><strong>Please note: Patrons will receive a confirmation email after this form is sent, including your description of the patron's question.</strong></p>
+             <p><strong>Desk Staff:</strong> Use this form to refer questions after on-call hours, on weekends or whenever a librarian isn't available.</p>
+             <p><strong>Subject specialists and others:</strong> Use this form to refer questions when additional subject expertise is needed.</p>
               <form action="scripts/php/process.php" method="post" name="finedispute" id="finedispute">
                 <input type="hidden" name="subject" value="Quick Referrals Form">
                 <input type="hidden" name="recipient" value="libraries-quick-referrals@mit.edu">
-                <p>Desk Staff: Use this form to refer questions after on-call hours, on weekends or whenever a librarian isn't available.</p>
-                <p>Subject specialists and others: Use this form to refer questions when additional subject expertise is needed.</p>
-                <p>Required fields are followed by <abbr class="required" title="required">*</abbr>.</p>
+                
                 <p>
-                  <label for="email">Patron email address <abbr class="required" title="required">*</abbr></label><br>
+                  <label for="email">Patron email address</label><br>
                   <input type="text" name="email" id="email">
                   <input type="hidden" value="-Please enter a valid email address." name="e_email">
                 </p>
                 <p>
-                  <label for="question">Describe the patron's question <abbr class="required" title="required">*</abbr></label><br>
+                  <label for="question">Describe the patron's question</label><br>
                   <textarea name="question" cols="60" rows="10" id="question"></textarea>
                   <input type="hidden" value="-Please enter the patron's question." name="r_question">      
                 </p>
