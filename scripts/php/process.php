@@ -176,8 +176,8 @@ class FormProcessor {
       }
 
       $value = str_replace('$',' $ ',$value);
-
-      // drop value into message text
+	  
+	   // drop value into message text
       $this->messageText = preg_replace("/\[>" . $key . "<\]/U", $value, $this->messageText);
 
     }
@@ -343,6 +343,7 @@ class FormProcessor {
 
   private function sendCohortMessage () {
     $mail = new PHPMailer;
+    $mail->CharSet = "UTF-8";
     $mail->IsSendmail();
 
     $mail->SetFrom($this->from,$this->fromname);
@@ -371,6 +372,7 @@ class FormProcessor {
 
   private function sendMessage () {
     $mail = new PHPMailer;
+    $mail->CharSet = "UTF-8";
     $mail->IsSendmail();
 
     $mail->SetFrom($this->from,$this->fromname);
