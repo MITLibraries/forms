@@ -1,46 +1,48 @@
-Topic: [>topic<]
-
-Subject: [>subject<]
-
-Question:  
-
-[>question<] 
-
-Email:  [>email<]
-
-Last name:  [>lastname<]
-
-First name:  [>firstname<]
-
-Phone:  [>phone<]
-
-Status:  [>status<]
-
-Department:  [>department<]
-
-Lab or center: [>lab<]
-
---- Client Information ---
-Web Browser: [>client-browser<]
-
-IP Address: [>client-ip<]
-
---- Technical Information ---
-[>technical-details<]
-
-[>offcampus<]
-
-[>vpn<]
-
---- ILB Information ---
-[>ilb-topic<]
-
-[>ilb-number<]
-
-[>ilb-title<]
-
-[>ilb-author<]
-
-[>ilb-article<]
-
+Topic: [>topic<]
+
+Subject: [>subject<]
+
+Question:
+
+[>question<]
+
+Study opt-in:  [>study<]
+
+Email:  [>email<]
+
+Last name:  [>lastname<]
+
+First name:  [>firstname<]
+
+Phone:  [>phone<]
+
+Status:  [>status<]
+
+Department:  [>department<]
+
+Lab or center: [>lab<]
+
+--- Client Information ---
+Web Browser: [>client-browser<]
+
+IP Address: [>client-ip<]
+
+--- Technical Information ---
+[>technical-details<]
+
+[>offcampus<]
+
+[>vpn<]
+
+--- ILB Information ---
+[>ilb-topic<]
+
+[>ilb-number<]
+
+[>ilb-title<]
+
+[>ilb-author<]
+
+[>ilb-article<]
+
 [>ilb-year<]
