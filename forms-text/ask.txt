@@ -6,8 +6,6 @@ Question:
 
 [>question<]
 
-Study opt-in:  [>study<]
-
 Email:  [>email<]
 
 Last name:  [>lastname<]
