@@ -41,16 +41,14 @@ if(count($_POST)){
 
 	$log->write('FORM - Referer ' . $strTemplateFile);
 
-	// Log submitted values for everything but the tell us staff form (which is more strictly anonymous)
-	if ($strTemplateFile != 'tell-us-staff.html') {
-		foreach ($_REQUEST as $key => $value) {
-			if (gettype($value) == "array") {
-				foreach ( $value as $term ) {
-					$log->write('FORM: ' . $key . ": " . $term);
-				}
-			} else {
-				$log->write('FORM: ' . $key . ": " . $value);
+	// Log submitted values for debugging if needed.
+	foreach ($_REQUEST as $key => $value) {
+		if (gettype($value) == "array") {
+			foreach ( $value as $term ) {
+				$log->write('FORM: ' . $key . ": " . $term);
 			}
+		} else {
+			$log->write('FORM: ' . $key . ": " . $value);
 		}
 	}
 

@@ -265,7 +265,6 @@ class FormProcessor {
   }
 
   private function logSubmission() {
-    // TODO: Need to protect tell-us-staff if that ever gets moved in here
     foreach ($_REQUEST as $key => $value) {
       if ( gettype($value) == "array" ) {
         // list each term in a submitted array
